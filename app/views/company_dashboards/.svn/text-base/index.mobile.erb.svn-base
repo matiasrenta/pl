@@ -1,0 +1,8 @@
+<div class="scroll">
+  <h2>Dashboards</h2>
+  <ul class="rounded">
+      <% @company_dashboards.each do |company_dashboard| %>
+        <li><a href="#animdemo"><%= l(company_dashboard.at_date, :format => :long_day) if company_dashboard.at_date %></a></li>
+      <% end %>
+  </ul>
+</div>

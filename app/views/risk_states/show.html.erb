@@ -1,0 +1,25 @@
+<div class="controls">
+<% if can? :update, RiskState %>
+<%= link_to t("helpers.link.edit"), edit_risk_state_path(@risk_state) %>
+<% end %>
+<%= link_to t("helpers.link.list"), risk_states_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @risk_state.name %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+                <td class="td_data"><%= @risk_state.description %></td>
+      </tr>
+</table>
+
+<div class="controls">
+<% if can? :update, RiskState %>
+<%= link_to t("helpers.link.edit"), edit_risk_state_path(@risk_state) %>
+<% end %>
+<%= link_to t("helpers.link.list"), risk_states_path %>
+</div>

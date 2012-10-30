@@ -1,0 +1,57 @@
+<%= render 'shared/pagination', :locals => {:target => @problems, :model_index_path => problems_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Problem } %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :problem_severity_id_equals, :label => t("simple_form.labels.problem_severity"), :as => :select, :collection => ProblemSeverity.all %>
+        <%= f.input :problem_priority_id_equals, :label => t("simple_form.labels.problem_priority"), :as => :select, :collection => ProblemPriority.all %>
+        <%= f.input :responsible_user_id_equals, :label => t("simple_form.labels.responsible_user"), :as => :select, :collection => User.all %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.user_recorder"), :as => :select, :collection => User.all %>
+        <%= f.input :problem_state_id_equals, :label => t("simple_form.labels.problem_state"), :as => :select, :collection => ProblemState.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :problem_severity_name, t("simple_form.labels.problem_severity") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :problem_priority_name, t("simple_form.labels.problem_priority") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :responsible_user_name, t("simple_form.labels.responsible_user") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :problem_state_name, t("simple_form.labels.problem_state") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @problems.each do |problem| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= can?(:read, problem) ? link_to(problem.name, problem) : problem.name %></td>
+        <td><%= truncate(problem.description, :length => 80) %></td>
+        <td><%= problem.problem_severity.try(:name) %></td>
+        <td><%= problem.problem_priority.try(:name) %></td>
+        <td><%= problem.responsible_user.try(:full_name) %></td>
+        <td><%= problem.problem_state.try(:name) %></td>
+
+        <td class="options-width">
+          <%= link_to '', problem, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, problem %>
+          <%= link_to '', edit_problem_path(problem), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if (can? :update, problem) %>
+          <%= link_to '', problem, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, problem %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @problems, :model_index_path => problems_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Problem, :no_filter => true } %>
+
+

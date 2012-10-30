@@ -1,0 +1,8 @@
+$('#projects_users_join_hour_cost_in_project').val("<%= show_cost_hour %>");
+<% if show_cost_hour %>
+    $('#projects_users_join_hour_cost_in_project').attr("disabled",false);
+    $('#projects_users_join_submit').attr("disabled",false);
+<% else %>
+    $('#projects_users_join_hour_cost_in_project').attr("disabled",true);
+    $('#projects_users_join_submit').attr("disabled",true);
+<% end %>

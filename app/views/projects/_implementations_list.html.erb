@@ -1,0 +1,27 @@
+<div class="buttons">
+  <h2 style="float:left; margin-right:20px;  margin-top:7px;"><%= t("activerecord.models.Implementations") %></h2>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("screens.links.load_implementation_progress"), new_implementation_path, {:style => "float:right; margin-bottom:5px;"} if can? :create, Implementation.new(:project_id => @project.id) %>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.evaluation_date") %></a></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.planned_progress") %></a></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.real_progress") %></a></th>
+    <th class="table-header-options line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @project.implementations.each do |implementation| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= implementation.evaluation_date %></td>
+        <td><%= implementation.planned_progress %>%</td>
+        <td><%= implementation.real_progress %>%</td>
+        <td class="options-width">
+          <%#= link_to '', implementation, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, implementation %>
+          <%= link_to '', edit_implementation_path(implementation), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, implementation %>
+          <%#= link_to '', implementation, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, implementation %>
+        </td>
+      </tr>
+  <% end %>
+</table>

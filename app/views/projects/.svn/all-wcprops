@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/323/app/views/projects
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/313/app/views/projects/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/366/app/views/projects/show.html.erb
+END
+index.mobile.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/244/app/views/projects/index.mobile.erb
+END
+_implementations_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/355/app/views/projects/_implementations_list.html.erb
+END
+_ppj_new_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/98/app/views/projects/_ppj_new_form.html.erb
+END
+_resources_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/366/app/views/projects/_resources_list.html.erb
+END
+gantt.xml.builder
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/95/app/views/projects/gantt.xml.builder
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/355/app/views/projects/index.html.erb
+END
+ajax_display_phases_form.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/59/app/views/projects/ajax_display_phases_form.js.erb
+END
+phases_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/156/app/views/projects/phases_form.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/313/app/views/projects/edit.html.erb
+END
+_phases_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/272/app/views/projects/_phases_list.html.erb
+END
+show.mobile.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/244/app/views/projects/show.mobile.erb
+END
+_ppj_edit_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/313/app/views/projects/_ppj_edit_form.html.erb
+END
+_documents_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/273/app/views/projects/_documents_list.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/323/app/views/projects/_form.html.erb
+END

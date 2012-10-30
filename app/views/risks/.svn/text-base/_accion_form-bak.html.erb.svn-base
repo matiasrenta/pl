@@ -1,0 +1,31 @@
+<div class="clear"></div>
+
+
+<fieldset style="padding:15px; margin-top:15px; border:solid 1px; border-color:#999999;">
+  <legend style="color:black; font-weight:bold; font-size:16px;">&nbsp <%= legend %> &nbsp</legend>
+  <%= f.fields_for :accions do |accion_form| %>
+      <div style="padding:15px 0 15px 0; margin:0 0 25px 10px; background-color:#FFFFDD; border:solid 1px; border-color:#999999">
+
+        <%= accion_form.hidden_field :project_id, :value => session[:actual_project] %>
+        <%= accion_form.hidden_field :user_id, :value => current_user.id %>
+        <%= accion_form.hidden_field :action_source_type_id, :value => @action_source_type.id %>
+
+        <%= accion_form.input :title %>
+        <%= accion_form.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= accion_form.input :commitment_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= accion_form.input :real_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= accion_form.association :responsible_user, :collection => User.assigned_to_project(session["actual_project"]) %>
+        <%= accion_form.association :action_state %>
+        <%= accion_form.association :action_priority %>
+        <div style="float:right;">
+          <div class="controls"><%= accion_form.link_to_remove "Borrar Accion" %></div>
+        </div>
+        <div class="clear"></div>
+
+        <%= render "/accions/action_trackings_form", :f => accion_form %>
+
+      </div>
+  <% end %>
+
+  <div class="controls"><%= f.link_to_add "Nueva Accion", :accions %></div>
+</fieldset>

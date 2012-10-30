@@ -1,0 +1,15 @@
+<div class="gray_form">
+  <%= simple_form_for(@risk_probability) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :i18n_name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+      </div>
+
+      <div class="actions">
+        <%= f.button :submit %>
+      </div>
+  <% end %>
+</div>
+
+

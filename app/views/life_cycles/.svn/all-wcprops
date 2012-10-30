@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/298/app/views/life_cycles
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/116/app/views/life_cycles/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/176/app/views/life_cycles/show.html.erb
+END
+_phases_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/156/app/views/life_cycles/_phases_form.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/116/app/views/life_cycles/edit.html.erb
+END
+index-with-phases.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/156/app/views/life_cycles/index-with-phases.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/116/app/views/life_cycles/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/298/app/views/life_cycles/index.html.erb
+END
+_show_phases_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/176/app/views/life_cycles/_show_phases_list.html.erb
+END

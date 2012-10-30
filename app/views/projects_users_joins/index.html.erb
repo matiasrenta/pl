@@ -1,0 +1,66 @@
+<%= render 'shared/pagination', :locals => {:target => @projects_users_joins, :model_index_path => projects_users_joins_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Projects users join', new_projects_users_join_path if can? :create, ProjectsUsersJoin %>
+  <a class="trigger <%= 'filter_active' if @filter_active %>" href="#">Filtros</a>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :project_id_equals, :label => t("simple_form.labels.project"), :as => :select, :collection => Project.all %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => User.all %>
+        <div class="from_to">
+          <%= label_tag(:hour_cost_in_project_cents_greater_than_or_equal_to, "hour_cost_in_project") %>
+          <%= f.input :hour_cost_in_project_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+          <%= f.input :hour_cost_in_project_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+        </div>
+        <%= f.input :currency_contains, :label => t("simple_form.labels.currency") %>
+        <%= f.input :responsibility_contains, :label => "t("simple_form.labels.responsibility") " %>
+        <div class="actions">
+          <%= f.button :submit, t("helpers.submit.search") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :project_name, t("simple_form.labels.project") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.resource") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :hour_cost_in_project_cents, t("simple_form.labels.hour_cost_in_project")  %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :currency, t("simple_form.labels.currency") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :leader, t("simple_form.labels.leader") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :responsibility, "t("simple_form.labels.responsibility") " %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @projects_users_joins.each do |projects_users_join| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= projects_users_join.project.try(:name) %></td>
+        <td><%= projects_users_join.user.try(:name) %></td>
+        <td><%= projects_users_join.hour_cost_in_project %></td>
+        <td><%= projects_users_join.currency %></td>
+        <td><%= projects_users_join.leader %></td>
+        <td><%= projects_users_join.responsibility %></td>
+        <td class="options-width">
+          <%= link_to '', projects_users_join, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, projects_users_join %>
+          <%= link_to '', edit_projects_users_join_path(projects_users_join), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, projects_users_join %>
+          <%= link_to '', projects_users_join, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, projects_users_join %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @projects_users_joins, :model_index_path => projects_users_joins_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Projects users join', new_projects_users_join_path if can? :create, ProjectsUsersJoin %>
+</div>
+
+
+

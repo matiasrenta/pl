@@ -1,0 +1,34 @@
+  <div class="buttons">
+    <h2 style="float:left; margin-right:20px;  margin-top:7px;"><%= t("screens.labels.resources") %></h2>
+    <%= link_to image_tag('/images/glyphicons/glyphicons_006_user_add.png', :alt => '') + " " + t("screens.links.assign_resource"), new_projects_users_join_path, {:style => "float:right; margin-bottom:5px;"} if can? :create, ProjectsUsersJoin.new(:project_id => @project.id) %>
+  </div>
+
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+    <tr>
+      <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.resource") %></a></th>
+    <% if can? :see_prices_and_cost, User %>
+      <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.hour_cost_in_project") %></a></th>
+    <% end %>
+      <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.leader") %> </a></th>
+      <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.responsibility") %> </a></th>
+      <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.state") %> </a></th>
+      <th class="table-header-options line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.actions") %></a></th>
+    </tr>
+
+    <% @project.projects_users_joins.each do |projects_users_join| %>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td><%= projects_users_join.user.try(:full_name) %></td>
+          <% if can? :see_prices_and_cost, User %>
+          <td><%= projects_users_join.hour_cost_in_project %> <%= projects_users_join.currency %></td>
+          <% end %>
+          <td><%= projects_users_join.leader %></td>
+          <td><%= projects_users_join.responsibility %></td>
+          <td><%= projects_users_join.state.try(:name) %></td>
+          <td class="options-width">
+            <%= link_to '', projects_users_join, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, projects_users_join %>
+            <%= link_to '', edit_projects_users_join_path(projects_users_join), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, projects_users_join %>
+            <%= link_to '', projects_users_join, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, projects_users_join %>
+          </td>
+        </tr>
+    <% end %>
+  </table>

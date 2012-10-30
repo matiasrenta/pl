@@ -1,0 +1,20 @@
+<div class="gray_form">
+  <%= simple_form_for(@risk_strategy) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.input :use_umbral %>
+        <%= f.input :use_real_cost %>
+        <%#= en la collection de abajo no pongo los "actuals" porque eso se hace en el form de Risk, aqui esta bien que sea solo RiskSource.actives %>
+        <%= f.association :risk_sources, :label => t("screens.labels.risk_sources"), :collection => RiskSource.actives, :input_html => {:class => "multi_select_no_filter"} %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => RiskStrategy %>
+
+  <% end %>
+</div>
+
+

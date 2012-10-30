@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/matsoft/projector/!svn/ver/298/app/views/expense_types
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/116/app/views/expense_types/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/156/app/views/expense_types/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/116/app/views/expense_types/edit.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/116/app/views/expense_types/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/298/app/views/expense_types/index.html.erb
+END

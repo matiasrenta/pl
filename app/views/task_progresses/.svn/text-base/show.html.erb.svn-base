@@ -1,0 +1,37 @@
+<div class="controls">
+<% if can? :update, TaskProgress %>
+<%= link_to t("helpers.link.edit"), edit_task_progress_path(@task_progress) %>
+<% end %>
+<%= link_to t("helpers.link.list"), task_progresses_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+                <td class="td_data"><%= @task_progress.description %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b>Effort:</b></td>
+                            <td class="td_data"><%= @task_progress.effort %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b>Progress:</b></td>
+                            <td class="td_data"><%= @task_progress.progress %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b>Working day:</b></td>
+                <td class="td_data"><%= l(@task_progress.working_day, :format => :long) if @task_progress.working_day %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b>Task:</b></td>
+                            <td class="td_data"><%= @task_progress.task.try(:name) %></td>
+              </tr>
+</table>
+
+<div class="controls">
+<% if can? :update, TaskProgress %>
+<%= link_to t("helpers.link.edit"), edit_task_progress_path(@task_progress) %>
+<% end %>
+<%= link_to t("helpers.link.list"), task_progresses_path %>
+</div>

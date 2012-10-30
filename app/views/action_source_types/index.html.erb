@@ -1,0 +1,32 @@
+<%= render 'shared/pagination', :locals => {:target => @action_source_types, :model_index_path => action_source_types_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Action source type', new_action_source_type_path if can? :create, ActionSourceType %>
+</div>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @action_source_types.each do |action_source_type| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= action_source_type.name %></td>
+        <td class="options-width">
+          <%= link_to '', action_source_type, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, action_source_type %>
+          <%= link_to '', edit_action_source_type_path(action_source_type), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, action_source_type %>
+          <%= link_to '', action_source_type, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, action_source_type %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @action_source_types, :model_index_path => action_source_types_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Action source type', new_action_source_type_path if can? :create, ActionSourceType %>
+</div>
+
+
+

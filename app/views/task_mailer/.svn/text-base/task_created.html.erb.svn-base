@@ -1,0 +1,6 @@
+<p><%= @task.user.full_name %>,</p>
+
+<p><%= t("mails.bodies.task_created", :task_name => @task.name, :project_name => @task.project.name, :task_description => @task.description, :task_start_date => @task.planned_start_date, :task_end_date => @task.planned_end_date).html_safe %></p>
+
+<p><%= link_to t("mails.bodies.see_task"), task_url(@task, {:host => HOST, :project_changed => @task.project_id}) %></p>
+

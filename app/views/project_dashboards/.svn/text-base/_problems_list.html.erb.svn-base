@@ -1,0 +1,36 @@
+<div id="problems_div" class="display-none max-1170">
+  <div style="max-width:1168px; margin-top:20px;">
+
+  <div class="buttons">
+    <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("helpers.link.create", :model => t("activerecord.models.Problem")), new_problem_path(:problem_goto => project_dashboard_path(@project_dashboard)) if @can_create_edit && (can? :create, Problem) %>
+  </div>
+
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.name") %></a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.description") %></a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false">Project</a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.resource") %></a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false">Treatment user</a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.problem_severity") %></a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.problem_priority") %></a></th>
+        <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.problem_state") %></a></th>
+        <th class="table-header-options line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.actions") %></a></th>
+      </tr>
+
+      <% @problems.each do |problem| %>
+          <tr class=<%= cycle("alternate-row", "") %>>
+            <td><%= problem.name %></td>
+            <td><%= problem.description %></td>
+            <td><%= problem.project.try(:name) %></td>
+            <td><%= problem.user.try(:name) %></td>
+            <td><%= problem.responsible_user.try(:name) %></td>
+            <td><%= problem.problem_severity.try(:name) %></td>
+            <td><%= problem.problem_priority.try(:name) %></td>
+            <td><%= problem.problem_state.try(:name) %></td>
+            <%= render 'action_icons_for_lists', :locals => {:target => problem, :model_edit_path => edit_problem_path(problem, :problem_goto => project_dashboard_path(@project_dashboard))} %>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<table width="100%" >
+  <tr>
+    <td valign="top">
+      <div style="width:400px;">
+
+      <%= render "shared/control_buttons", :locals => {:instance => @life_cycle} %>
+
+      <table class="show_table" style="width:100%">
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+            <td class="td_data"><%= @life_cycle.name %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+            <td class="td_data"><%= @life_cycle.description %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.state") %> :</b></td>
+            <td class="td_data"><%= @life_cycle.state.try(:name) %></td>
+          </tr>
+      </table>
+      </div>
+    </td>
+    <td valign="top">
+      <div style="width:750px; margin-left:15px;">
+        <%= render "show_phases_list" %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+

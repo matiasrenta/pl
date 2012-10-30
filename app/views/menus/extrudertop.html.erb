@@ -1,0 +1,27 @@
+<% if can? :see_port_menu, User %>
+    <div class="voice {panel:'/menus/portafolio.html'}"><span class="label"><img src="/images/glyphicons/white/glyphicons_341_briefcase_white.png" alt=""/><%= t("screens.menu.portfolio") %></span></div>
+<% end %>
+
+<% if actual_project && (can? :see_proj_menu, User) %>
+    <div class="voice {panel:'/menus/project.html'}"><span class="label"><img src="/images/glyphicons/white/aperture_24x24.png" alt=""/><%= actual_project.name.length > 15 ? actual_project.name[0..13] + "..." : actual_project.name %></span></div>
+<% end %>
+
+<% if can? :see_conf_menu, User %>
+    <div class="voice {panel:'/menus/config_projects.html'}"><span class="label"><img src="/images/glyphicons/white/glyphicons_023_cogwheels.png" alt=""/><%= t("screens.menu.conf_projects") %></span></div>
+<% end %>
+
+<% if can? :see_cata_menu, User %>
+<div class="voice {panel:'/menus/catalogs.html'}"><span class="label"><img src="/images/glyphicons/white/glyphicons_351_book_open.png" alt=""/><%= t("screens.menu.catalogs") %></span> </div>
+<% end %>
+
+<% if can? :see_repo_menu, User %>
+<div class="voice {panel:'/menus/reports.html'}"><span class="label"><img src="/images/glyphicons/white/glyphicons_029_notes_2.png" alt=""/><%= t("screens.menu.reports") %></span></div>
+<% end %>
+
+<% if current_user.role.admin_or_more? %>
+    <div class="voice {panel:'/menus/administration.html'}"><span class="label"><img src="/images/glyphicons/white/glyphicons_029_notes_2.png" alt=""/><%= t("screens.menu.administration") %></span></div>
+<% end %>
+
+<% if current_user.role.superuser? %>
+    <div class="voice {panel:'/menus/super_user.html'}"><span class="label">Super User</span></div>
+<% end %>

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/matsoft/projector/!svn/ver/323/app/views/tasks
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/155/app/views/tasks/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/366/app/views/tasks/show.html.erb
+END
+progress.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/298/app/views/tasks/progress.html.erb
+END
+ajax_display_planned_end_date.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/226/app/views/tasks/ajax_display_planned_end_date.js.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/116/app/views/tasks/edit.html.erb
+END
+_index_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/367/app/views/tasks/_index_list.html.erb
+END
+_index_gantt.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/367/app/views/tasks/_index_gantt.html.erb
+END
+_task_progresses_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/350/app/views/tasks/_task_progresses_list.html.erb
+END
+report.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/355/app/views/tasks/report.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/155/app/views/tasks/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/68/app/views/tasks/index.html.erb
+END
+_users_availability.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/346/app/views/tasks/_users_availability.html.erb
+END

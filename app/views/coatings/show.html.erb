@@ -1,0 +1,12 @@
+<%= render "shared/control_buttons", :locals => {:instance => @coating} %>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @coating.name %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+                <td class="td_data"><%= @coating.description %></td>
+      </tr>
+</table>

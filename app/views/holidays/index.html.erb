@@ -1,0 +1,149 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            firstDay: 1,
+            holidays: [<%= @holidays_for_fullcalendar %>],
+            days_off: '<%= @days_off_for_fullcalendar %>',
+            contentHeight: 200,
+            theme: false,
+            header: { left: 'title', right:'today prev,next'},
+            color: 'yellow',   // an option!
+            textColor: 'black', // an option!
+            backgroundColor: 'yellow'
+        });
+    });
+
+    $(document).ready(function() {
+        $('<%= @days_off_for_fullcalendar %>').addClass("fc-holiday");
+    });
+
+</script>
+
+<%#= esto es para ver los numeros que arroja el servidor por el problema del timezone @holidays_for_fullcalendar.to_s %>
+
+
+<%= render "shared/error_messages", :target => @holiday %>
+
+<div id="calendar" style="width:250px; margin:10px 0 0 10px; float:left;"></div>
+
+<div class="gray_form" style="min-height:280px; min-width:870px; margin-left:10px; float:left;">
+
+  <fieldset style="width:150px; height:270px; float:left; padding:15px; margin:0 25px 0 0; border:solid 1px; border-color:#999999;">
+    <legend style="color:black; font-weight:bold; font-size:12px;">&nbsp <%= t("screens.labels.no_working_days") %> &nbsp</legend>
+    <%= form_for :days_off, :url => 'holidays/save_days_off' do |f| %>
+
+        <div style="margin-bottom:15px;">
+          <% if @holiday.company %>
+              <%= hidden_field_tag :company, true %>
+          <% end %>
+          <%= check_box_tag(:wday_lunes, 1, @days_off.map(&:wday).include?(1), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_lunes, t("date.day_names")[1]) %>
+          <br/>
+
+          <%= check_box_tag(:wday_martes, 1, @days_off.map(&:wday).include?(2), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_martes, t("date.day_names")[2]) %>
+          <br/>
+
+          <%= check_box_tag(:wday_miercoles, 1, @days_off.map(&:wday).include?(3), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_miercoles, t("date.day_names")[3]) %>
+          <br/>
+
+          <%= check_box_tag(:wday_jueves, 1, @days_off.map(&:wday).include?(4), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_jueves, t("date.day_names")[4]) %>
+          <br/>
+
+          <%= check_box_tag(:wday_viernes, 1, @days_off.map(&:wday).include?(5), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_viernes, t("date.day_names")[5]) %>
+          <br/>
+
+          <%= check_box_tag(:wday_sabado, 1, @days_off.map(&:wday).include?(6), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_sabado, t("date.day_names")[6]) %>
+          <br/>
+
+          <%= check_box_tag(:wday_domingo, 1, @days_off.map(&:wday).include?(0), :disabled => !@days_enable) %>
+          <%= label_tag(:wday_domingo, t("date.day_names")[0]) %>
+          <br/>
+          <br/>
+
+          <%= select_tag :day_hours, options_for_select(1..24, DayHour.first.hours), :disabled => !@days_enable if @holiday.company %>
+          <%= select_tag :day_hours, options_for_select(1..24, actual_project.hours_day), :disabled => !@days_enable if !@holiday.company %>
+          <%= label_tag(:day_hours, t("simple_form.labels.day_hours")) %>
+
+        </div>
+
+        <div class="actions">
+          <% if @days_enable %>
+              <div class="buttons">
+                <button type="submit" class="positive">
+                  <img src="/images/glyphicons/glyphicons_206_ok_2.png" alt="" />
+                  <%= t("screens.links.save_days") %>
+                </button>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+  </fieldset>
+
+  <fieldset style="min-height:230px; padding:15px; margin:0 25px 0 0; border:solid 1px; border-color:#999999;">
+    <legend style="color:black; font-weight:bold; font-size:12px;">&nbsp <%= t("screens.labels.no_working_dates") %> &nbsp</legend>
+
+
+    <div class="buttons">
+      <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("screens.links.create_date"), "#", {:class => "toggle_div", "data-div_to_toggle" => "new_holiday_form", "data-link_text" => "none"} if @dates_creation %>
+    </div>
+    <div class="clear"></div>
+
+    <div id="new_holiday_form" style="display:none">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+          <tr>
+            <th class="table-header-repeat line-left" style="height:25px"><a href="javascript:return false;"><%= t("screens.labels.date") %></a></th>
+            <th class="table-header-repeat line-left" style="height:25px"><a href="javascript:return false;"><%= t("simple_form.labels.description") %></a></th>
+            <th class="table-header-repeat line-left" style="height:25px"><a href="javascript:return false;"><%= t("simple_form.labels.actions") %></a></th>
+          </tr>
+              <%= simple_form_for(@holiday) do |f| %>
+                  <%= f.input :company, :as => :hidden %>
+                  <%= f.input :project_id, :as => :hidden %>
+                  <tr style="background-color:#849D75;">
+                    <td><%= f.input :day, :label =>false, :wrapper_tag => :p, :as => :string, :input_html => {:class => 'datepicker', :style => "width: 100px;"} %></td>
+                    <td><%= f.input :description, :as => :string, :label => false, :wrapper_tag => :p, :input_html => {:style => "width:350px;"} %></td>
+                    <td><%= f.button :submit, t("screens.links.create_date"), :input_html => {:style => "width: 30px;"} %></td>
+                  </tr>
+              <% end %>
+
+        </table>
+    </div>
+
+    <div>
+      <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+          <th class="table-header-repeat line-left minwidth-1"><a href="#"><%= t("screens.labels.day") %></a></th>
+          <th class="table-header-repeat line-left minwidth-1"><a href="#"><%= t("simple_form.labels.description") %></a></th>
+          <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+        </tr>
+
+        <% @holidays.each do |holiday| %>
+            <tr class=<%= cycle("alternate-row", "") %>>
+              <td><%= l(holiday.day, :format => :long) %></td>
+              <td><%= holiday.description %></td>
+              <td class="options-width">
+                <%= link_to '', holiday, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, holiday %>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+  </fieldset>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

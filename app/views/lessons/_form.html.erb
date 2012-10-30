@@ -1,0 +1,17 @@
+<div class="gray_form">
+  <%= simple_form_for(@lesson) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :project_id, :as => :hidden %>
+
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :life_cycle_phase, :collection => @lesson.project.life_cycle_phases %>
+        <%= f.association :user, :collection => collection_with_actual(User.actives.assigned_to(actual_project), @lesson.user) %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Lesson %>
+
+  <% end %>
+</div>
+
+

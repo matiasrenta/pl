@@ -1,0 +1,61 @@
+<%= render 'shared/pagination', :locals => {:target => @expenses, :model_index_path => expenses_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Expense } %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :expense_type_id_equals, :label => t("simple_form.labels.expense_type"), :as => :select, :collection => ExpenseType.all %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => User.all %>
+        <%= f.input :user_recorder_id_equals, :label => t("simple_form.labels.user_recorder"), :as => :select, :collection => User.all %>
+        <%= f.input :receipt_code_contains, :label => t("simple_form.labels.receipt_code") %>
+        <div class="from_to">
+          <%= label_tag(:amount_cents_greater_than_or_equal_to, t("simple_form.labels.amount")) %>
+          <%= f.input :amount_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :amount_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :Amount, t("simple_form.labels.amount") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :currency, t("simple_form.labels.currency") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.resource") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :expense_type_name, t("simple_form.labels.expense_type") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :receipt_code, t("simple_form.labels.receipt_code") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_recorder_name, t("simple_form.labels.user_recorder") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @expenses.each do |expense| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= truncate(expense.description, :length => 300) %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.currency %></td>
+        <td><%= expense.user.try(:full_name) %></td>
+        <td><%= expense.expense_type.try(:title) %></td>
+        <td><%= expense.receipt_code %></td>
+        <td><%= expense.user_recorder.try(:full_name) %></td>
+        <td class="options-width">
+          <%= link_to '', expense, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, expense %>
+          <%= link_to '', edit_expense_path(expense), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, expense %>
+          <%= link_to '', expense, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, expense %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @expenses, :model_index_path => expenses_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Expense, :no_filter => true } %>
+
+

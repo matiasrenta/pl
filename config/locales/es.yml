@@ -1,0 +1,689 @@
+# Spanish translations for Rails
+# by Francisco Fernando García Nieto (ffgarcianieto@gmail.com)
+# contributors:
+#  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
+
+es:
+  date:
+    input:
+      formats: [:default, :long, :short] # <- this and ...
+
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %b"
+      long: "%d de %B de %Y"
+      long_day: "%A %d de %B de %Y"
+
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+
+    month_names:
+      - ~
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
+    abbr_month_names:
+      - ~
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %b %H:%M"
+      long: "%d de %B de %Y %H:%M"
+      long_day: "%A %d de %B de %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: ", y "
+
+    select:
+      prompt: "Por favor seleccione"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "mil"
+          million: "millón"
+          billion: "mil millones"
+          trillion: "billón"
+          quadrillion: "mil billones"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one:  "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:  "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:  "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:  "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:  "alrededor de 1 hora"
+        other: "alrededor de %{count} horas"
+      x_days:
+        one:  "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one:  "alrededor de 1 mes"
+        other: "alrededor de %{count} meses"
+      x_months:
+        one:  "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        one:  "alrededor de 1 año"
+        other: "alrededor de %{count} años"
+      over_x_years:
+        one:  "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one: "casi 1 año"
+        other: "casi %{count} años"
+    prompts:
+      year:   "Año"
+      quarter: "Cutrimestre"
+      month:  "Mes"
+      week:   "Semana"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minutos"
+      second: "Segundos"
+
+  helpers:
+    select:
+      prompt: "Por favor seleccione"
+
+    submit:
+      create: 'Crear %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
+      cancel: 'Cancelar'
+      search: 'Filtrar'
+
+    reset:
+      clear_search: "Limpiar"
+
+    link:
+      create: 'Crear %{model}'
+      newf: 'Nueva'
+      show: 'Mostrar'
+      edit: 'Editar'
+      delete: 'Borrar'
+      list: 'Listar'
+      filter: 'Filtros'
+      filter_active: 'Filtros Activos'
+      download: 'Bajar'
+      availability: 'Disponibilidad'
+
+    messages:
+      are_you_sure: "¿Está seguro de querer borrar el registro?"
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "no está incluido en la lista"
+      exclusion: "está reservado"
+      invalid: "no es válido"
+      confirmation: "no coincide con la confirmación"
+      accepted: "debe ser aceptado"
+      empty: "no puede estar vacío"
+      blank: "no puede estar en blanco"
+      too_long: "es demasiado largo (%{count} caracteres máximo)"
+      too_short: "es demasiado corto (%{count} caracteres mínimo)"
+      wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
+      not_a_number: "no es un número"
+      not_an_integer: "debe ser un entero"
+      greater_than: "debe ser mayor que %{count}"
+      greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
+      equal_to: "debe ser igual a %{count}"
+      less_than: "debe ser menor que %{count}"
+      less_than_or_equal_to: "debe ser menor que o igual a %{count}"
+      odd: "debe ser impar"
+      even: "debe ser par"
+      cant_be_in_the_future: "No puede ser en el futuro"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   'No se pudo guardar este/a %{model} porque se encontró 1 error'
+          other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
+        # The variable :count is also available
+        body: "Se encontraron problemas con los siguientes campos:"
+
+      messages:
+        taken: "ya está en uso"
+        record_invalid: "La validación falló: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+    actions:
+      new:  'Nuevo'
+      newf: 'Nueva'
+      show: 'Mostrar'
+      create: 'Nuevo'
+      edit: 'Editar'
+      update: 'Editar'
+
+    models:
+      Accion: "Acción"
+      Accions: "Acciones"
+
+      ActionPriority: "Prioridad de Acción"
+      ActionPriorities: "Prioridades de Acción"
+
+      ActionSourceType: "Tipo de Fuente de Acción"
+      ActionSourceTypes: "Tipos de Fuente de Acción"
+
+      ActionState: "Estado de Acción"
+      ActionStates: "Estados de Acción"
+
+      ActionTracking: "Seguimiento de Acción"
+      ActionTrackings: "Seguimientos de Acción"
+
+      Application: "Inicio"
+      Applications: "Inicio"
+
+      Area: "Area"
+      Areas: "Areas"
+
+      Child: "Tarea Susesora"
+      Children: "Tareas Susesoras"
+
+      City: "Ciudad"
+      Cities: "Ciudades"
+
+      Coating: "Coating"
+      Coatings: "Coatings"
+
+      Company: "Empresa"
+      Companies: "Empresas"
+
+      CompanyDashboard: "Dashboard"
+      CompanyDashboards: "Dashboards"
+
+      CompanyType: "Tipo de Empresa"
+      CompanyTypes: "Tipos de Empresa"
+
+      Country: "Pais"
+      Countries: "Paises"
+
+      Customer: "Cliente"
+      Customers: "Clientes"
+
+      Expense: "Gasto"
+      Expenses: "Gastos"
+
+      ExpenseType: "Tipo de Gasto"
+      ExpenseTypes: "Tipos de Gasto"
+
+      Finish: "Terminado"
+      Finishes: "Terminados"
+
+      Holiday: "Feriado"
+      Holidays: "Feriados"
+
+      Implementation: "Avance de implementación"
+      Implementations: "Avances de implementación"
+
+      Lesson: "Lección Aprendida"
+      Lessons: "Lecciones Aprendidas"
+
+      LifeCycle: "Ciclo de Vida"
+      LifeCycles: "Ciclos de Vida"
+
+      LifeCyclePhase: "Fase de Ciclo de Vida"
+      LifeCyclePhases: "Fases de Ciclo de Vida"
+
+      NewsItem: "Noticia"
+      NewsItems: "Noticias"
+
+      Problem: "Problema"
+      Problems: "Problemas"
+
+      ProblemPriority: "Prioridad Problema"
+      ProblemPriorities: "Prioridades Problema"
+
+      ProblemSeverity: "Severidad Problema"
+      ProblemSeverities: "Severidades Problema"
+
+      ProblemState: "Estado Problema"
+      ProblemStates: "Estados Problema"
+
+      Product: "Producto"
+      Products: "Productos"
+
+      Project: "Proyecto"
+      Projects: "Proyectos"
+
+      ProjectDashboard: "Tablero"
+      ProjectDashboards: "Tableros"
+
+      ProjectState: "Estado de Proyecto"
+      ProjectStates: "Estados de Projecto"
+
+      ProjectsUsersJoin: "Asignación de Recurso"
+      ProjectsUsersJoins: "Asignaciones de Recurso"
+
+      RegionState: "Estado/Provincia"
+      RegionStates: "Estados/Provincias"
+
+      Risk: "Riesgo"
+      Risks: "Riesgos"
+
+      RiskExposition: "Exposicion de Riesgo"
+      RiskExpositions: "Exposiciones de Riesgo"
+
+      RiskExpositionStrategy: "Estrategia de Exposicion de Riesgo"
+      RiskExpositionStrategies: "Estrategias de Exposicion de Riesgo"
+
+      RiskImpact: "Impacto de Riesgo"
+      RiskImpacts: "Impactos de Riesgo"
+
+      RiskProbability: "Probabilidad de Riesgo"
+      RiskProbabilities: "Probabilidades de Riesgo"
+
+      RiskSource: "Fuente de Riesgo"
+      RiskSources: "Fuentes de Riesgo"
+
+      RiskState: "Estado de Riesgo"
+      RiskStates: "Estados de Riesgo"
+
+      RiskStrategy: "Estrategia de Riesgo"
+      RiskStrategies: "Estrategias de Riesgo"
+
+      State: "Status"
+      States: "Status"
+
+      Task: "Tarea"
+      Tasks: "Tareas"
+
+      TaskProgress: "Progreso de Tarea"
+      TaskProgresses: "Progresos de Tarea"
+
+      TaskState: "Estado de Tarea"
+      TaskStates: "Estados de Tarea"
+
+      TaskType: "Tipo de Tarea"
+      TaskTypes: "Tipos de Tarea"
+
+      Treatment: "Tratamiento"
+      Treatments: "Tratamientos"
+
+      User: "Usuario"
+      Users: "Usuarios"
+
+      Part: "Parte"
+      Parts: "Partes"
+
+    attributes:
+      accion:
+        title: "Título"
+        description: "Descripción"
+        real_date: "Fecha Real"
+        commitment_date: "Fecha de Compromiso"
+        responsible_user: "Recurso Responsable"
+        action_state: "Estado de Acción"
+        action_priority: "Prioridad de Acción"
+        action_source_type: "Tipo Fuente de Acción"
+
+      action_tracking:
+        user: "Recurso"
+        tracking_date: "Fecha Seguimiento"
+        description: "Descripción"
+
+    i18n_name:
+      ActionPriority:
+        low: "Baja"
+        medium: "Media"
+        high: "Alta"
+
+      ActionSourceType:
+        quality: "Encuesta de Calidad"
+        problem: "Problema"
+        report: "Reporte de Estado"
+        risk: "Riesgo"
+        decision: "Toma de Decisión"
+
+      ActionState:
+        open: "Abierta"
+        closed: "Cerrada"
+
+      ProblemPriority:
+        low: "Baja"
+        medium: "Media"
+        high: "Alta"
+
+      ProblemSeverity:
+        low: "Menor"
+        medium: "Media"
+        high: "Crítica"
+
+      ProblemState:
+        open: "Abierto"
+        closed: "Cerrado"
+
+      ProjectState:
+        created: "Inicial"
+        in_progress: "En Progreso"
+        closed: "Cerrado"
+        suspended: "Suspendido"
+        canceled: "Cancelado"
+
+      RiskExposition:
+        low: "Baja"
+        medium: "Media"
+        high: "Alta"
+        very_high: "Muy Alta"
+
+      RiskImpact:
+        low: "Bajo"
+        medium: "Medio"
+        high: "Alto"
+        very_high: "Muy Alto"
+
+      RiskProbability:
+        low: "Baja"
+        medium: "Media"
+        high: "Alta"
+        very_high: "Muy Alta"
+
+      RiskState:
+        open: "Abierto"
+        closed: "Cerrado"
+        expired: "Vencido"
+
+      Role:
+        guest: "Invitado"
+        customer: "Cliente"
+        team_member: "Miembro de Equipo"
+        team_member2: "Miembro de Equipo Avanzado"
+        leader: "Líder"
+        leader2: "Líder Avanzado"
+        ceo: "Ceo"
+        admin: "Administrador"
+        superuser: "Superuser"
+
+      state:
+        active: "Activo"
+        inactive: "Inactivo"
+
+      TaskState:
+        assigned: "Asignada"
+        in_progress: "En Progreso"
+        delayed: "Retrasada"
+        closed: "Cerrada"
+        canceled: "Cancelada"
+
+      TaskType:
+        change: "Cambio"
+        planned: "Planeada"
+        rework: "Retrabajo"
+
+      CompanyType:
+        customer: "Cliente"
+        provider: "Proveedor"
+        partner: "Socio"
+        other: "Otro"
+
+  screens:
+    links:
+      gantt_view: "Vista Gantt"
+      list_view: "Vista Standard"
+      new_task: "Nueva Tarea"
+      assign_resource: "Asignar Recurso"
+      load_implementation_progress: "Cargar avance"
+      back: "Volver"
+      hide_gantt_data: "Ocultar Datos"
+      show_gantt_data: "Mostrar Datos"
+      create_date: "Crear Fecha"
+      save_days: "Guardar"
+      view: "Ver %{model}"
+      create_status_report: "Crear Reporte de Estado"
+      edit_status_report: "Editar Reporte de Estado"
+      update_status_report: "Actualizar Reporte de Estado"
+      view_status_report: "Ver Reporte de Estado"
+      my_account: "Mi cuenta"
+      close_session: "Cerrar sesión"
+      Forgot_your_password: "Olvidó su clave?"
+      sign_in: "Iniciar sesión"
+      upload_file: "Subir documento"
+      report: "Reporte"
+
+    notice:
+      successfully_created: "El registro fue creado exitosamente"
+      successfully_updated: "El registro fue actualizado exitosamente"
+      mail_sent_to_user: "Se ha enviado un mail al usuario asignado en esta tarea (%{user_name} - %{user_email}) avisándole de esta operación"
+
+    alerts:
+      task_will_close: "Si se carga el avance al 100% la tarea se cerrará y no podra ser reabierta"
+      task_progress_not_saved: "El avance no se ha grabado"
+      edit_not_allowed_because_closed: "No se puede editar el registro por estar en estado cerrado"
+      nested_models_errors: "Errores en entidades anidadas"
+      only_projects_in_state: "Solo proyectos en estado"
+      can_be_destroyeds: "pueden ser eliminados"
+      must_be_greater_than_initial: "Debe ser mayor que la inicial"
+      cant_destroy_leader: "No se puede quitar el líder del proyecto. Primero deberá cambiar el líder del proyecto desde el formulario del proyecto"
+      effort_greater_eq_to_one: "El esfuerzo debe ser mayor o igual a 1 hora"
+      if_customer_company_required: "Si el rol es Cliente, Empresa es requerido"
+      if_resource_cost_required: "Si es recurso Costo Hora es requerido"
+      if_resource_cant_be_customer: "Si es recurso no puede ser Cliente"
+      resource_assignable: "Si es recurso podrá asignarse a proyectos"
+      tasks_exceeded_in_hours: "No se grabó la tarea porque las horas planeadas de las tareas superarían lo planeado en la fase. Aumente las horas planeadas de la fase."
+      no_view_projects: "Usted no visuliza ningún proyecto. Contactese con el administrador del sistema para que modifiquen su perfil con el/los proyecto/s que usted debe visualizar"
+      tasks_with_bigger_end: "no puede ser menor a %{date} por tareas planeadas"
+      wrong_task_id: "ID de tarea erroneo"
+
+    errors:
+      many_errors: "errores prohibieron grabar este registro"
+      one_error: "error prohibió grabar este registro"
+      active_in_projects: "Usuario en projectos activos, desasígnelo de los proyectos"
+      puj_has_being_inactivated: "Esta asignación de recurso ha sido INACTIVADA en vez de ELIMINADA (por tener tareas asignadas)"
+      puj_cant_be_deleted: "Esta asignación de recurso no puede ser ELIMINADA por tener tareas asignadas"
+      user_is_inactive: "El usuario esta inactivo"
+      user_already_assigned: "El usuario ya esta asignado a este proyecto"
+      same_order_on_phases: "No puede haber fases con la misma posición"
+      cant_delete_this_record: "No se puede borrar por tener %{association} asociados/as"
+      cant_delete_this_record_2: "No se puede borrar por tener %{association} asociados/as que no pueden ser eliminados/as"
+      exists_progress_implementation_after: "Existen avances posteriores"
+      bigger_than_last_one: "No puede ser menor al valor del último avance"
+
+    info:
+      when_inactivate_resource_with_task: "Por haberlo INACTIVADO, El líder de proyecto Debera reasignar/cancelar las tareas abiertas de este recurso. Se le ha enviado un mail con instrucciones para hacer esto."
+
+    labels:
+      phase_estimation: "Estimación para la fase"
+      warning_change_cost_hour: "Los costos del proyecto cambiarán al modificar"
+      working_on_project: "Trabajando en el Proyecto"
+      resources: "Recursos del proyecto"
+      phases: "Fases del ciclo de vida"
+      date: "Fecha"
+      actions: "Acciones"
+      show: "Mostrar"
+      no_working_days: "Días no laborables"
+      no_working_dates: "Fechas no laborables"
+      day: "Día"
+      day_progress_charge: "Carga de avance por día"
+      day_effort: "Esfuerzo del día"
+      total_progress: "Progreso total"
+      lesson_learned: "Lección aprendida"
+      motive: "Motivo"
+      trackings: "Seguimientos"
+      add_tracking: "Nuevo seguimiento"
+      remove_tracking: "Borrar seguimiento"
+      add_accion: "Nueva acción"
+      remove_accion: "Borrar acción"
+      add_phase: "Nueva fase"
+      remove_phase: "Borrar fase"
+      risk_accions: "Acciones del Riesgo"
+      problem_accions: "Acciones del problema"
+      risk_sources: "Fuentes de riesgo"
+      active_in_projects: "Activo en proyectos"
+      remember_me: "Recordarme"
+      company_calendar: "Calendario Corporativo"
+      project_calendar: "Calendario de Proyecto"
+      trackings: "Seguimientos"
+      accions: "Acciones"
+      see_trackings: "Seguimientos"
+      project_dash_for: "Tablero del"
+      company_dash_for: "Dashboard del"
+      effort: "Esfuerzo"
+      cost: "Costo"
+      progress: "Avance"
+      access_denied: "Acceso denegado"
+      documents: "Documentos"
+      projection_text_money: "Se estima un gasto de %{amount} %{currency} %{more_less} que lo presupuestado"
+      projection_text_hours: "Se estima un consumo de %{amount} hs. %{more_less} que lo presupuestado"
+      planned_hours_per_resource: "Carga total de trabajo planeado expresada en horas"
+      query: "Consultar"
+      tasks_report: "Reporte de tareas"
+      registered_progresses: "Progresos registrados"
+      implementation: "Implementación"
+
+    menu:
+      portfolio: "Portafolio"
+      conf_projects: "Conf. de Proyectos"
+      catalogs: "Catálogos"
+      reports: "Reportes"
+      administration: "Administración"
+
+      port:
+        quotations: "Cotizador"
+        projects: "Proyectos"
+        dashboard: "Dashboard"
+        company_calendar: "Calendario Corporativo"
+
+      proj:
+        project_data: "Datos del Proyecto"
+        tasks: "Tareas"
+        progress_task: "Avance de Tareas"
+        risks: "Riesgos"
+        problems: "Problemas"
+        accions: "Acciones"
+        expenses: "Gastos"
+        dashboard: "Tablero"
+        calendar: "Calendario"
+        lessons: "Lecciones Aprendidas"
+
+      conf:
+        life_cycles: "Ciclos de Vida"
+        risk_strategies: "Estrategias de Riesgo"
+        risk_sources: "Fuentes de Riesgo"
+
+      cata:
+        customers: "Clientes"
+        products: "Productos"
+        coatings: "Coatings"
+        finishes: "Terminados"
+        expense_types: "Tipos de Gasto"
+        areas: "Áreas"
+        companies: "Empresas"
+        countries: "Países"
+        states: "Estados / Provincias"
+        cities: "Ciudades"
+
+      repo:
+
+      admi:
+        users: "Usuarios"
+        project_dashboards: "Tableros de Proyecto"
+        company_dashboards: "Tableros Corporativos"
+
+
+
+

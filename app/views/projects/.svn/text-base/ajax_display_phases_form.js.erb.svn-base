@@ -1,0 +1,3 @@
+$("#project_form").html("<%= escape_javascript(render(:partial => "form", :object => @project)) %>");
+docReady();
+//enable_disable_currency(document.getElementById("project_life_cycle_id"));

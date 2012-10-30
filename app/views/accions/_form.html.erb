@@ -1,0 +1,38 @@
+<div class="gray_form">
+
+  <%= simple_nested_form_for @accion do |f| %>
+
+      <%= f.hidden_field :project_id, :value => session[:actual_project] %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <div class="inputs">
+        <%= f.input :title %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :responsible_user, :collection => collection_with_actual(User.resources.actives.assigned_to(actual_project.id), @accion.responsible_user) %>
+        <%= f.association :action_state, :input_html => {:disabled => creating?} %>
+        <%= f.input :action_state_id, :as => :hidden if creating? %>
+        <%= f.association :action_priority %>
+        <%= f.association :action_source_type, :input_html => {:class => "ajax_dropdown", "data-url" => "/accions/ajax_display_risk_or_problem", "data-parameter" => "accion[action_source_type_id]"} %>
+        <%= f.input :commitment_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+
+        <div id="problem_or_risk" class="float_field">
+          <% if  @accion.action_source_type.try(:i18n_name) == "problem" %>
+              <%= f.association :problem, :collection => collection_with_actual(Problem.opens.to_project(actual_project.id), @accion.problem) %>
+              <%= f.hidden_field :risk_id %>
+          <% elsif @accion.action_source_type.try(:i18n_name) == "risk" %>
+              <%= f.association :risk, :collection => collection_with_actual(Risk.opens.to_project(actual_project.id), @accion.risk) %>
+              <%= f.hidden_field :problem_id %>
+          <% end %>
+        </div>
+      </div>
+
+      <%= render "action_trackings_form", :f => f %>
+
+      <%= render "shared/submit_form_model", {:model_class => Accion, :cancel_goto => session[:accion_goto] ? session[:accion_goto] : nil} %>
+
+  <% end %>
+
+</div>
+
+
+

@@ -1,0 +1,16 @@
+<%= render "shared/control_buttons", :locals => { :instance => @lesson } %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @lesson.description %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.life_cycle_phase") %>:</b></td>
+    <td class="td_data"><%= @lesson.life_cycle_phase.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.resource") %>:</b></td>
+    <td class="td_data"><%= @lesson.user.try(:name) %></td>
+  </tr>
+</table>

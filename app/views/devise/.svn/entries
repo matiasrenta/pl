@@ -1,0 +1,49 @@
+10
+
+dir
+323
+https://matsoft.sourcerepo.com/matsoft/projector/app/views/devise
+https://matsoft.sourcerepo.com/matsoft/projector
+
+
+
+2012-06-22T01:12:03.263674Z
+300
+mrenta
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5516367f-6f67-446a-ac5d-d4360adb90fc
+
+confirmations
+dir
+
+mailer
+dir
+
+passwords
+dir
+
+registrations
+dir
+
+sessions
+dir
+
+shared
+dir
+
+unlocks
+dir
+

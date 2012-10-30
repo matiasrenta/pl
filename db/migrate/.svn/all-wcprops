@@ -1,0 +1,905 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/matsoft/projector/!svn/ver/322/db/migrate
+END
+20120221021858_add_planned_end_date_to_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/matsoft/projector/!svn/ver/72/db/migrate/20120221021858_add_planned_end_date_to_projects.rb
+END
+20120117003236_add_i18n_name_to_risk_impacts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/26/db/migrate/20120117003236_add_i18n_name_to_risk_impacts.rb
+END
+20120213191745_add_at_date_to_project_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/matsoft/projector/!svn/ver/47/db/migrate/20120213191745_add_at_date_to_project_dashboards.rb
+END
+20120117190324_remove_state_id_from_risk_expositions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/matsoft/projector/!svn/ver/27/db/migrate/20120117190324_remove_state_id_from_risk_expositions.rb
+END
+20120514231727_remove_cost_from_projects_phases_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/matsoft/projector/!svn/ver/250/db/migrate/20120514231727_remove_cost_from_projects_phases_joins.rb
+END
+20120325041105_drop_expense_type_user_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/90/db/migrate/20120325041105_drop_expense_type_user_joins.rb
+END
+20110923193736_create_tasks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/1/db/migrate/20110923193736_create_tasks.rb
+END
+20111130023854_add_state_id_to_country.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/matsoft/projector/!svn/ver/1/db/migrate/20111130023854_add_state_id_to_country.rb
+END
+20120508191320_remove_role_from_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/181/db/migrate/20120508191320_remove_role_from_users.rb
+END
+20120117001846_add_i18n_name_to_risk_expositions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/matsoft/projector/!svn/ver/26/db/migrate/20120117001846_add_i18n_name_to_risk_expositions.rb
+END
+20120904202030_add_capacity_occupancy_to_company_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/matsoft/projector/!svn/ver/352/db/migrate/20120904202030_add_capacity_occupancy_to_company_dashboards.rb
+END
+20120324233943_remove_receipt_from_expenses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/90/db/migrate/20120324233943_remove_receipt_from_expenses.rb
+END
+20110923191018_create_task_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/1/db/migrate/20110923191018_create_task_states.rb
+END
+20120226211106_add_lider_to_project_user_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/72/db/migrate/20120226211106_add_lider_to_project_user_joins.rb
+END
+20120712233125_create_news_items.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/325/db/migrate/20120712233125_create_news_items.rb
+END
+20110526065746_create_human_resources.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/1/db/migrate/20110526065746_create_human_resources.rb
+END
+20120116053353_add_i18n_name_to_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/26/db/migrate/20120116053353_add_i18n_name_to_states.rb
+END
+20120116234302_add_i18n_name_to_problem_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/26/db/migrate/20120116234302_add_i18n_name_to_problem_states.rb
+END
+20111121231828_create_risk_sources.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/1/db/migrate/20111121231828_create_risk_sources.rb
+END
+20120213174329_add_saved_by_user_to_project_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/matsoft/projector/!svn/ver/47/db/migrate/20120213174329_add_saved_by_user_to_project_dashboards.rb
+END
+20120116224430_add_i18n_name_to_action_priorities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/26/db/migrate/20120116224430_add_i18n_name_to_action_priorities.rb
+END
+20120117185642_remove_color_from_risk_exposition_strategies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/matsoft/projector/!svn/ver/27/db/migrate/20120117185642_remove_color_from_risk_exposition_strategies.rb
+END
+20120117043339_add_color_to_risk_exposition.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/27/db/migrate/20120117043339_add_color_to_risk_exposition.rb
+END
+20120317175523_remove_validity_from_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/matsoft/projector/!svn/ver/78/db/migrate/20120317175523_remove_validity_from_risks.rb
+END
+20120408063720_remove_state_id_from_risk_probabilities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/matsoft/projector/!svn/ver/112/db/migrate/20120408063720_remove_state_id_from_risk_probabilities.rb
+END
+20111130030933_add_state_id_to_city.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/1/db/migrate/20111130030933_add_state_id_to_city.rb
+END
+20120210234409_add_description_to_company_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/matsoft/projector/!svn/ver/47/db/migrate/20120210234409_add_description_to_company_dashboards.rb
+END
+20120911190441_add_project_id_to_implementations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/356/db/migrate/20120911190441_add_project_id_to_implementations.rb
+END
+20120317050612_remove_treatment_date_from_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/matsoft/projector/!svn/ver/78/db/migrate/20120317050612_remove_treatment_date_from_risks.rb
+END
+20110525001323_create_treatments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/1/db/migrate/20110525001323_create_treatments.rb
+END
+20110725150030_create_expenses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20110725150030_create_expenses.rb
+END
+20111220013007_create_problem_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/1/db/migrate/20111220013007_create_problem_states.rb
+END
+20120511013357_add_company_to_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/213/db/migrate/20120511013357_add_company_to_projects.rb
+END
+20111122003913_create_risk_strategy_risk_source_join.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/matsoft/projector/!svn/ver/1/db/migrate/20111122003913_create_risk_strategy_risk_source_join.rb
+END
+20110524181145_create_countries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/1/db/migrate/20110524181145_create_countries.rb
+END
+20120106223342_add_off_to_days_off.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/1/db/migrate/20120106223342_add_off_to_days_off.rb
+END
+20120514231730_add_html_menu_items_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/290/db/migrate/20120514231730_add_html_menu_items_to_users.rb
+END
+20111125024221_create_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/1/db/migrate/20111125024221_create_risks.rb
+END
+20110725113517_add_human_resource_fields_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/matsoft/projector/!svn/ver/1/db/migrate/20110725113517_add_human_resource_fields_to_user.rb
+END
+20120206201951_create_projects_phases_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/44/db/migrate/20120206201951_create_projects_phases_joins.rb
+END
+20111201010502_create_projects_users_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/matsoft/projector/!svn/ver/1/db/migrate/20111201010502_create_projects_users_joins.rb
+END
+20110725142536_create_accions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/1/db/migrate/20110725142536_create_accions.rb
+END
+20110621222322_add_role_id_and_state_id_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/1/db/migrate/20110621222322_add_role_id_and_state_id_to_user.rb
+END
+20120625074445_add_expenses_to_company_dasboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/312/db/migrate/20120625074445_add_expenses_to_company_dasboards.rb
+END
+20111121235902_create_risk_expositions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/matsoft/projector/!svn/ver/1/db/migrate/20111121235902_create_risk_expositions.rb
+END
+20110531011418_create_action_source_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/1/db/migrate/20110531011418_create_action_source_types.rb
+END
+20120514231726_add_planned_resources_cost_to_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/matsoft/projector/!svn/ver/249/db/migrate/20120514231726_add_planned_resources_cost_to_projects.rb
+END
+20110923213700_create_versions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20110923213700_create_versions.rb
+END
+20120326183509_create_customers_projects_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/matsoft/projector/!svn/ver/106/db/migrate/20120326183509_create_customers_projects_joins.rb
+END
+20120116231916_add_i18n_name_to_problem_priorities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/matsoft/projector/!svn/ver/26/db/migrate/20120116231916_add_i18n_name_to_problem_priorities.rb
+END
+20120331210501_remove_responsibles_from_problems.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/106/db/migrate/20120331210501_remove_responsibles_from_problems.rb
+END
+20120224231910_add_and_remove_some_fields_to_tasks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/matsoft/projector/!svn/ver/72/db/migrate/20120224231910_add_and_remove_some_fields_to_tasks.rb
+END
+20120116235148_add_i18n_name_to_project_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/26/db/migrate/20120116235148_add_i18n_name_to_project_states.rb
+END
+20120318031532_add_leader_id_to_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/80/db/migrate/20120318031532_add_leader_id_to_projects.rb
+END
+20120325231829_remove_is_external_from_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/91/db/migrate/20120325231829_remove_is_external_from_users.rb
+END
+20111228041724_create_machines.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20111228041724_create_machines.rb
+END
+20120117013703_add_i18n_name_to_task_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/matsoft/projector/!svn/ver/26/db/migrate/20120117013703_add_i18n_name_to_task_types.rb
+END
+20111121235115_create_risk_impacts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/1/db/migrate/20111121235115_create_risk_impacts.rb
+END
+20120310021339_add_risk_exposition_id_to_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/72/db/migrate/20120310021339_add_risk_exposition_id_to_risks.rb
+END
+20120209183117_create_project_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/47/db/migrate/20120209183117_create_project_dashboards.rb
+END
+20120425020720_add_some_fields_to_project_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/matsoft/projector/!svn/ver/152/db/migrate/20120425020720_add_some_fields_to_project_dashboards.rb
+END
+20120514231037_create_day_hours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/228/db/migrate/20120514231037_create_day_hours.rb
+END
+20120106094930_create_days_off.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20120106094930_create_days_off.rb
+END
+20120221022347_add_real_end_date_to_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/72/db/migrate/20120221022347_add_real_end_date_to_projects.rb
+END
+20111122003444_create_risk_strategy_risk_category_join.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/matsoft/projector/!svn/ver/1/db/migrate/20111122003444_create_risk_strategy_risk_category_join.rb
+END
+20111130001259_create_expese_type_user_join.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/46/db/migrate/20111130001259_create_expese_type_user_join.rb
+END
+20110524182052_create_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/1/db/migrate/20110524182052_create_companies.rb
+END
+20120317182503_remove_use_validity_from_risk_strategies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/matsoft/projector/!svn/ver/78/db/migrate/20120317182503_remove_use_validity_from_risk_strategies.rb
+END
+20111217054712_create_ajaxtests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/1/db/migrate/20111217054712_create_ajaxtests.rb
+END
+20110525003243_create_company_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/1/db/migrate/20110525003243_create_company_types.rb
+END
+20120406224111_add_remove_some_fields_from_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/109/db/migrate/20120406224111_add_remove_some_fields_from_risks.rb
+END
+20111125001024_create_risk_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/1/db/migrate/20111125001024_create_risk_states.rb
+END
+20120210233415_create_company_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/47/db/migrate/20120210233415_create_company_dashboards.rb
+END
+20120323204809_remove_state_id_from_life_cycle_phases.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/matsoft/projector/!svn/ver/87/db/migrate/20120323204809_remove_state_id_from_life_cycle_phases.rb
+END
+20111121234600_create_risk_probabilities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/1/db/migrate/20111121234600_create_risk_probabilities.rb
+END
+20120325020659_create_lessons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/90/db/migrate/20120325020659_create_lessons.rb
+END
+20110725151554_add_last_project_viewed_id_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/matsoft/projector/!svn/ver/1/db/migrate/20110725151554_add_last_project_viewed_id_to_user.rb
+END
+20110706003252_create_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20110706003252_create_projects.rb
+END
+20120116002448_remove_treatments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/15/db/migrate/20120116002448_remove_treatments.rb
+END
+20110524180839_create_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/1/db/migrate/20110524180839_create_states.rb
+END
+20120508175829_add_role_id_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/177/db/migrate/20120508175829_add_role_id_to_users.rb
+END
+20120514231728_create_documents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/272/db/migrate/20120514231728_create_documents.rb
+END
+20120118003253_add_i18n_name_to_company_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/matsoft/projector/!svn/ver/35/db/migrate/20120118003253_add_i18n_name_to_company_types.rb
+END
+20110621041549_create_expense_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/1/db/migrate/20110621041549_create_expense_types.rb
+END
+20120117233422_remove_state_id_from_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/35/db/migrate/20120117233422_remove_state_id_from_projects.rb
+END
+20110524181219_create_region_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/1/db/migrate/20110524181219_create_region_states.rb
+END
+20120116233042_add_i18n_name_to_problem_severities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/matsoft/projector/!svn/ver/26/db/migrate/20120116233042_add_i18n_name_to_problem_severities.rb
+END
+20120325044022_remove_code_from_countries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/matsoft/projector/!svn/ver/90/db/migrate/20120325044022_remove_code_from_countries.rb
+END
+20120406203922_remove_some_fields_from_risk_strategies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/matsoft/projector/!svn/ver/107/db/migrate/20120406203922_remove_some_fields_from_risk_strategies.rb
+END
+20120317183147_change_umbral_to_text_in_risk.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/78/db/migrate/20120317183147_change_umbral_to_text_in_risk.rb
+END
+20120325021334_add_life_cycle_phase_id_to_lessons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/90/db/migrate/20120325021334_add_life_cycle_phase_id_to_lessons.rb
+END
+20120331185853_remove_responsibles_from_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/106/db/migrate/20120331185853_remove_responsibles_from_risks.rb
+END
+20120209202611_add_ev_values_to_project_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/matsoft/projector/!svn/ver/47/db/migrate/20120209202611_add_ev_values_to_project_dashboards.rb
+END
+20120514231729_remove_dates_from_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/matsoft/projector/!svn/ver/288/db/migrate/20120514231729_remove_dates_from_projects.rb
+END
+20120218005607_add_projection_to_company_dashboards.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/matsoft/projector/!svn/ver/72/db/migrate/20120218005607_add_projection_to_company_dashboards.rb
+END
+20111121230814_create_risk_categories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/1/db/migrate/20111121230814_create_risk_categories.rb
+END
+20110531011502_create_action_priorities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/1/db/migrate/20110531011502_create_action_priorities.rb
+END
+20110929063621_create_task_progresses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/1/db/migrate/20110929063621_create_task_progresses.rb
+END
+20120117005233_add_i18n_name_to_risk_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/26/db/migrate/20120117005233_add_i18n_name_to_risk_states.rb
+END
+20120210021310_create_project_dashboard_guest_user_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/matsoft/projector/!svn/ver/47/db/migrate/20120210021310_create_project_dashboard_guest_user_joins.rb
+END
+20111228041830_create_parts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/1/db/migrate/20111228041830_create_parts.rb
+END
+20120317024641_add_monitor_user_id_to_problems.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/76/db/migrate/20120317024641_add_monitor_user_id_to_problems.rb
+END
+20110725142204_create_risk_strategies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/1/db/migrate/20110725142204_create_risk_strategies.rb
+END
+20111122000558_create_risk_exposition_strategies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/matsoft/projector/!svn/ver/1/db/migrate/20111122000558_create_risk_exposition_strategies.rb
+END
+20120324223415_add_remove_some_fields_from_expenses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/matsoft/projector/!svn/ver/90/db/migrate/20120324223415_add_remove_some_fields_from_expenses.rb
+END
+20120508180317_add_position_to_roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/matsoft/projector/!svn/ver/177/db/migrate/20120508180317_add_position_to_roles.rb
+END
+20120408063446_remove_state_id_from_risk_impacts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/112/db/migrate/20120408063446_remove_state_id_from_risk_impacts.rb
+END
+20120221011438_remove_code_from_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/72/db/migrate/20120221011438_remove_code_from_projects.rb
+END
+20120117003843_add_i18n_name_to_risk_probabilities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/matsoft/projector/!svn/ver/26/db/migrate/20120117003843_add_i18n_name_to_risk_probabilities.rb
+END
+20120317032455_add_user_id_to_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/76/db/migrate/20120317032455_add_user_id_to_risks.rb
+END
+20110524181547_create_life_cycle_phases.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/1/db/migrate/20110524181547_create_life_cycle_phases.rb
+END
+20110531011539_create_action_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/1/db/migrate/20110531011539_create_action_states.rb
+END
+20110923190854_create_task_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/1/db/migrate/20110923190854_create_task_types.rb
+END
+20120321023141_add_state_id_to_projects_users_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/matsoft/projector/!svn/ver/83/db/migrate/20120321023141_add_state_id_to_projects_users_joins.rb
+END
+20120117011628_add_i18n_name_to_action_source_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/matsoft/projector/!svn/ver/26/db/migrate/20120117011628_add_i18n_name_to_action_source_types.rb
+END
+20120206203640_add_currency_to_projects_phases_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/matsoft/projector/!svn/ver/44/db/migrate/20120206203640_add_currency_to_projects_phases_joins.rb
+END
+20110531180552_create_project_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/1/db/migrate/20110531180552_create_project_states.rb
+END
+20110531181426_create_areas.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/1/db/migrate/20110531181426_create_areas.rb
+END
+20120115233624_revove_treatment_id_from_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/15/db/migrate/20120115233624_revove_treatment_id_from_user.rb
+END
+20120316234627_remove_real_date_from_accions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/72/db/migrate/20120316234627_remove_real_date_from_accions.rb
+END
+20120625074444_add_expenses_values_to_project_dashboard.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/matsoft/projector/!svn/ver/312/db/migrate/20120625074444_add_expenses_values_to_project_dashboard.rb
+END
+20120210012957_create_project_dashboard_present_users_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/matsoft/projector/!svn/ver/47/db/migrate/20120210012957_create_project_dashboard_present_users_joins.rb
+END
+20111220012947_create_problem_priorities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/1/db/migrate/20111220012947_create_problem_priorities.rb
+END
+20120406202737_remove_real_effort_from_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/matsoft/projector/!svn/ver/106/db/migrate/20120406202737_remove_real_effort_from_risks.rb
+END
+20120116225935_add_i18n_name_to_action_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/matsoft/projector/!svn/ver/26/db/migrate/20120116225935_add_i18n_name_to_action_states.rb
+END
+20111220004525_remove_word_project_from_problem_and_risk_fields.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/matsoft/projector/!svn/ver/1/db/migrate/20111220004525_remove_word_project_from_problem_and_risk_fields.rb
+END
+20120106095055_create_holidays.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20120106095055_create_holidays.rb
+END
+20120130232641_remove_role_id_from_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/44/db/migrate/20120130232641_remove_role_id_from_users.rb
+END
+20120911185659_create_implementations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/356/db/migrate/20120911185659_create_implementations.rb
+END
+20111130020533_add_address_fax_state_id_to_company.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/1/db/migrate/20111130020533_add_address_fax_state_id_to_company.rb
+END
+20120323234619_add_resource_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/88/db/migrate/20120323234619_add_resource_to_users.rb
+END
+20110725142751_create_action_trackings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/matsoft/projector/!svn/ver/1/db/migrate/20110725142751_create_action_trackings.rb
+END
+20111220012921_create_problem_severities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/1/db/migrate/20111220012921_create_problem_severities.rb
+END
+20120319230617_add_dates_to_projects_phases_joins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/82/db/migrate/20120319230617_add_dates_to_projects_phases_joins.rb
+END
+20120117195036_drop_risk_exposition_strategies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/27/db/migrate/20120117195036_drop_risk_exposition_strategies.rb
+END
+20120325022624_add_remove_fields_from_lessons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/matsoft/projector/!svn/ver/90/db/migrate/20120325022624_add_remove_fields_from_lessons.rb
+END
+20110622184216_add_role_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/1/db/migrate/20110622184216_add_role_to_users.rb
+END
+20120117010146_add_i18n_name_to_task_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/matsoft/projector/!svn/ver/26/db/migrate/20120117010146_add_i18n_name_to_task_states.rb
+END
+20120221012157_remove_budget_cents_add_sale_price_to_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/matsoft/projector/!svn/ver/72/db/migrate/20120221012157_remove_budget_cents_add_sale_price_to_projects.rb
+END
+20120911201305_add_evaluation_date_to_implementations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/matsoft/projector/!svn/ver/356/db/migrate/20120911201305_add_evaluation_date_to_implementations.rb
+END
+20110524181458_create_life_cycles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/1/db/migrate/20110524181458_create_life_cycles.rb
+END
+20111220013037_create_problems.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/1/db/migrate/20111220013037_create_problems.rb
+END
+20120406225544_drop_some_tables.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/109/db/migrate/20120406225544_drop_some_tables.rb
+END
+20120514231725_add_day_hours_to_project.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/228/db/migrate/20120514231725_add_day_hours_to_project.rb
+END
+20110524234026_create_cities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/1/db/migrate/20110524234026_create_cities.rb
+END
+20120406203056_remove_manual_priority_from_risks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/107/db/migrate/20120406203056_remove_manual_priority_from_risks.rb
+END
+20111130030754_add_state_id_to_region_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/matsoft/projector/!svn/ver/1/db/migrate/20111130030754_add_state_id_to_region_state.rb
+END
+20110426220731_devise_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/1/db/migrate/20110426220731_devise_create_users.rb
+END
+20120508174201_create_roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/177/db/migrate/20120508174201_create_roles.rb
+END
+20120325040532_remove_reported_from_expense_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/90/db/migrate/20120325040532_remove_reported_from_expense_types.rb
+END

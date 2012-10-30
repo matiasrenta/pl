@@ -1,0 +1,91 @@
+<%= render 'shared/pagination', :locals => {:target => @life_cycles, :model_index_path => life_cycles_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Life cycle', new_life_cycle_path if can? :create, LifeCycle %>
+  <a class="trigger <%= 'filter_active' if @filter_active %>" href="#">Filtros</a>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :state_id_equals, :label => t("simple_form.labels.state"), :as => :select, :collection => State.all %>
+        <div class="actions">
+          <%= f.button :submit, t("helpers.submit.search") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :state_name, t("simple_form.labels.state") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @life_cycles.each do |life_cycle| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= life_cycle.name %></td>
+        <td><%= life_cycle.description %></td>
+        <td><%= life_cycle.state.try(:name) %></td>
+        <td class="options-width-big">
+          <%= link_to '', life_cycle, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, life_cycle %>
+          <%= link_to '', edit_life_cycle_path(life_cycle), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, life_cycle %>
+          <%= link_to '', life_cycle, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, life_cycle %>
+          <%= link_to '', new_life_cycle_phase_path(:life_cycle_id => life_cycle.id), :class=>"icon-1 info-tooltip", :style => "float:right;", :title => "Nueva Fase" if can? :create, LifeCyclePhase %>
+          <% if life_cycle.life_cycle_phases.count > 0 %>
+            <%= link_to '', "#", :class=>"icon-3 info-tooltip", :style => "float:right;", :title => "Ver Fases", :onclick => "toggle_index_child('child_div_" + life_cycle.id.to_s + "'); return false;" %>
+          <% end %>
+        </td>
+      </tr>
+
+      <% if life_cycle.life_cycle_phases.count > 0 %>
+          <tr style="border:0px;">
+            <td colspan="4" style="background-color:#ffff77; margin:0px; padding:0px; border:0px;">
+              <div id="child_div_<%= life_cycle.id.to_s%>" style="display:none">
+                <table style="float:left; margin:5px;">
+                  <tr style="background-color:#adff7f;">
+                    <td width="200">Nombre</td>
+                    <td width="200"><%= t("simple_form.labels.description") %></td>
+                    <td width="200">Posición</td>
+                    <td width="200">Estado</td>
+                    <td width="100">Acciones</td>
+                  </tr>
+                  <% life_cycle.life_cycle_phases.each do |life_cycle_phase| %>
+                      <tr class=<%= cycle("alternate-row", "alternate-row-2", :name => "child") %>>
+                        <td><%= life_cycle_phase.name %></td>
+                        <td><%= life_cycle_phase.description %></td>
+                        <td><%= life_cycle_phase.position %></td>
+                        <td><%= life_cycle_phase.state.try(:name) %></td>
+                        <td width="100">
+                          <%= link_to '', life_cycle_phase_path(life_cycle_phase, :life_cycle_id => life_cycle.id), :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, life_cycle_phase %>
+                          <%= link_to '', edit_life_cycle_phase_path(life_cycle_phase, :life_cycle_id => life_cycle.id), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, life_cycle_phase %>
+                          <%= link_to '', life_cycle_phase, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, life_cycle_phase %>
+                        </td>
+
+                      </tr>
+                  <% end %>
+                </table>
+              </div>
+            </td>
+          </tr>
+      <% end %>
+
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @life_cycles, :model_index_path => life_cycles_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Life cycle', new_life_cycle_path if can? :create, LifeCycle %>
+</div>
+
+
+

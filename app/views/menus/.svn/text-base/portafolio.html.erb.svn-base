@@ -1,0 +1,12 @@
+<% if can? :read, Project %>
+    <div><%= link_to t("screens.menu.port.projects"), projects_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, CompanyDashboard %>
+    <div><%= link_to t("screens.menu.port.dashboard"), company_dashboards_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Holiday %>
+    <div><%= link_to t("screens.menu.port.company_calendar"), holidays_path(:company => true), :class => "ajax" %></div>
+<% end %>
+

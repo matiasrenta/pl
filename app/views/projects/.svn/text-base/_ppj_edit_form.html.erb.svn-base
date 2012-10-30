@@ -1,0 +1,50 @@
+<style type="text/css">
+    .p-input {
+        width: 100px;
+    }
+
+</style>
+
+<div style="background-color:#bbbbbb; padding:0px; margin-bottom:20px;">
+  <table border="1" width="100%">
+    <tr>
+      <td width="350" style="width:300; padding:5px; background-color:#889088;"><%= t("simple_form.labels.life_cycle_phase") %></td>
+      <td width="100" style="width:300; padding:5px; background-color:#889088;">* <%= t("simple_form.labels.planned_start_date") %></td>
+      <td width="100" style="width:300; padding:5px; background-color:#889088;">* <%= t("simple_form.labels.planned_end_date") %></td>
+      <td width="100" style="width:100; padding:5px; background-color:#889088;">* <%= t("simple_form.labels.planned_hours_phase") %></td>
+    </tr>
+
+    <% if @project.projects_phases_joins.size > 0 && !@remove_ppjs_in_update_flag%>
+        <% @project.projects_phases_joins.each do |ppj| %>
+            <%= f.simple_fields_for(:projects_phases_joins, ppj, :wrapper_html => false) do |phase_form| %>
+                <tr>
+                  <%= phase_form.input :life_cycle_phase_id, :as => :hidden %>
+                  <%= phase_form.input :project_id, :as => :hidden %>
+                  <td style="width:300; padding:5px;"><%= ppj.life_cycle_phase.name %></td>
+                  <td style="width:100; padding:5px;"><%= phase_form.input :planned_start_date, :as => :string, :label => false, :wrapper_tag => :p, :input_html => {:class => "datepicker p-input"} %></td>
+                  <td style="width:100; padding:5px;"><%= phase_form.input :planned_end_date, :as => :string, :label => false, :wrapper_tag => :p, :input_html => {:class => "datepicker p-input"} %></td>
+                  <td style="width:100; padding:5px;"><%= phase_form.input :planned_hours_phase, :label => false, :wrapper_tag => :p, :input_html => {:class => "p-input"} %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    <% else %>
+        <% @project.life_cycle.life_cycle_phases.each do |phase| %>
+            <%= f.simple_fields_for(:projects_phases_joins, @project.projects_phases_joins.build({:project_id => @project.id, :life_cycle_phase_id => phase.id}), :wrapper_html => false) do |phase_form| %>
+                <tr>
+                  <%= hidden_field_tag "remove_ppjs_in_update_flag", @remove_ppjs_in_update_flag if @remove_ppjs_in_update_flag %>
+                  <%= phase_form.input :life_cycle_phase_id, :as => :hidden %>
+                  <%= phase_form.input :project_id, :as => :hidden %>
+                  <td style="width:300; padding:5px;"><%= phase.name %></td>
+                  <td style="width:100; padding:5px;"><%= phase_form.input :planned_start_date, :as => :string, :label => false, :wrapper_tag => :p, :input_html => {:class => "datepicker p-input"} %></td>
+                  <td style="width:100; padding:5px;"><%= phase_form.input :planned_end_date, :as => :string, :label => false, :wrapper_tag => :p, :input_html => {:class => "datepicker p-input"} %></td>
+                  <td style="width:100; padding:5px;"><%= phase_form.input :planned_hours_phase, :label => false, :wrapper_tag => :p, :input_html => {:class => "p-input"} %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    <% end %>
+
+  </table>
+</div>
+
+
+

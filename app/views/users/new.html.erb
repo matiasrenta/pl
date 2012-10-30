@@ -1,0 +1,46 @@
+<%= render "shared/error_messages", :target => @user %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => User } %>
+
+<div class="clear"></div>
+
+<div class="gray_form">
+  <%= simple_form_for(@user) do |f| %>
+      <div class="inputs">
+        <%= f.input :email %>
+        <%= f.association :role, :input_html => {:class => "ajax_dropdown", "data-url" => "/users/ajax_display_view_projects", "data-parameter" => "user[role_id]"} %>
+
+        <%= f.input :resource %>
+        <%= f.input :name %>
+        <%= f.input :last_name%>
+        <%= f.input :mother_last_name %>
+
+        <%= f.input :currency, :collection => major_currencies(Money::Currency::TABLE) %>
+        <%= f.input :cost_hour, :input_html => {:class => 'money', :size => 13} %>
+
+        <%= f.association :company, :collection => Company.actives %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+
+        <%= f.input :work_phone %>
+        <%= f.input :home_phone %>
+        <%= f.input :cell_phone %>
+        <%= f.input :postal_code %>
+        <%= f.association :city, :collection => City.actives %>
+
+        <div id="showhide-on-event" class="<%= "display-none" if !@user.try(:role).try(:customer?) %>">
+            <%= f.association :view_projects, :input_html => {:class => "multi_select_filter"} %>
+        </div>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => User %>
+
+  <% end %>
+</div>
+
+
+
+
+
+
+

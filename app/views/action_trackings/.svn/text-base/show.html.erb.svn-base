@@ -1,0 +1,33 @@
+<div class="controls">
+  <% if can? :update, ActionTracking %>
+      <%= link_to t("helpers.link.edit"), edit_action_tracking_path(@action_tracking) %>
+  <% end %>
+  <%= link_to t("helpers.link.list"), action_trackings_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b>Accion:</b></td>
+    <td class="td_data"><%= @action_tracking.accion.try(:title) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.resource") %>:</b></td>
+    <td class="td_data"><%= @action_tracking.user.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>Tracking date:</b></td>
+    <td class="td_data"><%= l(@action_tracking.tracking_date, :format => :long) if @action_tracking.tracking_date %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @action_tracking.description %></td>
+  </tr>
+</table>
+
+<div class="controls">
+  <% if can? :update, ActionTracking %>
+      <%= link_to t("helpers.link.edit"), edit_action_tracking_path(@action_tracking) %>
+  <% end %>
+  <%= link_to t("helpers.link.list"), action_trackings_path %>
+</div>

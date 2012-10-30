@@ -1,0 +1,9 @@
+<%= render "shared/error_messages", :target => @problem_severity %>
+
+<%= render "shared/controls_new", :locals => {:model_path => problem_severities_path} %>
+
+<div class="clear"></div>
+
+<%= render 'form' %>
+
+<%= render "shared/controls_new", :locals => {:model_path => problem_severities_path} %>

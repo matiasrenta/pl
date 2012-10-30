@@ -1,0 +1,29 @@
+<div class="controls">
+<% if can? :update, RiskProbability %>
+<%= link_to t("helpers.link.edit"), edit_risk_probability_path(@risk_probability) %>
+<% end %>
+<%= link_to t("helpers.link.list"), risk_probabilities_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @risk_probability.name %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+                <td class="td_data"><%= @risk_probability.description %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.state") %> :</b></td>
+                            <td class="td_data"><%= @risk_probability.state.try(:name) %></td>
+              </tr>
+</table>
+
+<div class="controls">
+<% if can? :update, RiskProbability %>
+<%= link_to t("helpers.link.edit"), edit_risk_probability_path(@risk_probability) %>
+<% end %>
+<%= link_to t("helpers.link.list"), risk_probabilities_path %>
+</div>

@@ -1,0 +1,32 @@
+<%= render "shared/control_buttons", :locals => { :instance => @company } %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @company.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @company.description %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.phone_1") %>:</b></td>
+    <td class="td_data"><%= @company.phone_1 %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.phone_2") %>:</b></td>
+    <td class="td_data"><%= @company.phone_2 %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.postal_code") %>:</b></td>
+    <td class="td_data"><%= @company.postal_code %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.company_type") %>:</b></td>
+    <td class="td_data"><%= @company.company_type.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.city") %>:</b></td>
+    <td class="td_data"><%= @company.city.try(:name) %></td>
+  </tr>
+</table>

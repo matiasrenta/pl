@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/matsoft/projector/!svn/ver/48/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/matsoft/projector/!svn/ver/355/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/matsoft/projector/!svn/ver/239/config/database.yml
+END
+schedule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/329/config/schedule.rb
+END
+schedule-bak.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/1/config/schedule-bak.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/358/config/environment.rb
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/matsoft/projector/!svn/ver/1/config/boot.rb
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/197/config/application.rb
+END

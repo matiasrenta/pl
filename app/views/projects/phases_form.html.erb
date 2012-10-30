@@ -1,0 +1,35 @@
+<style type="text/css">
+    .p-input {
+        width: 100px;
+    }
+
+</style>
+
+<div style="background-color:#bbbbbb; padding:0px;">
+  <table border="1" width="100%">
+    <tr>
+      <td width="350" style="width:300; padding:5px; background-color:#889088;"><%= t("simple_form.labels.life_cycle_phase") %></td>
+      <td width="350" style="width:300; padding:5px; background-color:#889088;"><%= t("simple_form.labels.description") %></td>
+      <td width="200" style="width:100; padding:5px; background-color:#889088;">Hours</td>
+      <td width="200" style="width:100; padding:5px; background-color:#889088;">Cost</td>
+      <td width="150" style="width:100; padding:5px; background-color:#889088;"><%= t("simple_form.labels.currency") %></td>
+    </tr>
+
+    <% @project.life_cycle.life_cycle_phases.each do |phase| %>
+        <%= simple_form_for(@project.projects_phases_joins.build({:project_id => @project.id, :life_cycle_phase_id => phase.id}), :wrapper_html => false, :html => {:id => "new_projects_phases_join_" + phase.id.to_s}) do |phase_form| %>
+            <tr>
+              <%= phase_form.input :life_cycle_phase_id, :as => :hidden %>
+              <%= phase_form.input :project_id, :as => :hidden %>
+              <td style="width:300; padding:5px;"><%= phase.name %></td>
+              <td style="width:300; padding:5px;"><%= phase.description.length > 80 ? phase.description[0..79] + "..." : phase.description %></td>
+              <td style="width:100; padding:5px;"><%= phase_form.input :planned_hours_phase, :label => false, :wrapper_tag => :p, :input_html => {:class => "p-input"} %></td>
+              <td style="width:100; padding:5px;"><%= phase_form.input :planned_cost_phase, :label => false, :placeholder => @project.currency, :wrapper_tag => :p, :input_html => {:class => 'money p-input'} %></td>
+              <td style="width:100; padding:5px;"><%= @project.currency %></td>
+            </tr>
+        <% end %>
+    <% end %>
+
+  </table>
+</div>
+
+

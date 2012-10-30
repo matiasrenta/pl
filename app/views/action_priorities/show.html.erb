@@ -1,0 +1,21 @@
+<div class="controls">
+<% if can? :update, ActionPriority %>
+<%= link_to t("helpers.link.edit"), edit_action_priority_path(@action_priority) %>
+<% end %>
+<%= link_to t("helpers.link.list"), action_priorities_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @action_priority.name %></td>
+      </tr>
+</table>
+
+<div class="controls">
+<% if can? :update, ActionPriority %>
+<%= link_to t("helpers.link.edit"), edit_action_priority_path(@action_priority) %>
+<% end %>
+<%= link_to t("helpers.link.list"), action_priorities_path %>
+</div>

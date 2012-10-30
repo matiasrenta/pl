@@ -1,0 +1,45 @@
+<%
+   today_year = Date.today.year
+   nex_year   = today_year + 1
+%>
+
+<h3><%= t("screens.labels.planned_hours_per_resource") %></h3>
+
+<div class="fr" style="margin-bottom:5px;">
+  <%= form_tag tasks_path, :id => "availability_form", :method => "get" do %>
+      <%= hidden_field_tag("gantt_view", true) if params[:gantt_view] %>
+      <%= select_tag("month_availability", options_for_select([[t("date.month_names")[1],1], [t("date.month_names")[2],2],
+                                                       [t("date.month_names")[3],3], [t("date.month_names")[4],4],
+                                                       [t("date.month_names")[5],5], [t("date.month_names")[6],6],
+                                                       [t("date.month_names")[7],7], [t("date.month_names")[8],8],
+                                                       [t("date.month_names")[9],9], [t("date.month_names")[10],10],
+                                                       [t("date.month_names")[11],11], [t("date.month_names")[12],12]], @report_date.month), {:class=>"styledselect-gantt"} ) %>
+      <%= select_tag("year_availability", options_for_select([[today_year, today_year], [nex_year, nex_year]], @report_date.year), {:class=>"styledselect-gantt"} ) %>
+      <%= button_to_function(t("screens.labels.query"), "mergeForms('availability_form')") %>
+  <% end %>
+</div>
+
+<table class="availability-table">
+  <tr>
+    <th class="user_col"><%= t("simple_form.labels.resource") %></th>
+
+    <% count = 1
+       @days.times do %>
+        <th class="day_col"><%= count %></th>
+    <% count += 1
+       end %>
+  </tr>
+
+    <% @matrix.each do |record| %>
+        <tr>
+          <td class="user_col"><%= record.first(4).last(3).join(" ") %></td>
+          <% 4.times{record.delete_at(0)}
+             count = 0
+             record.each do %>
+
+                   <td <%= put_class_for_availability(record[count], count) %>><%= record[count] %></td>
+          <% count += 1
+             end %>
+        </tr>
+    <% end %>
+</table>

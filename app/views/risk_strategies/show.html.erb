@@ -1,0 +1,29 @@
+<%= render "shared/control_buttons", :locals => { :instance => @risk_strategy } %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @risk_strategy.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @risk_strategy.description %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.use_umbral") %>:</b></td>
+    <td class="td_data"><%= @risk_strategy.use_umbral %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.use_real_cost") %>:</b></td>
+    <td class="td_data"><%= @risk_strategy.use_real_cost %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.user_recorder") %>:</b></td>
+    <td class="td_data"><%= @risk_strategy.user.try(:full_name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.state") %> :</b></td>
+    <td class="td_data"><%= @risk_strategy.state.try(:name) %></td>
+  </tr>
+</table>
+

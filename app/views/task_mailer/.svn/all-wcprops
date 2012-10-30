@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/332/app/views/task_mailer
+END
+task_created.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/335/app/views/task_mailer/task_created.html.erb
+END
+task_updated.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/336/app/views/task_mailer/task_updated.html.erb
+END

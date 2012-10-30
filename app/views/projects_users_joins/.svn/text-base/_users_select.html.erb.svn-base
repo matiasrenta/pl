@@ -1,0 +1,2 @@
+<%= collection_select("projects_users_join", :user_id, @users_not_assigned, :id, :full_name, {:include_blank => true, :class => 'select required'}) %>
+

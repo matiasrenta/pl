@@ -1,0 +1,81 @@
+<!-- 2. Add the JavaScript to initialize the chart on document ready -->
+<script type="text/javascript">
+
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                spacingTop: 20,
+                width: 400,
+                height: 300
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Estadistica de navegadores, 2010'
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>' + this.point.name + '</b>: ' + this.y + ' %';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#AAAAAA',
+                        connectorColor: '#AAAAAA',
+                        formatter: function() {
+                            return '<b>' + this.point.name + '</b>: ' + this.y + ' %';
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                        ['Firefox',   45.0],
+                        ['IE',       26.8],
+                        {
+                            name: 'Chrome',
+                            y: 12.8,
+                            sliced: true,
+                            selected: true
+                        },
+                        ['Safari',    8.5],
+                        ['Opera',     6.2],
+                        ['Otros',   0.7]
+                    ]
+                }
+            ]
+        });
+
+        // create some buttons to test the resize logic
+        var $container = $('#container');
+        var origChartWidth = 400,
+                origChartHeight = 300,
+                chartWidth = origChartWidth,
+                chartHeight = origChartHeight;
+        $('<button style="margin: 0 5px 5px 0">+</button>').insertBefore($container).click(function() {
+            chart.setSize(chartWidth *= 1.1, chartHeight *= 1.1);
+        });
+        $('<button style="margin: 0 5px 5px 0">-</button>').insertBefore($container).click(function() {
+            chart.setSize(chartWidth *= 0.9, chartHeight *= 0.9);
+        });
+        $('<button style="margin: 0 5px 5px 0">1:1</button>').insertBefore($container).click(function() {
+            chartWidth = origChartWidth;
+            chartHeight = origChartHeight;
+            chart.setSize(origChartWidth, origChartHeight);
+        });
+    });
+
+</script>

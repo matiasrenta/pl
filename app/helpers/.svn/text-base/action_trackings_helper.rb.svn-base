@@ -1,0 +1,2 @@
+module ActionTrackingsHelper
+end

@@ -1,0 +1,20 @@
+<%= render "shared/control_buttons", :locals => {:instance => @news_item} %>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.title") %>:</b></td>
+                <td class="td_data"><%= @news_item.title %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+                <td class="td_data"><%= @news_item.description %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.user") %>:</b></td>
+                            <td class="td_data"><%= @news_item.user.try(:name) %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.project") %>:</b></td>
+                            <td class="td_data"><%= @news_item.project.try(:name) %></td>
+              </tr>
+</table>

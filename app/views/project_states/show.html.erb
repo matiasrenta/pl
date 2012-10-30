@@ -1,0 +1,21 @@
+<div class="controls">
+<% if can? :update, ProjectState %>
+<%= link_to t("helpers.link.edit"), edit_project_state_path(@project_state) %>
+<% end %>
+<%= link_to t("helpers.link.list"), project_states_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @project_state.name %></td>
+      </tr>
+</table>
+
+<div class="controls">
+<% if can? :update, ProjectState %>
+<%= link_to t("helpers.link.edit"), edit_project_state_path(@project_state) %>
+<% end %>
+<%= link_to t("helpers.link.list"), project_states_path %>
+</div>

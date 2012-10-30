@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/298/app/views/problems
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/116/app/views/problems/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/213/app/views/problems/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/116/app/views/problems/edit.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/347/app/views/problems/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/347/app/views/problems/index.html.erb
+END

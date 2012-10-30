@@ -1,0 +1,13 @@
+<%= render "shared/error_messages", :target => @life_cycle_phase %>
+
+<div class="controls">
+    <%= link_to t("helpers.link.list"), life_cycle_phases_path if !@return_to_life_cycle%>
+    <%= link_to t("helpers.link.list"), life_cycles_path if @return_to_life_cycle%>
+</div>
+<div class="clear"></div>
+<%= render 'form' %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.list"), life_cycle_phases_path if !@return_to_life_cycle%>
+  <%= link_to t("helpers.link.list"), life_cycles_path if @return_to_life_cycle%>
+</div>

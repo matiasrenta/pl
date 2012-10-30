@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/matsoft/projector/!svn/ver/298/app/views/accions
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/116/app/views/accions/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/213/app/views/accions/show.html.erb
+END
+_form-no-simple-form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/156/app/views/accions/_form-no-simple-form.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/116/app/views/accions/edit.html.erb
+END
+ajax_display_risk_or_problem.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/177/app/views/accions/ajax_display_risk_or_problem.js.erb
+END
+_show_trackings_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/176/app/views/accions/_show_trackings_list.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/347/app/views/accions/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/298/app/views/accions/index.html.erb
+END
+_action_trackings_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/156/app/views/accions/_action_trackings_form.html.erb
+END

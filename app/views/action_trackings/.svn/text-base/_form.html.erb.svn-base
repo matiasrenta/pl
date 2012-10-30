@@ -1,0 +1,17 @@
+<div class="gray_form">
+  <%= simple_form_for(@action_tracking) do |f| %>
+
+      <div class="inputs">
+        <%= f.association :accion %>
+        <%= f.association :user %>
+        <%= f.input :tracking_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+      </div>
+
+      <div class="actions">
+        <%= f.button :submit %>
+      </div>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,65 @@
+<%
+   container_id = "container_accion_pie_chart"
+   chart_var_name = "accion_pie_chart"
+   chart_width = 360
+   chart_height = 300
+%>
+
+<script type="text/javascript">
+
+    var chart;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                spacingTop: 20,
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '% Acciones por Estado'
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>' + this.point.name + '</b>: ' + this.y + ' %';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#AAAAAA',
+                        connectorColor: '#AAAAAA',
+                        formatter: function() {
+                            return '<b>' + this.point.name + '</b>: ' + this.y + ' %';
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'pie',
+                    name: 'Actions share',
+                    data: [
+                        ['<%= ActionState.open.name %>', <%= @company_dashboard.accions_per_state[:open].round %>],
+                        ['<%= ActionState.closed.name %>', <%= @company_dashboard.accions_per_state[:closed].round %>]
+                    ]
+                }
+            ]
+        });
+
+        // create some buttons to test the resize logic
+        <%= render "/shared/chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+    });
+
+</script>
+
+<%= render "/shared/chart_controls", :locals => {:container_id => container_id, :min_width => 230} %>

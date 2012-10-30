@@ -1,0 +1,18 @@
+<div class="gray_form">
+  <%= simple_nested_form_for(@life_cycle) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "phases_form", :f => f %>
+
+      <%= render "shared/submit_form_model", :model_class => LifeCycle %>
+
+  <% end %>
+</div>
+
+

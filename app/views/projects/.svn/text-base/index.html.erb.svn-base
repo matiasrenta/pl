@@ -1,0 +1,99 @@
+<%= render 'shared/pagination', :locals => {:target => @projects, :model_index_path => projects_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Project } %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :company_id_equals, :label => t("activerecord.i18n_name.CompanyType.customer"), :as => :select, :collection => Company.customer_companies %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :leader_id_equals, :label => t("simple_form.labels.leader"), :as => :select, :collection => User.all %>
+
+        <div class="from_to">
+          <%= label_tag(:real_start_date_greater_than_or_equal_to, t("simple_form.labels.real_start_date")) %>
+          <%= f.input :real_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :real_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <div class="from_to">
+          <%= label_tag(:real_end_date_greater_than_or_equal_to, t("simple_form.labels.real_end_date")) %>
+          <%= f.input :real_end_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :real_end_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <div class="from_to">
+          <%= label_tag(:sale_price_cents_greater_than_or_equal_to, t("simple_form.labels.sale_price")) %>
+          <%= f.input :sale_price_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+          <%= f.input :sale_price_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:risk_fund_cents_greater_than_or_equal_to, t("simple_form.labels.risk_fund")) %>
+          <%= f.input :risk_fund_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+          <%= f.input :risk_fund_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:expense_fund_cents_greater_than_or_equal_to, t("simple_form.labels.expense_fund")) %>
+          <%= f.input :expense_fund_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+          <%= f.input :expense_fund_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+        </div>
+        <%= f.input :currency_contains, :label => t("simple_form.labels.currency"), :as => :select, :collection => major_currencies(Money::Currency::TABLE) %>
+        <%= f.input :risk_strategy_id_equals, :label => t("simple_form.labels.risk_strategy"), :as => :select, :collection => RiskStrategy.all %>
+        <%= f.input :life_cycle_id_equals, :label => t("simple_form.labels.life_cycle"), :as => :select, :collection => LifeCycle.all %>
+        <%= f.input :project_state_id_equals, :label => t("simple_form.labels.project_state"), :as => :select, :collection => ProjectState.all %>
+        <%= f.input :area_id_equals, :label => t("simple_form.labels.area"), :as => :select, :collection => Area.all %>
+        <%= f.input :city_id_equals, :label => t("simple_form.labels.city"), :as => :select, :collection => City.all %>
+
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :company_name, t("activerecord.i18n_name.CompanyType.customer") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :planned_start_date, t("simple_form.labels.planned_start_date") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :real_start_date, t("simple_form.labels.real_start_date") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :currency, t("simple_form.labels.currency") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :life_cycle_name, t("simple_form.labels.life_cycle") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :project_state_name, t("simple_form.labels.project_state") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :leader_name, t("simple_form.labels.leader") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :area_name, t("simple_form.labels.area") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :city_name, t("simple_form.labels.city") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @projects.each do |project| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= can?(:read, project) ? link_to(project.name, project) : project.name %></td>
+        <td><%= project.company.try(:name) %></td>
+        <td><%= truncate(project.description, :length => 80) %></td>
+        <td><%= project.planned_start_date %></td>
+        <td><%= project.real_start_date %></td>
+        <td><%= project.currency %></td>
+        <td><%= project.life_cycle.try(:name) %></td>
+        <td><%= project.project_state.try(:name) %></td>
+        <td><%= project.leader.try(:full_name) %></td>
+        <td><%= project.area.try(:name) %></td>
+        <td><%= project.city.try(:name) %></td>
+        <td class="options-width">
+          <%= link_to '', project, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, project %>
+          <%= link_to '', edit_project_path(project), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, project %>
+          <%= link_to '', project, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, project %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @projects, :model_index_path => projects_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Project, :no_filter => true } %>
+
+
+

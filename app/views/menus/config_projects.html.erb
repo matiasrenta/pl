@@ -1,0 +1,11 @@
+<% if can? :read, LifeCycle %>
+    <div><%= link_to t("screens.menu.conf.life_cycles"), life_cycles_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, RiskStrategy %>
+    <div><%= link_to t("screens.menu.conf.risk_strategies"), risk_strategies_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, RiskSource %>
+    <div><%= link_to t("screens.menu.conf.risk_sources"), risk_sources_path, :class => "ajax" %></div>
+<% end %>

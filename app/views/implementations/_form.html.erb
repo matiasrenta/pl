@@ -1,0 +1,17 @@
+<div class="gray_form">
+  <%= simple_form_for(@implementation) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :project_id, :as => :hidden %>
+
+        <%= f.input :planned_progress, :hint => "Ejemplo: 25 (significa 25%)" %>
+        <%= f.input :real_progress, :hint => "Ejemplo: 25 (significa 25%)" %>
+        <%= f.input :evaluation_date, :as => :string, :input_html => {:class => "datepicker"} %>
+      </div>
+
+      <%= render "shared/submit_form_model", {:model_class => Implementation, :cancel_goto => project_path(actual_project)} %>
+
+  <% end %>
+</div>
+
+

@@ -1,0 +1,61 @@
+<%= render 'shared/pagination', :locals => {:target => @life_cycle_phases, :model_index_path => life_cycle_phases_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + " " + t("simple_form.labels.life_cycle_phase"), new_life_cycle_phase_path if can? :create, LifeCyclePhase %>
+  <a class="trigger <%= 'filter_active' if @filter_active %>" href="#">Filtros</a>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <div class="from_to">
+          <%= label_tag(:position_greater_than_or_equal_to, "position") %>
+          <%= f.input :position_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :position_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <%= f.input :life_cycle_id_equals, :label => t("simple_form.labels.life_cycle"), :as => :select, :collection => LifeCycle.all %>
+        <div class="actions">
+          <%= f.button :submit, t("helpers.submit.search") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :position, "Position" %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :life_cycle_name, t("simple_form.labels.life_cycle") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @life_cycle_phases.each do |life_cycle_phase| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= life_cycle_phase.name %></td>
+        <td><%= life_cycle_phase.description %></td>
+        <td><%= life_cycle_phase.position %></td>
+        <td><%= life_cycle_phase.life_cycle.try(:name) %></td>
+        <td class="options-width">
+          <%= link_to '', life_cycle_phase, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, life_cycle_phase %>
+          <%= link_to '', edit_life_cycle_phase_path(life_cycle_phase), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, life_cycle_phase %>
+          <%= link_to '', life_cycle_phase, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, life_cycle_phase %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @life_cycle_phases, :model_index_path => life_cycle_phases_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + " " + t("simple_form.labels.life_cycle_phase"), new_life_cycle_phase_path if can? :create, LifeCyclePhase %>
+</div>
+
+
+

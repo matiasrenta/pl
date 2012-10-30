@@ -1,0 +1,5 @@
+<%= render "shared/error_messages", :target => @task %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Task } %>
+<div class="clear"></div>
+<%= render 'form' %>

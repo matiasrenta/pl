@@ -1,0 +1,69 @@
+<%
+   container_id = "container_capacity_occupancy_chart"
+   chart_var_name = "capacity_occupancy_chart"
+   chart_width = 555
+   chart_height = 385
+
+   implementations = Implementation.unscoped.where("project_id = ?", @project_dashboard.project.id).order(:evaluation_date)
+%>
+
+<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                type: 'line',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Avance de Implementación',
+            },
+            xAxis: {
+                categories: [
+                    <% implementations.each do |implementation| %>
+                    '<%= implementation.evaluation_date %>',
+                    <% end %>
+                ]
+            },
+            yAxis: {
+                title: {
+                    text: '% de avance'
+                },
+                max: 100,
+                min: 0,
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y +'%';
+                }
+            },
+            series: [{
+                name: 'Real',
+                data: [<%= implementations.map(&:real_progress).join(', ') %>]
+            }, {
+                name: 'Planeado',
+                data: [<%= implementations.map(&:planned_progress).join(', ') %>]
+            }]
+        });
+    });
+
+    // create some buttons to test the resize logic
+    <%= render "/shared/chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+});
+
+</script>​
+
+<%= render "/shared/chart_controls", :locals => {:container_id => container_id, :min_width => 230} %>
+

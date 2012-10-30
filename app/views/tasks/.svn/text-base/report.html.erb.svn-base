@@ -1,0 +1,113 @@
+<%= render 'shared/pagination', :locals => {:target => @tasks, :model_index_path => "report", :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+
+<div class="buttons">
+  <%= link_to image_tag('/images/glyphicons/glyphicons_090_table.png', :alt => '') + " " + t("screens.links.list_view"), tasks_path %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_110_align_left.png', :alt => '') + " " + t("screens.links.gantt_view"), tasks_path(:gantt_view => true) %>
+  <%= render "shared/control_filter", :locals => {:force_filter => true} %>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :url => "report", :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => actual_project.users %>
+        <div class="from_to">
+          <%= label_tag(:planned_start_date_greater_than_or_equal_to, t("simple_form.labels.planned_start_date")) %>
+          <%= f.input :planned_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :planned_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_start_date_greater_than_or_equal_to, t("simple_form.labels.real_start_date")) %>
+          <%= f.input :real_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :real_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_end_date_greater_than_or_equal_to, t("simple_form.labels.planned_end_date")) %>
+          <%= f.input :planned_end_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :planned_end_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_duration_greater_than_or_equal_to, t("simple_form.labels.planned_duration")) %>
+          <%= f.input :planned_duration_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_duration_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_hours_greater_than_or_equal_to, t("simple_form.labels.planned_hours")) %>
+          <%= f.input :planned_hours_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_hours_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_hours_greater_than_or_equal_to, t("simple_form.labels.real_hours")) %>
+          <%= f.input :real_hours_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :real_hours_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_progress_greater_than_or_equal_to, t("simple_form.labels.planned_progress")) %>
+          <%= f.input :planned_progress_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_progress_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_progress_greater_than_or_equal_to, t("simple_form.labels.real_progress")) %>
+          <%= f.input :real_progress_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :real_progress_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <%= f.input :life_cycle_phase_id_equals, :label => t("simple_form.labels.life_cycle_phase"), :as => :select, :collection => actual_project.life_cycle_phases %>
+        <%= f.input :task_state_id_equals, :label => t("simple_form.labels.task_state"), :as => :select, :collection => TaskState.all %>
+        <%= f.input :task_type_id_equals, :label => t("simple_form.labels.task_type"), :as => :select, :collection => TaskType.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.name") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.responsible_user") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.task_state") %></a></th>
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_start_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_start_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_end_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_end_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.on_time") %></a></th>
+
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_effort") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_effort") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.in_time") %></a></th>
+
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_progress") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_progress") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.deviation") %></a></th>
+  </tr>
+  <% @tasks.each do |task| %>
+      <tr class="<%= cycle('alternate-row', '') %>" >
+        <td><%= can?(:read, task) ? link_to(task.name, task) : task.name %></td>
+        <td><%= task.user.try(:full_name) %></td>
+        <td><%= task.task_state.try(:name) %></td>
+
+        <td><%= task.planned_start_date %></td>
+        <td><%= task.real_start_date %></td>
+        <td><%= task.planned_end_date %></td>
+        <td><%= task.real_end_date %></td>
+        <td align="center"><img src="/images/icons/<%= put_lights_icons(task.on_time) %>" alt=""></td>
+
+        <td><%= task.planned_hours %> <%= " horas" if task.planned_effort_now %></td>
+        <td><%= task.real_hours %> <%= " horas" if task.real_hours %></td>
+        <td align="center"><img src="/images/icons/<%= put_lights_icons(task.in_time) %>" alt=""></td>
+
+        <td><%= task.planned_progress_now_percent.to_s %>%</td>
+        <td><%= task.real_progress ? task.real_progress : 0 %>%</td>
+        <td align="center"><img src="/images/icons/<%= put_lights_icons(task.progress_deviation) %>" alt=""></td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @tasks, :model_index_path => "report", :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>

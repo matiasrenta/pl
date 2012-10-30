@@ -1,0 +1,12 @@
+<div class="gray_form">
+  <%= simple_form_for(@project_dashboard) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :at_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => ProjectDashboard %>
+  <% end %>
+</div>
+
+

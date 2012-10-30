@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/matsoft/projector/!svn/ver/1/config/environments
+END
+development.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/344/config/environments/development.rb
+END
+production.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/344/config/environments/production.rb
+END
+test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/1/config/environments/test.rb
+END

@@ -1,0 +1,54 @@
+<style type="text/css">
+  .input-text-medium{width: 100px; max-width:100px; min-width:100px;}
+</style>
+
+<div class="clear"></div>
+
+<fieldset style="padding:15px; margin-top:15px; border:solid 1px; border-color:#999999;">
+  <legend style="color:black; font-weight:bold; font-size:16px;">&nbsp <%= legend %> &nbsp</legend>
+
+  <div class="div-table">
+    <div class="div-table-row" style="background-color:#cccccc">
+      <div class="div-table-col"><b><%= t("simple_form.labels.title") %></b></div>
+      <div class="div-table-col"><b><%= t("simple_form.labels.description") %></b></div>
+      <div class="div-table-col"><b>Compromiso</b></div>
+      <div class="div-table-col"><b>Fecha Real</b></div>
+      <div class="div-table-col"><b>Responsable</b></div>
+      <div class="div-table-col"><b>Estado</b></div>
+      <div class="div-table-col"><b>Prioridad</b></div>
+      <div class="div-table-col"></div>
+    </div>
+    <%= f.fields_for :accions do |accion_form| %>
+        <%= accion_form.hidden_field :project_id, :value => session[:actual_project] %>
+        <%= accion_form.hidden_field :user_id, :value => current_user.id %>
+        <%= accion_form.hidden_field :action_source_type_id, :value => @action_source_type.id %>
+        <div class="div-table-row">
+          <div class="div-table-col"><%= accion_form.text_field :title, {:class => "input-text-medium"} %></div>
+          <div class="div-table-col"><%= accion_form.text_field :description, {:class => "input-text-medium"} %></div>
+          <div class="div-table-col"><%= accion_form.text_field :commitment_date, {:class => 'datepicker input-text-medium', :style => "width=30px;"} %></div>
+          <div class="div-table-col"><%= accion_form.text_field :real_date, :class => 'datepicker input-text-medium' %></div>
+          <div class="div-table-col"><%= accion_form.select :responsible_user, User.assigned_to_project(session["actual_project"]).collect { |p| [p.full_name, p.id] }, {:include_blank => true}, {:class => "input-text-medium", :style => "min-width:100px;"} %></div>
+          <div class="div-table-col"><%= accion_form.select :action_state, ActionState.all.collect { |p| [p.name, p.id] }, {:include_blank => true}, {:class => "input-text-medium",:style => "min-width:100px;"} %></div>
+          <div class="div-table-col"><%= accion_form.select :action_priority, ActionPriority.all.collect { |p| [p.name, p.id] }, {:include_blank => true}, {:class => "input-text-medium", :style => "min-width:100px;"} %></div>
+        </div>
+
+        <div class="div-table-row">
+          <div style="display: table-cell; min-width: 700px;"><%= render "/accions/action_trackings_form", :f => accion_form %></div>
+          <div style="display: table-cell; width: 150px;">
+            <%= f.link_to_remove(:class => "remove_nested_row_form") do %>
+              Borrar Accion
+            <% end %>
+          </div>
+        </div>
+
+
+
+    <% end %>
+  </div>
+
+  <%= f.link_to_add(:accions, :class => "add_nested_row_form") do %>
+    Nueva Accion
+  <% end %>
+  <br/>
+
+</fieldset>

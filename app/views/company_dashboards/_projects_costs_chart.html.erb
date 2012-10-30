@@ -1,0 +1,67 @@
+<%
+   container_id = "container_project_cost_bar_chart"
+   chart_var_name = "cost_chart"
+   chart_width = 555
+   chart_height = 350
+%>
+
+<script type="text/javascript">
+    var <%= chart_var_name %>;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                type: 'bar',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Costos por Proyecto'
+            },
+            xAxis: {
+                categories: [
+                    <% @company_dashboard.costs.each do |project_costs| %>
+                        '<%= project_costs[:name] %>',
+                    <% end %>
+                ]
+            },
+            yAxis: {
+                title: {
+                    text: 'Costo (<%= "MXN" %>)'
+                },
+                min: 0
+            },
+            series: [
+                {
+                    name: 'Real',
+                    data: [
+                        <% @company_dashboard.costs.each do |project_costs| %>
+                            <%= Float(project_costs[:real_cost]).round(2) %>,
+                        <% end %>
+                    ]
+                },
+                {
+                    name: 'Planeado',
+                    data: [
+                        <% @company_dashboard.costs.each do |project_costs| %>
+                            <%= Float(project_costs[:planned_cost]).round(2) %>,
+                        <% end %>
+                    ]
+                }
+            ]
+
+        });
+
+        // create some buttons to test the resize logic
+        <%= render "/shared/chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+
+    });
+</script>
+
+<%#= render "chart_controls", :locals => {:container_id => container_id} %>
+<%= render "/shared/chart_controls", :locals => {:container_id => container_id} %>
+
+

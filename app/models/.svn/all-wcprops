@@ -1,0 +1,287 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/matsoft/projector/!svn/ver/323/app/models
+END
+company.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/213/app/models/company.rb
+END
+holiday.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/351/app/models/holiday.rb
+END
+expense.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/89/app/models/expense.rb
+END
+country.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/90/app/models/country.rb
+END
+company_dashboard.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/360/app/models/company_dashboard.rb
+END
+problem_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/347/app/models/problem_state.rb
+END
+risk_exposition.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/23/app/models/risk_exposition.rb
+END
+day_off.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/351/app/models/day_off.rb
+END
+project_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/323/app/models/project_state.rb
+END
+city.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/111/app/models/city.rb
+END
+action_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/239/app/models/action_state.rb
+END
+task_progress.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/354/app/models/task_progress.rb
+END
+accion.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/285/app/models/accion.rb
+END
+day_hour.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/matsoft/projector/!svn/ver/353/app/models/day_hour.rb
+END
+region_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/111/app/models/region_state.rb
+END
+problem_priority.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/23/app/models/problem_priority.rb
+END
+risk_strategy.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/111/app/models/risk_strategy.rb
+END
+life_cycle.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/357/app/models/life_cycle.rb
+END
+risk_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/347/app/models/risk_state.rb
+END
+life_cycle_phase.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/149/app/models/life_cycle_phase.rb
+END
+problem.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/111/app/models/problem.rb
+END
+problem_severity.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/23/app/models/problem_severity.rb
+END
+company_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/213/app/models/company_type.rb
+END
+document.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/matsoft/projector/!svn/ver/272/app/models/document.rb
+END
+project.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/355/app/models/project.rb
+END
+lesson.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/matsoft/projector/!svn/ver/89/app/models/lesson.rb
+END
+task_state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/matsoft/projector/!svn/ver/94/app/models/task_state.rb
+END
+risk_impact.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/112/app/models/risk_impact.rb
+END
+role.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/360/app/models/role.rb
+END
+action_source_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/239/app/models/action_source_type.rb
+END
+task_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/matsoft/projector/!svn/ver/23/app/models/task_type.rb
+END
+implementation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/359/app/models/implementation.rb
+END
+state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/matsoft/projector/!svn/ver/239/app/models/state.rb
+END
+risk.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/285/app/models/risk.rb
+END
+project_dashboard.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/355/app/models/project_dashboard.rb
+END
+action_priority.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/71/app/models/action_priority.rb
+END
+area.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/111/app/models/area.rb
+END
+projects_phases_join.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/314/app/models/projects_phases_join.rb
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/364/app/models/user.rb
+END
+risk_source.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/18/app/models/risk_source.rb
+END
+ability.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/367/app/models/ability.rb
+END
+projects_users_join.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/105/app/models/projects_users_join.rb
+END
+risk_probability.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/112/app/models/risk_probability.rb
+END
+task.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/355/app/models/task.rb
+END
+expense_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/90/app/models/expense_type.rb
+END
+action_tracking.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/1/app/models/action_tracking.rb
+END
+news_item.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/matsoft/projector/!svn/ver/323/app/models/news_item.rb
+END

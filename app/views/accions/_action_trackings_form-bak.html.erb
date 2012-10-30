@@ -1,0 +1,34 @@
+<div class="clear"></div>
+
+<fieldset style="padding:15px; margin:25px; border:solid 1px; border-color:#999999;">
+  <legend style="color:black; font-weight:bold; font-size:14px;">&nbsp Seguimientos de la Accion &nbsp</legend>
+
+  <div class="div-table">
+    <div class="div-table-row" style="background-color:#cccccc">
+      <div class="div-table-col"><b>* Recurso</b></div>
+      <div class="div-table-col"><b>* Fecha Seguimiento</b></div>
+      <div class="div-table-col"><b>* Descripcion</b></div>
+      <div class="div-table-col"></div>
+    </div>
+    <%= f.fields_for :action_trackings do |action_trackings_form| %>
+        <div class="div-table-row">
+          <div class="div-table-col"><%= action_trackings_form.select :user_id, Project.find(session["actual_project"]).users.collect { |p| [p.full_name, p.id] }, {:include_blank => true} %></div>
+          <div class="div-table-col"><%= action_trackings_form.text_field :tracking_date, :class => 'datepicker' %></div>
+          <div class="div-table-col"><%= action_trackings_form.text_field :description %></div>
+          <div class="div-table-col">
+            <%= f.link_to_remove(:class => "remove_nested_row_form") do %>
+              Borrar Seguimiento
+            <% end %>
+            <%#= action_trackings_form.link_to_remove "Borrar Seguimiento" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+  <%= f.link_to_add(:action_trackings, :class => "add_nested_row_form") do %>
+    Nuevo Seguimiento
+  <% end %>
+  <%#= f.link_to_add "Nuevo Seguimiento", :action_trackings %>
+  <br/>
+
+</fieldset>

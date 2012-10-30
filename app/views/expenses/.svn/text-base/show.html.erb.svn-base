@@ -1,0 +1,29 @@
+<%= render "shared/control_buttons", :locals => { :instance => @expense } %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.expense_type") %>:</b></td>
+    <td class="td_data"><%= @expense.expense_type.try(:title) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.resource") %>:</b></td>
+    <td class="td_data"><%= @expense.user.full_name %> </td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.user_recorder") %>:</b></td>
+    <td class="td_data"><%= @expense.user_recorder.full_name %> </td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.receipt_code") %>:</b></td>
+    <td class="td_data"><%= @expense.receipt_code %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.amount") %>:</b></td>
+    <td class="td_data"><%= @expense.amount %> <%= @expense.currency %> </td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @expense.description %></td>
+  </tr>
+</table>
+

@@ -1,0 +1,190 @@
+<script type="text/javascript">
+
+    <% @tasks.each do |task| %>
+
+    $(document).ready(function() {
+        $('#calendar_<%= task.id %>').fullCalendar({
+            firstDay: 1,
+            holidays: [<%= @holidays_for_fullcalendar %>],
+            days_off: '<%= @days_off_for_fullcalendar %>',
+            defaultView: 'basicWeek',
+            contentHeight: 50,
+            theme: false,
+            header: { left: 'basicWeek,month', center:'title', right:'today prev,next'},
+            events: [
+                <% task.task_progresses.each do |task_progress| %>
+                {
+                    id: '<%= task_progress.id %>',
+                    edit_path: '<%= edit_task_progress_path(task_progress) %>',
+                    title: 'E: <%= task_progress.effort %> h.',
+                    start: '<%= task_progress.working_day.strftime("%Y-%m-%d") %>',
+                    textColor: 'black',
+                    backgroundColor: '#f6931f'
+                },
+                {
+                    id: '<%= task_progress.id %>',
+                    edit_path: '<%= edit_task_progress_path(task_progress) %>',
+                    title: 'A: <%= task_progress.progress %>%',
+                    start: '<%= task_progress.working_day.strftime("%Y-%m-%d") %>',
+                    textColor: 'white',
+                    backgroundColor: 'green'
+                },
+                <% end %>
+            ],
+            color: 'yellow',   // an option!
+            textColor: 'black', // an option!
+            backgroundColor: 'yellow',
+
+            dayClick: function(date, allDay, jsEvent, view) {
+                var url = $('#find_me_<%= task.id %>').html();
+                var working_day = "&working_day=" + $.fullCalendar.formatDate(date, "dd/MM/yyyy");
+                jQuery.facebox({ ajax: url + working_day});
+            },
+
+            eventClick: function(calEvent, jsEvent, view) {
+                jQuery.facebox({ ajax: calEvent.edit_path});
+                //alert('Event: ' + calEvent.id);
+            }
+
+        });
+    });
+
+    <% end %>
+
+    $(document).ready(function() {
+        $('<%= @days_off_for_fullcalendar %>').addClass("fc-holiday");
+    });
+
+</script>
+
+
+
+
+
+
+<div class="buttons">
+  <%= render "shared/control_filter", :locals => {:force_filter => true} %>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :url => "progress", :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => actual_project.users %>
+        <div class="from_to">
+          <%= label_tag(:planned_start_date_greater_than_or_equal_to, t("simple_form.labels.planned_start_date")) %>
+          <%= f.input :planned_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :planned_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_start_date_greater_than_or_equal_to, t("simple_form.labels.real_start_date")) %>
+          <%= f.input :real_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :real_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_end_date_greater_than_or_equal_to, t("simple_form.labels.planned_end_date")) %>
+          <%= f.input :planned_end_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :planned_end_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_duration_greater_than_or_equal_to, t("simple_form.labels.planned_duration")) %>
+          <%= f.input :planned_duration_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_duration_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_hours_greater_than_or_equal_to, t("simple_form.labels.planned_hours")) %>
+          <%= f.input :planned_hours_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_hours_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_hours_greater_than_or_equal_to, t("simple_form.labels.real_hours")) %>
+          <%= f.input :real_hours_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :real_hours_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_progress_greater_than_or_equal_to, t("simple_form.labels.planned_progress")) %>
+          <%= f.input :planned_progress_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_progress_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_progress_greater_than_or_equal_to, t("simple_form.labels.real_progress")) %>
+          <%= f.input :real_progress_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :real_progress_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <%= f.input :life_cycle_phase_id_equals, :label => t("simple_form.labels.life_cycle_phase"), :as => :select, :collection => actual_project.life_cycle_phases %>
+        <%= f.input :task_state_id_equals, :label => t("simple_form.labels.task_state"), :as => :select, :collection => TaskState.all %>
+        <%= f.input :task_type_id_equals, :label => t("simple_form.labels.task_type"), :as => :select, :collection => TaskType.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.name") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.task_state") %></a></th>
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_start_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_start_date") %></a></th>
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_end_date") %></a></th>
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_duration") %></a></th>
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_effort") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_effort") %></a></th>
+
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_progress") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="return false"><%= t("simple_form.labels.real_progress") %></a></th>
+
+    <th class="table-header-repeat line-left minwidth-3"><a href="#" onclick="return false;"><%= t("screens.labels.day_progress_charge") %></a>
+    </th>
+  </tr>
+
+  <% actual_project.life_cycle_phases.each do |phase| %>
+      <tr style="background-color:#595D5C;">
+        <td colspan="11">
+          <%= link_to "(-) #{phase.name}", "#", {:class => "toggle_tr", "data-class_tr_to_toggle" => phase.id.to_s + "_tr_phase", "data-link_text" => phase.name} %>
+        </td>
+      </tr>
+
+      <% @tasks.each do |task| %>
+          <% if task.life_cycle_phase == phase %>
+              <tr class="<%= cycle("alternate-row", "") %> <%= phase.id.to_s + "_tr_phase" %>">
+                <td><%= can?(:read, task) ? link_to(task.name, task) : task.name %></td>
+                <td><%= task.task_state.try(:name) %></td>
+
+                <td><%= task.planned_start_date %></td>
+                <td><%= task.real_start_date %></td>
+
+                <td><%= task.planned_end_date %></td>
+
+                <td><%= task.planned_duration %> (dias)</td>
+
+                <td><%= task.planned_hours %> <%= " horas" if task.planned_hours %></td>
+                <td><%= task.real_hours %> <%= " horas" if task.real_hours %></td>
+
+                <td><%= task.planned_progress_now_percent.to_s %>%</td>
+                <td><%= task.real_progress ? task.real_progress : 0 %>%</td>
+
+                <td>
+                  <div id="calendar_<%= task.id %>" class="calendar"></div>
+                  <p id="find_me_<%= task.id %>" style="display:none;"><%= new_task_progress_path(:task_id => task.id, :progress => '13', :effort => 54) %></p>
+                </td>
+              </tr>
+          <% end %>
+      <% end %>
+
+  <% end %>
+</table>
+
+
+
+<%#= link_to 'Cargar', new_task_progress_path(:task_id => task.id, :progress => '13', :effort => 54, :working_day => '20/09/2011'), {:rel => 'facebox'} %>
+
+<div id="debug"></div>

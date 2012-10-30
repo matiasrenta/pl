@@ -1,0 +1,183 @@
+<style>
+    div.demo {
+        padding: 10px !important;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:5px;
+        margin-top:20px;
+        width:90%;
+    }
+
+    .slider_percent_effort {
+        border:0;
+        width:100px;
+        color:#f6931f;
+        font-weight:bold;
+        font-size:16px;
+        background-color:transparent;"
+    }
+    .slider_percent_progress {
+        border:0;
+        width:50px;
+        color:#008000;
+        font-weight:bold;
+        font-size:16px;
+        background-color:transparent;"
+    }
+
+    .progress_title{
+        font-family:arial;
+        font-size:14px;
+        margin-right:auto;
+        margin-left:auto;
+        margin-top:10px;
+        margin-bottom:10px;
+        line-height:20px;
+        width:665px;
+    }
+
+    .slider_label {
+        margin-bottom:5px;
+    }
+</style>
+
+<script>
+    $(function() {
+        $("#slider-range-min-progress").slider({
+            range: "min",
+            value: <%= @task_progress.progress %>,
+            min: 0,
+            max: 100,
+            <% if @fields_disabled %>
+                disabled: true,
+            <% end %>
+            slide: function(event, ui) {
+                if( ui.value < <%= @task_progress.progress %>){
+                    ui.value = <%= @task_progress.progress %>;
+                    return false;
+                }
+                else{
+                    $("#task_progress_progress").val(ui.value + "%");
+                    if(ui.value == 100){
+                        alert("<%= t("screens.alerts.task_will_close") %>");
+                    }
+                }
+
+            }
+        });
+        $("#task_progress_progress").val($("#slider-range-min-progress").slider("value") + "%");
+
+
+        $("#slider-range-min-effort").slider({
+            range: "min",
+            value: <%= @edit_mode ? @task_progress.effort : 0 %>,
+            min: 0,
+            max: 24,
+            <% if @fields_disabled %>
+                disabled: true,
+            <% end %>
+            slide: function(event, ui) {
+                $("#task_progress_effort").val(ui.value + " horas");
+            }
+        });
+        $("#task_progress_effort").val($("#slider-range-min-effort").slider("value") + " horas");
+    });
+</script>
+
+
+<div style="width:800px;">
+
+<%= render "shared/error_messages", :target => @task_progress %>
+<%= render :partial => "/layouts/flash_messages" %>
+<%= flash[:notice], flash[:info], flash[:warning], flash[:alert] = nil  %>
+<div class="clear"></div>
+
+
+
+<div class="progress_title">
+  <p style="font-weight:bold;"><%= @task_progress.task.name %></p>
+</div>
+
+<div class="gray_form" style="width:665px; margin-left:auto; margin-right:auto;">
+  <p style="float:right; color:#5577CC; font-family:arial; font-size:14px; font-weight:bold; margin-right:40px;"><%= l(@task_progress.working_day, :format => :long_day) %></p>
+
+  <%= simple_form_for(@task_progress) do |f| %>
+
+      <div>
+
+        <%= f.input :working_day, :as => :hidden %>
+        <%= f.input :task_id, :as => :hidden %>
+
+
+        <div class="demo">
+        <p class="slider_label">
+          <label for="task_progress_effort"><%= t("screens.labels.day_effort") %>:</label>
+          <input class="slider_percent_effort" type="text" id="task_progress_effort" name="task_progress[effort]" value="<%= @task_progress.effort %>"  <%= "disabled" if @fields_disabled %> />
+        </p>
+        <div id="slider-range-min-effort"></div>
+        </div>
+
+
+        <div class="demo">
+        <p class="slider_label">
+          <label for="task_progress_progress"><%= t("screens.labels.total_progress") %>:</label>
+          <input class="slider_percent_progress" type="text" id="task_progress_progress" name="task_progress[progress]" value="<%= @task_progress.progress %>"  <%= "disabled" if @fields_disabled %> />
+        </p>
+        <div id="slider-range-min-progress"></div>
+        </div>
+
+        <div class="demo">
+            <label for="task_progress_description"><%= t("simple_form.labels.description") %>:</label>
+            <%= f.input :description, :label => false, :input_html => {:style => "width:600px; height:60px;", :disabled => @fields_disabled } %>
+        </div>
+
+        <% if creating? %>
+            <div class="demo">
+                <label for="lesson"><%= t("screens.labels.lesson_learned") %>:</label>
+                <%= text_area_tag :lesson, nil, {:style => "width:600px; height:60px;", :disabled => @fields_disabled }  %>
+            </div>
+        <% end %>
+
+      </div>
+
+      <div class="clear"></div>
+      <br/><br/>
+      <div class="actions">
+        <div class="buttons">
+          <button id="projects_users_join_submit" name="commit" type="submit" class="positive" onclick="javascript:return check_effort();" <%= "disabled" if @fields_disabled %> >
+            <img src="/images/glyphicons/glyphicons_206_ok_2.png" alt=""/>
+            <%= t("helpers.submit.create", :model => t("activerecord.models.TaskProgress")) if creating? %>
+            <%= t("helpers.submit.update", :model => t("activerecord.models.TaskProgress")) if updating? %>
+          </button>
+
+          <%= link_to image_tag("/images/glyphicons/glyphicons_016_bin.png") + " " + t("helpers.link.delete") + " " + t("activerecord.models.TaskProgress"), @task_progress, {:class => "warning", :confirm => t("helpers.messages.are_you_sure"), :method => :delete} if @destroyable %>
+
+          <button type="button" onclick="jQuery(document).trigger('close.facebox');" class="warning" name="cancel" value="true">
+            <img src="/images/glyphicons/glyphicons_221_unshare.png" alt=""/>
+            <%= t('helpers.submit.cancel') %>
+          </button>
+
+        </div>
+      </div>
+
+
+
+  <% end %>
+</div>
+
+</div>
+
+<script type="text/javascript">
+  function check_effort(){
+    var effort = $('#task_progress_effort').val().split(' ')[0]
+    if( !(parseInt(effort) >= 1) ){
+        alert('<%= t("screens.alerts.effort_greater_eq_to_one") %>');
+        return false;
+    }
+    else{
+        return true;
+    }
+  }
+</script>
+
+

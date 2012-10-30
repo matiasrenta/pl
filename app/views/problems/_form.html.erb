@@ -1,0 +1,24 @@
+<div class="gray_form">
+  <%= simple_nested_form_for(@problem) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :user_id, :as => :hidden, :input_html => {:value => @problem.user_id} %>
+        <%= f.input :project_id, :as => :hidden, :input_html => {:value => @problem.project_id} %>
+
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :responsible_user, :collection => collection_with_actual(User.resources.actives.assigned_to(@problem.project), @problem.responsible_user) %>
+        <%= f.association :problem_severity %>
+        <%= f.association :problem_priority %>
+        <%= f.association :problem_state, :input_html => {:disabled => creating?} %>
+        <%= f.input :problem_state_id, :as => :hidden, :input_html => {:value => @problem.problem_state_id} if creating?%>
+      </div>
+
+      <%= render "/risks/accion_form", {:f => f, :legend => t("screens.labels.problem_accions")} %>
+
+
+      <%= render "shared/submit_form_model", {:model_class => Problem, :cancel_goto => session[:problem_goto] ? session[:problem_goto] : nil} %>
+  <% end %>
+</div>
+
+

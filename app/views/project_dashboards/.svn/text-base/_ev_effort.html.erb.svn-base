@@ -1,0 +1,47 @@
+<%
+   container_id = "ev_effort_container"
+   chart_var_name = "ev_effort_chart"
+   chart_width = 555
+   chart_width = 1130 if @ev_charts_big
+   chart_height = 350
+
+
+%>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            title: {
+                text: 'Calculo con Horas'
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: []
+            },
+
+            series: [
+                {name:'EV',data: [<%= @ahev.join(", ") %>]},
+                {name:'PV',data: [<%= @ahpv.join(", ") %>]},
+                {name:'AC',data: [<%= @ahac.join(", ") %>]}            ]
+        });
+
+        // create some buttons to test the resize logic
+        <%= render "chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+
+    });
+
+</script>
+
+<%= render "ev_chart_and_header", :locals => {  :label_1 => "Desempeño del Costo",
+                                                :label_2 => "Desempeño del Calendario",
+                                                :value_1 => @h_cpi,
+                                                :value_2 => @h_spi,
+                                                :projection_text => @h_projection_text,
+                                                :container_id => container_id } %>

@@ -1,0 +1,5 @@
+<% if params[:user][:role_id].to_i == Role.customer.id %>
+    $("#showhide-on-event").css("display", "inline");
+<% else %>
+    $("#showhide-on-event").css("display", "none");
+<% end %>

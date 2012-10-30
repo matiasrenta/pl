@@ -1,0 +1,70 @@
+
+
+
+<table style="margin-bottom:10px; width:100%;">
+  <tr>
+     <td>
+        <div class="buttons">
+          <%= link_to image_tag('/images/glyphicons/glyphicons_090_table.png', :alt => '') + " " + t("helpers.link.list"), company_dashboards_path %>
+        </div>
+     </td>
+     <%#= render :partial => "velocimetro" %>
+     <td>
+        <h3 style="float:right;"><%= t("screens.labels.company_dash_for") %>: <%= l(@company_dashboard.at_date, :format => :long_day) if @company_dashboard.at_date %></h3>
+     </td>
+  </tr>
+</table>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="float:left; margin-right:20px;">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("activerecord.models.Project") %></a></th>
+
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_start_date") %></a></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.real_start_date") %></a></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.planned_end_date") %></a></th>
+
+    <% if QUALTOP %>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("screens.labels.implementation") %></a></th>
+    <% end %>
+
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("screens.labels.effort") %></a></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("screens.labels.cost") %></a></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#" onclick="return false"><%= t("screens.labels.progress") %></a></th>
+  </tr>
+
+  <% @company_dashboard.indicators.each do |indicator| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= link_to(indicator[:name], "go_to_project_dash?project_changed=#{indicator[:id]}") %></td>
+
+        <td align="center"><%= indicator[:planned_start_date]%></td>
+        <td align="center"><%= indicator[:real_start_date]%></td>
+        <td align="center"><%= indicator[:planned_end_date]%></td>
+
+        <% if QUALTOP %>
+            <td align="center">
+              <% if indicator[:implementation_image] %>
+                <img src="/images/icons/<%= indicator[:implementation_image]%>">
+              <% else %>
+                Sin registros
+              <% end %>
+            </td>
+        <% end %>
+
+        <td align="center"><img src="/images/icons/<%= indicator[:effort_image]%>"></td>
+        <td align="center"><img src="/images/icons/<%= indicator[:cost_image]%>"></td>
+        <td align="center"><img src="/images/icons/<%= indicator[:progress_image]%>"></td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render "projects_costs_chart" %>
+<%= render "projects_expenses_chart" %>
+
+<div class="clear"></div>
+
+<%= render "accions_pie_chart" if @company_dashboard.accions_per_state %>
+
+<%= render "capacity_occupancy" %>
+<%#= render "accion_by_source_bar_chart" if @company_dashboard.open_accions_per_source %>
+<%= render "projection_pie_chart" %>

@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/matsoft/projector/!svn/ver/323/app/helpers
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/367/app/helpers/application_helper.rb
+END
+expense_types_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/1/app/helpers/expense_types_helper.rb
+END
+action_trackings_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/1/app/helpers/action_trackings_helper.rb
+END
+news_items_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/323/app/helpers/news_items_helper.rb
+END
+task_progresses_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/1/app/helpers/task_progresses_helper.rb
+END
+expenses_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/1/app/helpers/expenses_helper.rb
+END
+holidays_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/1/app/helpers/holidays_helper.rb
+END
+companies_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/1/app/helpers/companies_helper.rb
+END
+company_dashboards_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/47/app/helpers/company_dashboards_helper.rb
+END
+problem_states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/1/app/helpers/problem_states_helper.rb
+END
+problem_priorities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/1/app/helpers/problem_priorities_helper.rb
+END
+risk_probabilities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/1/app/helpers/risk_probabilities_helper.rb
+END
+risk_expositions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/1/app/helpers/risk_expositions_helper.rb
+END
+project_states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/1/app/helpers/project_states_helper.rb
+END
+action_priorities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/1/app/helpers/action_priorities_helper.rb
+END
+action_states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/1/app/helpers/action_states_helper.rb
+END
+accions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/1/app/helpers/accions_helper.rb
+END
+region_states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/1/app/helpers/region_states_helper.rb
+END
+life_cycles_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/87/app/helpers/life_cycles_helper.rb
+END
+risk_states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/1/app/helpers/risk_states_helper.rb
+END
+problems_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/1/app/helpers/problems_helper.rb
+END
+life_cycle_phases_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/1/app/helpers/life_cycle_phases_helper.rb
+END
+countries_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/1/app/helpers/countries_helper.rb
+END
+company_types_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/1/app/helpers/company_types_helper.rb
+END
+documents_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/272/app/helpers/documents_helper.rb
+END
+projects_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/330/app/helpers/projects_helper.rb
+END
+problem_severities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/1/app/helpers/problem_severities_helper.rb
+END
+lessons_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/89/app/helpers/lessons_helper.rb
+END
+task_states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/1/app/helpers/task_states_helper.rb
+END
+risk_impacts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/1/app/helpers/risk_impacts_helper.rb
+END
+action_source_types_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/1/app/helpers/action_source_types_helper.rb
+END
+task_types_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/1/app/helpers/task_types_helper.rb
+END
+risk_strategies_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/1/app/helpers/risk_strategies_helper.rb
+END
+implementations_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/356/app/helpers/implementations_helper.rb
+END
+states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/1/app/helpers/states_helper.rb
+END
+risks_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/1/app/helpers/risks_helper.rb
+END
+project_dashboards_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/47/app/helpers/project_dashboards_helper.rb
+END
+areas_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/1/app/helpers/areas_helper.rb
+END
+projects_phases_joins_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/45/app/helpers/projects_phases_joins_helper.rb
+END
+users_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/1/app/helpers/users_helper.rb
+END
+risk_sources_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/1/app/helpers/risk_sources_helper.rb
+END
+cities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/1/app/helpers/cities_helper.rb
+END
+projects_users_joins_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/89/app/helpers/projects_users_joins_helper.rb
+END
+tasks_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/350/app/helpers/tasks_helper.rb
+END

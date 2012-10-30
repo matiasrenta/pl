@@ -1,0 +1,16 @@
+<div class="gray_form">
+  <%= simple_form_for(@risk_source) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => RiskSource %>
+
+  <% end %>
+</div>
+
+

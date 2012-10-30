@@ -1,0 +1,74 @@
+<%= render 'shared/pagination', :locals => {:target => @task_progresses, :model_index_path => task_progresses_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Task progress', new_task_progress_path if can? :create, TaskProgress %>
+  <a class="trigger <%= 'filter_active' if @filter_active %>" href="#">Filtros</a>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <div class="from_to">
+          <%= label_tag(:effort_greater_than_or_equal_to, "effort") %>
+          <%= f.input :effort_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :effort_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:progress_greater_than_or_equal_to, "progress") %>
+          <%= f.input :progress_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :progress_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+
+        <div class="from_to">
+          <%= label_tag(:working_day_greater_than_or_equal_to, "working_day") %>
+          <%= f.input :working_day_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :working_day_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <%= f.input :task_id_equals, :label => "task", :as => :select, :collection => Task.all %>
+        <div class="actions">
+          <%= f.button :submit, t("helpers.submit.search") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :effort, "Effort" %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :progress, "Progress" %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :working_day, "Working day" %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :task_name, "Task" %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @task_progresses.each do |task_progress| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= task_progress.description %></td>
+        <td><%= task_progress.effort %></td>
+        <td><%= task_progress.progress %></td>
+        <td><%= task_progress.working_day %></td>
+        <td><%= task_progress.task.try(:name) %></td>
+        <td class="options-width">
+          <%= link_to '', task_progress, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, task_progress %>
+          <%= link_to '', edit_task_progress_path(task_progress), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, task_progress %>
+          <%= link_to '', task_progress, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, task_progress %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @task_progresses, :model_index_path => task_progresses_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Task progress', new_task_progress_path if can? :create, TaskProgress %>
+</div>
+
+
+

@@ -1,0 +1,15 @@
+<% if @problem %>
+    $("#problem_or_risk").html("<input id='accion_risk_id' name='accion[risk_id]' type='hidden' /> <label for='accion_problem_id'>* Problema</label>  <%= raw escape_javascript( collection_select('accion', 'problem_id', Problem.opens_for_project(session[:actual_project]), :id, :name, {:include_blank => true}) ) %>");
+<% elsif @risk %>
+    $("#problem_or_risk").html("<input id='accion_problem_id' name='accion[problem_id]' type='hidden' /> <label for='accion_risk_id'>* Riesgo</label>  <%= raw escape_javascript( collection_select('accion', 'risk_id', Risk.opens_for_project(session[:actual_project]), :id, :name, {:include_blank => true}) ) %>");
+<% else %>
+    $("#problem_or_risk").html("<input id='accion_risk_id' name='accion[risk_id]' type='hidden' /> <input id='accion_problem_id' name='accion[problem_id]' type='hidden' />");
+<% end %>
+
+
+
+
+
+
+
+

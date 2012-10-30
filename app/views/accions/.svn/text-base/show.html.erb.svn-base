@@ -1,0 +1,64 @@
+<table width="100%" >
+  <tr>
+    <td valign="top">
+      <div style="width:400px;">
+
+      <%= render "shared/control_buttons", :locals => { :instance => @accion } %>
+
+      <table class="show_table" style="width:100%">
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.title") %>:</b></td>
+          <td class="td_data"><%= @accion.title %></td>
+        </tr>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+          <td class="td_data"><%= @accion.description %></td>
+        </tr>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.commitment_date") %>:</b></td>
+          <td class="td_data"><%= l(@accion.commitment_date, :format => :long) if @accion.commitment_date %></td>
+        </tr>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.action_priority") %>:</b></td>
+          <td class="td_data"><%= @accion.action_priority.try(:name) %></td>
+        </tr>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.responsible_user") %>:</b></td>
+          <td class="td_data"><%= @accion.responsible_user.try(:full_name) %></td>
+        </tr>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.user_recorder") %>:</b></td>
+          <td class="td_data"><%= @accion.user.try(:full_name) %> </td>
+        </tr>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.action_source_type") %>:</b></td>
+          <td class="td_data"><%= @accion.action_source_type.try(:name) %></td>
+        </tr>
+        <% if @accion.action_source_type == ActionSourceType.risk %>
+            <tr>
+              <td class="td_label"><b><%= t("simple_form.labels.risk") %>:</b></td>
+              <td class="td_data"><%= @accion.risk.try(:name) %></td>
+            </tr>
+        <% end %>
+        <% if @accion.action_source_type == ActionSourceType.problem %>
+            <tr>
+              <td class="td_label"><b><%= t("simple_form.labels.problem") %>:</b></td>
+              <td class="td_data"><%= @accion.problem.try(:name) %></td>
+            </tr>
+        <% end %>
+        <tr>
+          <td class="td_label"><b><%= t("simple_form.labels.action_state") %>:</b></td>
+          <td class="td_data"><%= @accion.action_state.try(:name) %></td>
+        </tr>
+      </table>
+      </div>
+    </td>
+    <td valign="top">
+      <div style="width:750px; margin-left:15px;">
+        <%= render "show_trackings_list" %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+

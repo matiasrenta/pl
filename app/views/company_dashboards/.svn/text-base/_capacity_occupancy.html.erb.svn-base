@@ -1,0 +1,60 @@
+<%
+   container_id = "container_capacity_occupancy_chart"
+   chart_var_name = "capacity_occupancy_chart"
+   chart_width = 360
+   chart_height = 300
+%>
+
+<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                type: 'line',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Capacidad vs. Ocupación',
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+            },
+            yAxis: {
+                title: {
+                    text: 'Horas totales'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y +' Hs.';
+                }
+            },
+            series: [{
+                name: 'Capacidad',
+                data: [56, 70, 70, 80, 88, 88]
+            }, {
+                name: 'Ocupación',
+                data: [20, 60, 75, 83, 80, 85]
+            }]
+        });
+    });
+
+    // create some buttons to test the resize logic
+    <%= render "/shared/chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+});
+
+</script>​
+
+<%= render "/shared/chart_controls", :locals => {:container_id => container_id, :min_width => 230} %>

@@ -1,0 +1,62 @@
+<%= render 'shared/pagination', :locals => {:target => @accions, :model_index_path => accions_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Accion } %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title_contains, :label => t("simple_form.labels.title") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+
+        <div class="from_to">
+          <%= label_tag(:commitment_date_greater_than_or_equal_to, t("simple_form.labels.commitment_date")) %>
+          <%= f.input :commitment_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :commitment_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <%= f.input :responsible_user_id_equals, :label => t("simple_form.labels.responsible_user"), :as => :select, :collection => User.all %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.user_recorder"), :as => :select, :collection => User.all %>
+        <%= f.input :action_state_id_equals, :label => t("simple_form.labels.action_state"), :as => :select, :collection => ActionState.all %>
+        <%= f.input :action_priority_id_equals, :label => t("simple_form.labels.action_priority"), :as => :select, :collection => ActionPriority.all %>
+        <%= f.input :action_source_type_id_equals, :label => t("simple_form.labels.action_source_type"), :as => :select, :collection => ActionSourceType.all %>
+        <%= f.input :problem_id_equals, :label => t("simple_form.labels.problem"), :as => :select, :collection => actual_project.problems %>
+        <%= f.input :risk_id_equals, :label => t("simple_form.labels.risk"), :as => :select, :collection => actual_project.risks %>
+
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :title, t("simple_form.labels.title") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :commitment_date, t("simple_form.labels.commitment_date") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :responsible_user_name, t("simple_form.labels.responsible_user") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :action_source_type_name, t("simple_form.labels.action_source_type") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :action_state_name, t("simple_form.labels.action_state") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :action_priority_name, t("simple_form.labels.action_priority") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @accions.each do |accion| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= can?(:read, accion) ? link_to(accion.title, accion) : accion.title %></td>
+        <td><%= truncate(accion.description, :length => 80) %></td>
+        <td><%= accion.commitment_date %></td>
+        <td><%= accion.responsible_user.try(:full_name) %></td>
+        <td><%= accion.action_source_type.try(:name) %></td>
+        <td><%= accion.action_state.try(:name) %></td>
+        <td><%= accion.action_priority.try(:name) %></td>
+
+        <%= render 'shared/action_icons', :locals => {:target => accion, :model_edit_path => edit_accion_path(accion)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @accions, :model_index_path => accions_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Accion, :no_filter => true } %>

@@ -1,0 +1,35 @@
+<div class="controls">
+  <% if can? :update, LifeCyclePhase %>
+      <%= link_to t("helpers.link.edit"), edit_life_cycle_phase_path(@life_cycle_phase, :life_cycle_id => @return_to_life_cycle) %>
+  <% end %>
+  <%= link_to t("helpers.link.list"), life_cycle_phases_path if !@return_to_life_cycle%>
+  <%= link_to t("helpers.link.list"), life_cycles_path if @return_to_life_cycle%>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @life_cycle_phase.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @life_cycle_phase.description %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>Position:</b></td>
+    <td class="td_data"><%= @life_cycle_phase.position %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.life_cycle") %>:</b></td>
+    <td class="td_data"><%= @life_cycle_phase.life_cycle.try(:name) %></td>
+  </tr>
+</table>
+
+<div class="controls">
+  <% if can? :update, LifeCyclePhase %>
+      <%= link_to t("helpers.link.edit"), edit_life_cycle_phase_path(@life_cycle_phase) %>
+  <% end %>
+  <%= link_to t("helpers.link.list"), life_cycle_phases_path if !@return_to_life_cycle%>
+  <%= link_to t("helpers.link.list"), life_cycles_path if @return_to_life_cycle%>
+</div>

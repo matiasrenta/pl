@@ -1,0 +1,51 @@
+<%= render 'shared/pagination', :locals => {:target => @project_dashboards, :model_index_path => project_dashboards_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => ProjectDashboard } %>
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :status_report_equals, :label => t("simple_form.labels.status_report"), :as => :select %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => User.all %>
+        <div class="from_to">
+          <%= label_tag(:at_date_greater_than_or_equal_to, t("simple_form.labels.at_date")) %>
+          <%= f.input :at_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :at_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :at_date, t("simple_form.labels.at_date") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :status_report, t("simple_form.labels.status_report") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.resource") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @project_dashboards.each do |project_dashboard| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= (can?(:read, project_dashboard) && project_dashboard.at_date) ? link_to(l(project_dashboard.at_date, :format => :long_day), project_dashboard) : l(project_dashboard.at_date, :format => :long_day) %></td>
+        <td><%= project_dashboard.status_report %></td>
+        <td><%= project_dashboard.user.try(:full_name) %></td>
+        <td><%= project_dashboard.description %></td>
+        <td class="options-width">
+          <%= link_to '', project_dashboard, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, project_dashboard %>
+          <%= link_to '', project_dashboard, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, project_dashboard %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @project_dashboards, :model_index_path => project_dashboards_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => ProjectDashboard, :no_filter => true } %>
+
+

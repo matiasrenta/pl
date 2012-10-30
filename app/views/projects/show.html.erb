@@ -1,0 +1,118 @@
+<table border="0" style="cellpadding:10px; cellspacing:10px;">
+  <tr>
+    <td rowspan="<%= QUALTOP ? 4 : 3 %>"  valign="top" style="padding-right:15px; min-width:290px; max-width:600px;">
+
+
+      <%= render "shared/control_buttons", :locals => { :instance => @project } %>
+
+      <div class="clear"></div>
+
+      <table class="show_table">
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+          <td class="td_data"><%= @project.name %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("activerecord.i18n_name.CompanyType.customer") %>:</b></td>
+          <td class="td_data"><%= @project.company.try(:name) %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.leader") %>:</b></td>
+          <td class="td_data"><%= @project.leader.full_name %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+          <td class="td_data"><%= @project.description %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.planned_start_date") %>:</b></td>
+          <td class="td_data"><%= l(@project.planned_start_date, :format => :long) if @project.planned_start_date %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.real_start_date") %>:</b></td>
+          <td class="td_data"><%= l(@project.real_start_date, :format => :long) if @project.real_start_date %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.planned_end_date") %>:</b></td>
+          <td class="td_data"><%= l(@project.planned_end_date, :format => :long) if @project.planned_end_date %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.real_end_date") %>:</b></td>
+          <td class="td_data"><%= l(@project.real_end_date, :format => :long) if @project.real_end_date %></td>
+        </tr>
+
+<% if can? :see_prices_and_cost, User %>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.planned_resources_cost") %>:</b></td>
+          <td class="td_data"><%= @project.planned_resources_cost %> <%= @project.currency %> | <%= @project.planned_resources_cost.exchange_to("USD") %> USD </td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.sale_price") %>:</b></td>
+          <td class="td_data"><%= @project.sale_price %> <%= @project.currency %> | <%= @project.sale_price.exchange_to("USD") %> USD </td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.risk_fund") %>:</b></td>
+          <td class="td_data"><%= @project.risk_fund %> <%= @project.currency %> | <%= @project.risk_fund.exchange_to("USD") %> USD </td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.expense_fund") %>:</b></td>
+          <td class="td_data"><%= @project.expense_fund %> <%= @project.currency %> | <%= @project.expense_fund.exchange_to("USD") %> USD </td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.currency") %>:</b></td>
+          <td class="td_data"><%= @project.currency %></td>
+        </tr>
+<% end %>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.risk_strategy") %>:</b></td>
+          <td class="td_data"><%= @project.risk_strategy.try(:name) %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.life_cycle") %>:</b></td>
+          <td class="td_data"><%= @project.life_cycle.try(:name) %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.project_state") %>:</b></td>
+          <td class="td_data"><%= @project.project_state.try(:name) %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.area") %>:</b></td>
+          <td class="td_data"><%= @project.area.try(:name) %></td>
+        </tr>
+        <tr class=<%= cycle("alternate-row", "") %>>
+          <td class="td_label"><b><%= t("simple_form.labels.city") %>:</b></td>
+          <td class="td_data"><%= @project.city.try(:name) %></td>
+        </tr>
+
+      </table>
+
+    </td>
+
+    <td valign="top" style="padding:0 0 5px 0px;">
+        <%= render "phases_list" %>
+    </td>
+  </tr>
+
+  <% if QUALTOP %>
+      <tr>
+        <td valign="top" style="padding-left:15px; padding-top:15px; border-top:1px solid #cccccc; border-left:1px solid #cccccc;">
+            <%= render "implementations_list" %>
+        </td>
+      </tr>
+  <% end %>
+
+
+  <tr>
+    <td valign="top" style="padding-left:15px; padding-top:15px; border-top:1px solid #cccccc; border-left:1px solid #cccccc;">
+        <%= render "resources_list" %>
+    </td>
+  </tr>
+
+  <tr>
+    <td valign="top" style="padding-left:15px; padding-top:15px; border-top:1px solid #cccccc; border-left:1px solid #cccccc;">
+        <%= render "documents_list" %>
+    </td>
+  </tr>
+
+
+</table>

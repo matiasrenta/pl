@@ -1,0 +1,87 @@
+<%= render 'shared/pagination', :locals => {:target => @risks, :model_index_path => risks_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Risk } %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("screens.labels.motive") %>
+
+        <div class="from_to">
+          <%= label_tag(:detection_date_greater_than_or_equal_to, t("simple_form.labels.detection_date")) %>
+          <%= f.input :detection_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :detection_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <%= f.input :umbral_contains, :label => t("simple_form.labels.umbral") if actual_project.risk_strategy.use_umbral%>
+
+        <%= f.input :mitigation_contains, :label => t("simple_form.labels.mitigation") %>
+        <%= f.input :contingency_contains, :label => t("simple_form.labels.contingency") %>
+
+        <% if actual_project.risk_strategy.use_real_cost %>
+            <div class="from_to">
+              <%= label_tag(:real_cost_cents_greater_than_or_equal_to, t("simple_form.labels.real_cost")) %>
+              <%= f.input :real_cost_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+              <%= f.input :real_cost_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+            </div>
+        <% end %>
+
+        <%= f.input :risk_source_id_equals, :label => t("simple_form.labels.risk_source"), :as => :select, :collection => RiskSource.all %>
+        <%= f.input :life_cycle_phase_id_equals, :label => t("simple_form.labels.risk_category"), :as => :select, :collection => actual_project.life_cycle.life_cycle_phases %>
+        <%= f.input :risk_probability_id_equals, :label => t("simple_form.labels.risk_probability"), :as => :select, :collection => RiskProbability.all %>
+        <%= f.input :risk_impact_id_equals, :label => t("simple_form.labels.risk_impact"), :as => :select, :collection => RiskImpact.all %>
+        <%= f.input :risk_exposition_id_equals, :label => t("simple_form.labels.risk_exposition"), :as => :select, :collection => RiskExposition.all %>
+        <%= f.input :responsible_user_id_equals, :label => t("simple_form.labels.responsible_user"), :as => :select, :collection => User.all %>
+        <%= f.input :risk_state_id_equals, :label => t("simple_form.labels.risk_state"), :as => :select, :collection => RiskState.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :detection_date, t("simple_form.labels.detection_date") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :risk_source_name, t("simple_form.labels.risk_source") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :life_cycle_phase_name, t("simple_form.labels.risk_category") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :risk_probability_name, t("simple_form.labels.risk_probability") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :risk_impact_name, t("simple_form.labels.risk_impact") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :risk_exposition_strategy_name, t("simple_form.labels.risk_exposition") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :responsible_user_name, t("simple_form.labels.responsible_user") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :risk_state_name, t("simple_form.labels.risk_state") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @risks.each do |risk| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= can?(:read, risk) ? link_to(risk.name, risk) : risk.name %></td>
+        <td><%= truncate(risk.description, :length => 80) %></td>
+        <td><%= risk.detection_date %></td>
+        <td><%= risk.risk_source.try(:name) %></td>
+        <td><%= risk.life_cycle_phase.try(:name) %></td>
+        <td><%= risk.risk_probability.try(:name) %></td>
+        <td><%= risk.risk_impact.try(:name) %></td>
+        <td><%= risk.risk_exposition.try(:name) %></td>
+        <td><%= risk.responsible_user.try(:full_name) %></td>
+        <td><%= risk.risk_state.try(:name) %></td>
+        <td class="options-width">
+          <%= link_to '', risk, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, risk %>
+          <%= link_to '', edit_risk_path(risk), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if (can? :update, risk) %>
+          <%= link_to '', risk, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, risk %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @risks, :model_index_path => risks_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Risk, :no_filter => true } %>
+
+
+

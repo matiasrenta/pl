@@ -1,0 +1,119 @@
+<script type="text/javascript">
+    function toggleLeftBox() {
+        //alert($("#leftside").css("display"));
+        if ($("#leftside").css("display") == "block") {
+            $("DIV.scroll2").css("width", "1170px");
+            $("#leftside").css("display", "none");
+            $("#hide_data").css("display", "none");
+            $("#show_data").css("display", "inline");
+
+        } else {
+            $("DIV.scroll2").css("width", "580px");
+            $("#leftside").css("display", "block");
+            $("#hide_data").css("display", "inline");
+            $("#show_data").css("display", "none");
+        }
+    }
+</script>
+
+<div class="buttons">
+  <%= link_to image_tag('/images/glyphicons/glyphicons_090_table.png', :alt => '') + " " + t("screens.links.list_view"), tasks_path %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("helpers.link.create", :model => t("activerecord.models.Task")), "#", {:class => "toggle_div", "data-div_to_toggle" => "new_task_div", "data-link_text" => "none"} if can? :create, Task %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_043_group.png', :alt => '') + " " + t("helpers.link.availability"), "#", {:class => "toggle_div", "data-div_to_toggle" => "users_availability_div", "data-link_text" => "none"} if (can? :see_users_availability, User)%>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_029_notes_2.png', :alt => '') + " " + t("screens.links.report"), "/tasks/report" if (can? :see_tasks_report, User) %>
+  <%= link_to_function(image_tag('/images/glyphicons/glyphicons_109_right_indent.png', :alt => '') + " " + t("screens.links.hide_gantt_data"), "toggleLeftBox()", {:id => "hide_data"}) %>
+  <%= link_to_function(image_tag('/images/glyphicons/glyphicons_108_left_indent.png', :alt => '') + " " + t("screens.links.show_gantt_data"), "toggleLeftBox()", {:id => "show_data", :style => "display: none;"}) %>
+  <%= select_tag("gantt_view", options_for_select([[t("datetime.prompts.day"),"day"], [t("datetime.prompts.week"),"week"], [t("datetime.prompts.month"),"month"], [t("datetime.prompts.quarter"),"quarter"]]), {:class=>"styledselect-gantt", :onchange => "javascript:change_gantt_view(this.value);"} ) %>
+</div>
+
+<div id="new_task_div" style="display:none">
+    <table border="0" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.name") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.life_cycle_phase") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.planned_start_date") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.planned_duration") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.planned_end_date") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.planned_hours") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.resource") %></a></th>
+        <th class="table-header-repeat line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.parent") %></a></th>
+       <th class="table-header-options line-left" style="height:35px"><a href="javascript:return false;"><%= t("simple_form.labels.actions") %></a></th>
+      </tr>
+          <% @task = Task.build_task_no_phase(@project) %>
+          <%= simple_form_for(@task) do |f| %>
+              <%= hidden_field_tag :from_index, true %>
+              <%= f.input :project_id, :as => :hidden %>
+              <%= f.input :life_cycle_id, :as => :hidden %>
+              <%= f.input :task_state_id, :as => :hidden %>
+          <tr style="background-color:#849D75;">
+            <td><%= f.input :name, :label => false, :wrapper_tag => :p, :input_html => {:style => "width:250px;"} %></td>
+            <td><%= f.association :life_cycle_phase, :label => false, :wrapper_tag => :p, :collection => LifeCyclePhase.phases_of_life_cycle(@project.life_cycle), :input_html => {:style => "width:150px;"} %></td>
+            <td><%= f.input :planned_start_date, :label => false, :wrapper_tag => :p, :as => :string, :input_html => {:class => 'datepicker', :style => "width:70px;"} %></td>
+            <td><%= f.input :planned_duration, :label => false, :wrapper_tag => :p, :placeholder => t("simple_form.placeholders.days"), :input_html => {:style => "width:70px;", :class => "on_blur_ajax", :data_start_date_id => "task_planned_start_date", :data_form_id => "new_task"} %></td>
+            <td style="padding:0px; height:30px;"><div id="div_planned_end_date" style="background:#849D75; margin:0px; padding:5px 5px 5px 5px;"></div></td>
+            <td><%= f.input :planned_hours, :label => false, :wrapper_tag => :p, :input_html => {:style => "width:70px;"} %></td>
+            <td><%= f.association :user, :label => false, :wrapper_tag => :p, :collection => User.resources.actives.assigned_to(@project.id), :input_html => {:style => "width:150px; max-width:150px"} %></td>
+            <td><%= f.association :parent, :label => false, :wrapper_tag => :p, :collection => get_proper_tasks, :input_html => {:style => "width:150; max-width:150px"} %></td>
+            <td><%= f.button :submit, t("helpers.submit.create", :model => t("activerecord.models.Task")) %></td>
+          </tr>
+          <% end %>
+
+    </table>
+</div>
+
+<div id="users_availability_div" style="<%= "display:none;" unless params[:year_availability] %> margin-bottom:10px;">
+  <%= render "users_availability" %>
+</div>
+
+
+<div style="position:relative" class="gantt" id="GanttChartDIV"></div>
+<script language="javascript">
+
+    var g = new JSGantt.GanttChart('g', document.getElementById('GanttChartDIV'), 'day');
+    g.setShowRes(1); // Show/Hide Responsible (0/1)
+    g.setShowDur(1); // Show/Hide Duration (0/1)
+    g.setShowComp(1); // Show/Hide % Complete(0/1)
+    g.setShowStartDate(1); // Show/Hide Start Date(0/1)
+    g.setShowEndDate(1);
+    g.setCaptionType('Resource');  // Set to Show Caption
+    //g.setShowLeftBox(1);
+
+    if (g) {
+        JSGantt.parseXML("/projects/gantt.xml", g);
+        g.Draw();
+        g.DrawDependencies();
+    }
+    else {
+        alert("not defined");
+    }
+
+    function change_gantt_view(view) {
+        //display = $("#leftside").css("display");
+        JSGantt.changeFormat(view, g);
+        //$("#leftside").css("display", display);
+    }
+
+
+    $(function() {
+        $.contextMenu({
+            // define which elements trigger this menu
+            selector: "tr.with-context-menu",
+            // define the elements of the menu
+            items: {
+                show: {name: "Show", icon: "show", callback: function(key, opt) {
+                    document.location.href = 'tasks/' + opt.$trigger.attr("id").split("_")[1];
+                }},
+                edit: {name: "Edit", icon: "edit", callback: function(key, opt) {
+                    document.location.href = 'tasks/' + opt.$trigger.attr("id").split("_")[1] + '/edit';
+                }},
+                destroy: {name: "Destroy", icon: "delete", callback: function(key, opt) {
+                    $(document.createElement("<a id=pindonga href=''>xxx</a>"));
+                    $('#pindonga').click();
+                } }
+            }
+            // there's more, have a look at the demos and docs...
+        });
+    });
+
+</script>
+

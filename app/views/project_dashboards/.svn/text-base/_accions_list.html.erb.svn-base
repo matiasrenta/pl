@@ -1,0 +1,45 @@
+<div id="accions_div" class="display-none max-1170">
+  <div style="max-width:1168px; margin-top:20px;">
+
+    <div class="buttons">
+      <div></div>
+      <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("helpers.link.create", :model => t("activerecord.models.Accion")), new_accion_path(:accion_goto => project_dashboard_path(@project_dashboard)) if @can_create_edit && (can? :create, Accion) %>
+    </div>
+
+
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.title") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.description") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.commitment_date") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.resource") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.responsible_user") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.action_source_type") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false">Project problem</a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false">Project risk</a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.action_state") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false"><%= t("simple_form.labels.action_priority") %></a></th>
+        <th class="table-header-repeat line-left minwidth-2"><a href="#" onclick="return false">Project</a></th>
+        <th class="table-header-options line-left maxwidth-1"><a href="#" onclick="return false"><%= t("simple_form.labels.actions") %></a></th>
+      </tr>
+
+      <% @accions.each do |accion| %>
+          <tr class=<%= cycle("alternate-row", "") %>>
+            <td><%= accion.title %></td>
+            <td><%= accion.description %></td>
+            <td><%= accion.commitment_date %></td>
+            <td><%= accion.user.try(:full_name) %></td>
+            <td><%= accion.responsible_user.try(:full_name) %></td>
+            <td><%= accion.action_source_type.try(:name) %></td>
+            <td><%= accion.problem.try(:name) %></td>
+            <td><%= accion.risk.try(:name) %></td>
+            <td><%= accion.action_state.try(:name) %></td>
+            <td><%= accion.action_priority.try(:name) %></td>
+            <td><%= accion.project.try(:name) %></td>
+
+            <%= render 'action_icons_for_lists', :locals => {:target => accion, :model_edit_path => edit_accion_path(accion, :accion_goto => project_dashboard_path(@project_dashboard))} %>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

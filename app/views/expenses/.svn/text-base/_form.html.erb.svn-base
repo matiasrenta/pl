@@ -1,0 +1,21 @@
+<div class="gray_form">
+  <%= simple_form_for(@expense) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :project_id, :as => :hidden%>
+        <%= f.input :currency, :as => :hidden%>
+        <%= f.input :user_recorder_id, :as => :hidden%>
+
+        <%= f.association :user, :label => t("simple_form.labels.resource"), :collection => collection_with_actual(User.resources.actives.assigned_to(actual_project), @expense.user) %>
+        <%= f.input :amount, :hint => @expense.currency, :input_html => {:class => 'money'} %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :expense_type, :collection => collection_with_actual(ExpenseType.actives, @expense.expense_type, :title) %>
+        <%= f.input :receipt_code %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Expense %>
+
+  <% end %>
+</div>
+
+

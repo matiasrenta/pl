@@ -1,0 +1,18 @@
+<%= render "shared/error_messages", :target => @action_state %>
+
+<div class="controls">
+<% if can? :read, @action_state %>
+<%= link_to t("helpers.link.show"), @action_state %>
+<% end %>
+<%= link_to t("helpers.link.list"), action_states_path %>
+</div>
+<div class="clear"></div>
+
+<%= render 'form' %>
+
+<div class="controls">
+<% if can? :read, @action_state %>
+<%= link_to t("helpers.link.show"), @action_state %>
+<% end %>
+<%= link_to t("helpers.link.list"), action_states_path %>
+</div>

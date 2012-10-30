@@ -1,0 +1,59 @@
+<%= render 'shared/pagination', :locals => {:target => @projects_phases_joins, :model_index_path => projects_phases_joins_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render 'shared/controls_index_filter', :locals => {:new_label => t("helpers.link.new"), :model_i18n_path => t("activerecord.models.ProjectsPhasesJoin"), :new_model_path => new_projects_phases_join_path, :model_class => ProjectsPhasesJoin} %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <div class="from_to">
+          <%= label_tag(:planned_hours_phase_greater_than_or_equal_to, "planned_hours_phase") %>
+          <%= f.input :planned_hours_phase_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_hours_phase_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_cost_phase_cents_greater_than_or_equal_to, "planned_cost_phase") %>
+          <%= f.input :planned_cost_phase_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+          <%= f.input :planned_cost_phase_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+        </div>
+        <%= f.input :currency_contains, :label => t("simple_form.labels.currency") %>
+        <%= f.input :project_id_equals, :label => t("simple_form.labels.project"), :as => :select, :collection => Project.all %>
+        <%= f.input :life_cycle_phase_id_equals, :label => t("simple_form.labels.life_cycle_phase"), :as => :select, :collection => actual_project.life_cycle_phases %>
+        <div class="actions">
+          <%= f.button :submit, t("helpers.submit.search") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :planned_hours_phase, t("simple_form.labels.planned_hours_phase") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :planned_cost_phase_cents, t("simple_form.labels.planned_cost_phase") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :currency, t("simple_form.labels.currency") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :project_name, t("simple_form.labels.project") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :life_cycle_phase_name, t("simple_form.labels.life_cycle_phase") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @projects_phases_joins.each do |projects_phases_join| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= projects_phases_join.planned_hours_phase %></td>
+        <td><%= projects_phases_join.planned_cost_phase %></td>
+        <td><%= projects_phases_join.currency %></td>
+        <td><%= projects_phases_join.project.try(:name) %></td>
+        <td><%= projects_phases_join.life_cycle_phase.try(:name) %></td>
+        <%= render 'shared/action_icons', :locals => {:target => projects_phases_join, :model_edit_path => edit_projects_phases_join_path(projects_phases_join)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @projects_phases_joins, :model_index_path => projects_phases_joins_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render 'shared/controls_index', :locals => {:new_label => t("helpers.link.new"), :model_i18n_path => t("activerecord.models.ProjectsPhasesJoin"), :new_model_path => new_projects_phases_join_path, :model_class => ProjectsPhasesJoin} %>
+
+
+

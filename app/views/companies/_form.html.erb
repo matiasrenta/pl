@@ -1,0 +1,23 @@
+<div class="gray_form">
+  <%= simple_form_for(@company) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :company_type %>
+        <%= f.input :address, :as => :text, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :city, :collection => collection_with_actual(City.actives, @company.city) %>
+        <%= f.input :postal_code %>
+        <%= f.input :phone_1 %>
+        <%= f.input :phone_2 %>
+        <%= f.input :fax %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Company %>
+
+  <% end %>
+</div>
+
+

@@ -1,0 +1,60 @@
+<style type="text/css">
+    .input-text-big {
+        width: 555px;
+    }
+
+    .input-text-medium {
+        width: 240px;
+    }
+
+    .input-text-small{
+        width: 90px;
+    }
+
+    .input-text-very-small{
+        width: 80px;
+    }
+
+</style>
+
+<div class="clear"></div>
+
+<div style="margin:10px 0 30px 25px;">
+  <table border="0">
+    <tr>
+      <td style="width:105px; padding:3px; background-color:#bbbbbb;"><b><%= t("screens.labels.phases") %></b></td>
+      <td style="width:90px; padding:3px; background-color:#889088; ">* <%= t("simple_form.labels.position") %></td>
+      <td style="width:250px; padding:3px; background-color:#889088; ">* <%= t("simple_form.labels.name") %></td>
+      <td style="width:560px; padding:3px; background-color:#889088; "><%= t("simple_form.labels.description") %></td>
+      <td style="width:80px; padding:3px; background-color:#889088; "></td>
+    </tr>
+
+    <tr>
+      <td colspan="6">
+        <%= f.simple_fields_for :life_cycle_phases do |phase_form| %>
+            <table border="0" class="div-table-row">
+              <tr>
+                <td style="width:105px; padding: 7px 3px 3px 3px;"></td>
+                <td style="width:90px;  padding: 7px 3px 3px 3px;"><%= phase_form.input :position, :label => false, :wrapper_tag => :p, :input_html => {:class => "input-text-very-small", :disabled => disable_phases_forms? }  %></td>
+                <td style="width:250px; padding: 7px 3px 3px 3px;"><%= phase_form.input :name, :label => false, :wrapper_tag => :p, :input_html => {:class => "input-text-medium", :disabled => disable_phases_forms? } %></td>
+                <td style="width:560px; padding: 7px 3px 3px 3px;"><%= phase_form.input :description, :as => :string, :label => false, :wrapper_tag => :p, :input_html => {:class => "input-text-big"} %></td>
+                <td style="width:80px; padding: 7px 3px 3px 3px; text-align:right;">
+                    <%  unless disable_phases_forms? %>
+                      <%= phase_form.link_to_remove(:class => "remove_nested_row_form") do %>
+                          <%= t("screens.labels.remove_phase") %>
+                      <% end %>
+                    <% end %>
+                </td>
+              </tr>
+            </table>
+        <% end %>
+
+        <%  unless disable_phases_forms? %>
+            <%= f.link_to_add(:life_cycle_phases, {:class => "add_nested_row_form"}) do %>
+                <%= t("screens.labels.add_phase") %>
+            <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

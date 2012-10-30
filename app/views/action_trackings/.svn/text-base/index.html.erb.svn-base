@@ -1,0 +1,63 @@
+<%= render 'shared/pagination', :locals => {:target => @action_trackings, :model_index_path => action_trackings_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Action tracking', new_action_tracking_path if can? :create, ActionTracking %>
+  <a class="trigger <%= 'filter_active' if @filter_active %>" href="#">Filtros</a>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :accion_id_equals, :label => "accion", :as => :select, :collection => Accion.all %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => User.all %>
+
+        <div class="from_to">
+          <%= label_tag(:tracking_date_greater_than_or_equal_to, "tracking_date") %>
+          <%= f.input :tracking_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :tracking_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <div class="actions">
+          <%= f.button :submit, t("helpers.submit.search") %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :accion_title, "Accion" %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.resource") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :tracking_date, "Tracking date" %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @action_trackings.each do |action_tracking| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= action_tracking.accion.try(:title) %></td>
+        <td><%= action_tracking.user.try(:name) %></td>
+        <td><%= action_tracking.tracking_date %></td>
+        <td><%= action_tracking.description %></td>
+        <td class="options-width">
+          <%= link_to '', action_tracking, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, action_tracking %>
+          <%= link_to '', edit_action_tracking_path(action_tracking), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, action_tracking %>
+          <%= link_to '', action_tracking, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, action_tracking %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @action_trackings, :model_index_path => action_trackings_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<div class="controls">
+  <%= link_to t("helpers.link.new") + ' Action tracking', new_action_tracking_path if can? :create, ActionTracking %>
+</div>
+
+
+

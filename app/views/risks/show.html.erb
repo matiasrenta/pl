@@ -1,0 +1,87 @@
+<table width="100%">
+  <tr>
+    <td valign="top">
+      <div style="width:350px;">
+
+        <%= render "shared/control_buttons", :locals => {:instance => @risk} %>
+
+        <table class="show_table" style="width:100%">
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+            <td class="td_data"><%= @risk.name %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("screens.labels.motive") %>:</b></td>
+            <td class="td_data"><%= @risk.description %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.detection_date") %>:</b></td>
+            <td class="td_data"><%= l(@risk.detection_date, :format => :long) if @risk.detection_date %></td>
+          </tr>
+
+          <% if actual_project.risk_strategy.use_umbral %>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.umbral") %>:</b></td>
+                <td class="td_data"><%= @risk.umbral %></td>
+              </tr>
+          <% end %>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.mitigation") %>:</b></td>
+            <td class="td_data"><%= @risk.mitigation %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.contingency") %>:</b></td>
+            <td class="td_data"><%= @risk.contingency %></td>
+          </tr>
+
+          <% if actual_project.risk_strategy.use_real_cost %>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.real_cost") %>:</b></td>
+                <td class="td_data"><%= @risk.real_cost %> <%= @risk.currency %></td>
+              </tr>
+          <% end %>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.risk_source") %>:</b></td>
+            <td class="td_data"><%= @risk.risk_source.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.risk_category") %>:</b></td>
+            <td class="td_data"><%= @risk.life_cycle_phase.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.risk_probability") %>:</b></td>
+            <td class="td_data"><%= @risk.risk_probability.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.risk_impact") %>:</b></td>
+            <td class="td_data"><%= @risk.risk_impact.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.risk_exposition") %>:</b></td>
+            <td class="td_data"><%= @risk.risk_exposition.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.responsible_user") %>:</b></td>
+            <td class="td_data"><%= @risk.responsible_user.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.user_recorder") %>:</b></td>
+            <td class="td_data"><%= @risk.user.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.risk_state") %>:</b></td>
+            <td class="td_data"><%= @risk.risk_state.try(:name) %></td>
+          </tr>
+        </table>
+
+      </div>
+    </td>
+    <td valign="top">
+      <div style="width:800px; margin-left:15px;">
+        <%= render "show_accions_list", :locals => {:model_path => risk_path(@risk)} %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+

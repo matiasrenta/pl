@@ -1,0 +1,23 @@
+<% if can? :read, ExpenseType %>
+    <div><%= link_to t("screens.menu.cata.expense_types"), expense_types_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Area %>
+    <div><%= link_to t("screens.menu.cata.areas"), areas_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Company %>
+    <div><%= link_to t("screens.menu.cata.companies"), companies_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Country %>
+    <div><%= link_to t("screens.menu.cata.countries"), countries_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, RegionState %>
+    <div><%= link_to t("screens.menu.cata.states"), region_states_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, City %>
+    <div><%= link_to t("screens.menu.cata.cities"), cities_path, :class => "ajax" %></div>
+<% end %>

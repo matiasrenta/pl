@@ -1,0 +1,25 @@
+<div class="controls">
+<% if can? :update, TaskType %>
+<%= link_to t("helpers.link.edit"), edit_task_type_path(@task_type) %>
+<% end %>
+<%= link_to t("helpers.link.list"), task_types_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @task_type.name %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+                <td class="td_data"><%= @task_type.description %></td>
+      </tr>
+</table>
+
+<div class="controls">
+<% if can? :update, TaskType %>
+<%= link_to t("helpers.link.edit"), edit_task_type_path(@task_type) %>
+<% end %>
+<%= link_to t("helpers.link.list"), task_types_path %>
+</div>

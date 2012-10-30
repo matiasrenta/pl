@@ -1,0 +1,70 @@
+<%
+   container_id = "container_project_progress_column_chart"
+   chart_var_name = "progress_chart"
+   chart_width = 360
+   chart_height = 250
+%>
+
+<script type="text/javascript">
+    var <%= chart_var_name %>;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                type: 'column',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Avance del Proyecto'
+            },
+            xAxis: {
+                categories: [
+                    '<%= @project.name %>',
+                ]
+
+            },
+            yAxis: {
+                title: {
+                    text: '% Avance'
+                },
+                max: 100,
+                min: 0
+            },
+            series: [
+                {
+                    name: 'Real',
+                    data: [
+                        <%= decimal_to_percentage(@real_project_progress).round(2) %>,
+                    ]
+                },
+                {
+                    name: 'Planeado',
+                    data: [
+                        <%= decimal_to_percentage(@planned_project_progress).round(2) %>,
+                    ]
+                }
+            ]
+
+        });
+
+
+        // create some buttons to test the resize logic
+        <%= render "chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+
+    });
+</script>
+
+<%= render "project_chart", :locals => {:label_1 => "Planeado",
+                                        :label_2 => "Real",
+                                        :value_1 => decimal_to_percentage(@planned_project_progress).round(2),
+                                        :value_2 => decimal_to_percentage(@real_project_progress).round(2),
+                                        :deviation => @progress_deviation,
+                                        :posfix => "%",
+                                        :container_id => container_id} %>
+
+
+

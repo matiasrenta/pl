@@ -1,0 +1,296 @@
+<style type="text/css">
+  #message_headers {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    padding: 10px 0 0 0;
+    margin: 0;
+    background: #fff;
+    font-size: 12px;
+    font-family: "Lucida Grande";
+    border-bottom: 1px solid #dedede;
+    overflow: hidden;
+  }
+
+  #message_headers dl {
+    margin: 0;
+    padding: 0;
+  }
+
+  #message_headers dt {
+    width: 60px;
+    padding: 1px;
+    float: left;
+    text-align: right;
+    font-weight: bold;
+    color: #7f7f7f;
+  }
+
+  #message_headers dd {
+    margin-left: 70px;
+    padding: 1px;
+  }
+
+  #message_headers p.alternate {
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+
+  #message_headers p.alternate a {
+    color: #09c;
+  }
+
+  pre#message_body {
+    padding: 10px;
+    word-wrap: break-word;
+  }
+
+  body {
+    margin-top: 96px;
+  }
+</style>
+
+<div id="message_headers">
+  <dl>
+    <dt>From:</dt>
+    <dd>noreply@gudplan.matsoft.railsplayground.net</dd>
+
+    <dt>Subject:</dt>
+    <dd><strong>[ERROR] projects#show (ActionView::Template::Error) "Missing partial projects/ with {:formats=>[:html], :handlers=>[:rjs...</strong></dd>
+
+    <dt>Date:</dt>
+    <dd>Sep 11, 2012 12:24:06 PM PDT</dd>
+
+    <dt>To:</dt>
+    <dd>mrenta@syesoftware.com</dd>
+  </dl>
+
+  
+</div>
+
+
+  <pre id="message_body">A ActionView::Template::Error occurred in projects#show:
+
+  Missing partial projects/ with {:formats=&gt;[:html], :handlers=&gt;[:rjs, :rhtml, :rxml, :builder, :erb], :locale=&gt;[:es, :es]} in view paths &quot;/Users/kungfu/RubymineProjects/projector/app/views&quot;, &quot;/Users/kungfu/RubymineProjects/projector/vendor/plugins/weekly_builder/app/views&quot;, &quot;/Users/kungfu/RubymineProjects/projector/vendor/plugins/facebox_render/app/views&quot;, &quot;/Users/kungfu/.gem/ruby/1.8/gems/devise-1.3.0/app/views&quot;
+  actionpack (3.0.6) lib/action_view/paths.rb:15:in `find'
+
+
+-------------------------------
+Request:
+-------------------------------
+
+  * URL       : http://localhost:3000/projects/3
+  * IP address: 127.0.0.1
+  * Parameters: {&quot;action&quot;=&gt;&quot;show&quot;, &quot;id&quot;=&gt;&quot;3&quot;, &quot;controller&quot;=&gt;&quot;projects&quot;}
+  * Rails root: /Users/kungfu/RubymineProjects/projector
+  * Timestamp : 11/09/2012 14:24:05
+
+-------------------------------
+Session:
+-------------------------------
+
+  * session id: &quot;2502e7b877d2048599f6b030e39a23f1&quot;
+  * data: {&quot;_csrf_token&quot;=&gt;&quot;QaxvbSW7f59c9PTsQ5joFAfkFvUmM2x3LMcDi77Mm2o=&quot;,
+   &quot;content_title&quot;=&gt;&quot;&lt;h1&gt;Proyecto&lt;/h1&gt;&lt;h2&gt; - Mostrar&lt;/h2&gt;&quot;,
+   &quot;warden.user.user.key&quot;=&gt;[&quot;User&quot;, [31], &quot;$2a$10$PDLyUctXlDEUnAaToat6lO&quot;],
+   &quot;session_id&quot;=&gt;&quot;2502e7b877d2048599f6b030e39a23f1&quot;,
+   &quot;menu&quot;=&gt;
+    &quot;htmlMenu: \&quot;&lt;div class=\\\&quot;voice {panel:'/menus/portafolio.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_341_briefcase_white.png' alt=''/&gt;Portafolio&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/project.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/aperture_24x24.png' alt=''/&gt;Desarrollo Por...&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/config_projects.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_023_cogwheels.png' alt=''/&gt;Conf. de Proyectos&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/catalogs.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_351_book_open.png' alt=''/&gt;Catálogos&lt;/span&gt; &lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/administration.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_029_notes_2.png' alt=''/&gt;Administración&lt;/span&gt;&lt;/div&gt;\&quot;,&quot;,
+   &quot;project_in_menu&quot;=&gt;3,
+   &quot;actual_project&quot;=&gt;3}
+
+-------------------------------
+Environment:
+-------------------------------
+
+  * GATEWAY_INTERFACE                              : CGI/1.1
+  * HTTP_ACCEPT                                    : application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+  * HTTP_ACCEPT_ENCODING                           : gzip, deflate
+  * HTTP_ACCEPT_LANGUAGE                           : en-us
+  * HTTP_CACHE_CONTROL                             : max-age=0
+  * HTTP_CONNECTION                                : keep-alive
+  * HTTP_COOKIE                                    : _pru1_session=BAh7DCISY29udGVudF90aXRsZUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiKjxoMT5EYXNoYm9hcmQ8L2gxPjxoMj4gLSBNb3N0cmFyPC9oMj4iEF9jc3JmX3Rva2VuIjFRYXh2YlNXN2Y1OWM5UFRzUTVqb0ZBZmtGdlVtTTJ4M0xNY0RpNzdNbTJvPSIPc2Vzc2lvbl9pZCIlMjUwMmU3Yjg3N2QyMDQ4NTk5ZjZiMDMwZTM5YTIzZjEiGXdhcmRlbi51c2VyLnVzZXIua2V5WwgiCVVzZXJbBmkkIiIkMmEkMTAkUERMeVVjdFhsREVVbkFhVG9hdDZsTyIJbWVudSICcgNodG1sTWVudTogIjxkaXYgY2xhc3M9XCJ2b2ljZSB7cGFuZWw6Jy9tZW51cy9wb3J0YWZvbGlvLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc%2BPGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzM0MV9icmllZmNhc2Vfd2hpdGUucG5nJyBhbHQ9JycvPlBvcnRhZm9saW88L3NwYW4%2BPC9kaXY%2BPGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL3Byb2plY3QuaHRtbCd9XCI%2BPHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2FwZXJ0dXJlXzI0eDI0LnBuZycgYWx0PScnLz5EZXNhcnJvbGxvIFBvci4uLjwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY29uZmlnX3Byb2plY3RzLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc%2BPGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyM19jb2d3aGVlbHMucG5nJyBhbHQ9JycvPkNvbmYuIGRlIFByb3llY3Rvczwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY2F0YWxvZ3MuaHRtbCd9XCI%2BPHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2dseXBoaWNvbnNfMzUxX2Jvb2tfb3Blbi5wbmcnIGFsdD0nJy8%2BQ2F0w6Fsb2dvczwvc3Bhbj4gPC9kaXY%2BPGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL2FkbWluaXN0cmF0aW9uLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc%2BPGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyOV9ub3Rlc18yLnBuZycgYWx0PScnLz5BZG1pbmlzdHJhY2nDs248L3NwYW4%2BPC9kaXY%2BIiwiE2FjdHVhbF9wcm9qZWN0aQgiFHByb2plY3RfaW5fbWVudWkI--5c03f50ed7b4dd1389bfc072d902369c9533b556; SQLiteManager_currentLangue=2; per_page=10; bmeval=1327369715155
+  * HTTP_HOST                                      : localhost:3000
+  * HTTP_REFERER                                   : http://localhost:3000/company_dashboards/50
+  * HTTP_USER_AGENT                                : Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-us) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4
+  * HTTP_VERSION                                   : HTTP/1.1
+  * PATH_INFO                                      : /projects/3
+  * QUERY_STRING                                   : 
+  * REMOTE_ADDR                                    : 127.0.0.1
+  * REMOTE_HOST                                    : localhost
+  * REQUEST_METHOD                                 : GET
+  * REQUEST_PATH                                   : /
+  * REQUEST_URI                                    : http://localhost:3000/projects/3
+  * SCRIPT_NAME                                    : 
+  * SERVER_NAME                                    : localhost
+  * SERVER_PORT                                    : 3000
+  * SERVER_PROTOCOL                                : HTTP/1.1
+  * SERVER_SOFTWARE                                : WEBrick/1.3.1 (Ruby/1.8.7/2009-06-12)
+  * action_controller.instance                     : projects#show
+  * action_dispatch.cookies                        : {&quot;bmeval&quot;=&gt;&quot;1327369715155&quot;, &quot;_pru1_session&quot;=&gt;&quot;BAh7DCISY29udGVudF90aXRsZUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiKjxoMT5EYXNoYm9hcmQ8L2gxPjxoMj4gLSBNb3N0cmFyPC9oMj4iEF9jc3JmX3Rva2VuIjFRYXh2YlNXN2Y1OWM5UFRzUTVqb0ZBZmtGdlVtTTJ4M0xNY0RpNzdNbTJvPSIPc2Vzc2lvbl9pZCIlMjUwMmU3Yjg3N2QyMDQ4NTk5ZjZiMDMwZTM5YTIzZjEiGXdhcmRlbi51c2VyLnVzZXIua2V5WwgiCVVzZXJbBmkkIiIkMmEkMTAkUERMeVVjdFhsREVVbkFhVG9hdDZsTyIJbWVudSICcgNodG1sTWVudTogIjxkaXYgY2xhc3M9XCJ2b2ljZSB7cGFuZWw6Jy9tZW51cy9wb3J0YWZvbGlvLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc+PGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzM0MV9icmllZmNhc2Vfd2hpdGUucG5nJyBhbHQ9JycvPlBvcnRhZm9saW88L3NwYW4+PC9kaXY+PGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL3Byb2plY3QuaHRtbCd9XCI+PHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2FwZXJ0dXJlXzI0eDI0LnBuZycgYWx0PScnLz5EZXNhcnJvbGxvIFBvci4uLjwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY29uZmlnX3Byb2plY3RzLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc+PGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyM19jb2d3aGVlbHMucG5nJyBhbHQ9JycvPkNvbmYuIGRlIFByb3llY3Rvczwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY2F0YWxvZ3MuaHRtbCd9XCI+PHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2dseXBoaWNvbnNfMzUxX2Jvb2tfb3Blbi5wbmcnIGFsdD0nJy8+Q2F0w6Fsb2dvczwvc3Bhbj4gPC9kaXY+PGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL2FkbWluaXN0cmF0aW9uLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc+PGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyOV9ub3Rlc18yLnBuZycgYWx0PScnLz5BZG1pbmlzdHJhY2nDs248L3NwYW4+PC9kaXY+IiwiE2FjdHVhbF9wcm9qZWN0aQgiFHByb2plY3RfaW5fbWVudWkI--5c03f50ed7b4dd1389bfc072d902369c9533b556&quot;, &quot;SQLiteManager_currentLangue&quot;=&gt;&quot;2&quot;, &quot;per_page&quot;=&gt;&quot;10&quot;}
+  * action_dispatch.parameter_filter               : [:password, /RAW_POST_DATA/]
+  * action_dispatch.remote_ip                      : 127.0.0.1
+  * action_dispatch.request.content_type           : 
+  * action_dispatch.request.formats                : [#&lt;Mime::Type:0x18c9320 @synonyms=[&quot;application/xhtml+xml&quot;], @symbol=:html, @string=&quot;text/html&quot;&gt;]
+  * action_dispatch.request.parameters             : {&quot;action&quot;=&gt;&quot;show&quot;, &quot;id&quot;=&gt;&quot;3&quot;, &quot;controller&quot;=&gt;&quot;projects&quot;}
+  * action_dispatch.request.path_parameters        : {:controller=&gt;&quot;projects&quot;, :action=&gt;&quot;show&quot;, :id=&gt;&quot;3&quot;}
+  * action_dispatch.request.query_parameters       : {}
+  * action_dispatch.request.request_parameters     : {}
+  * action_dispatch.request.unsigned_session_cookie: {&quot;_csrf_token&quot;=&gt;&quot;QaxvbSW7f59c9PTsQ5joFAfkFvUmM2x3LMcDi77Mm2o=&quot;, &quot;content_title&quot;=&gt;&quot;&lt;h1&gt;Dashboard&lt;/h1&gt;&lt;h2&gt; - Mostrar&lt;/h2&gt;&quot;, &quot;warden.user.user.key&quot;=&gt;[&quot;User&quot;, [31], &quot;$2a$10$PDLyUctXlDEUnAaToat6lO&quot;], &quot;session_id&quot;=&gt;&quot;2502e7b877d2048599f6b030e39a23f1&quot;, &quot;menu&quot;=&gt;&quot;htmlMenu: \&quot;&lt;div class=\\\&quot;voice {panel:'/menus/portafolio.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_341_briefcase_white.png' alt=''/&gt;Portafolio&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/project.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/aperture_24x24.png' alt=''/&gt;Desarrollo Por...&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/config_projects.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_023_cogwheels.png' alt=''/&gt;Conf. de Proyectos&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/catalogs.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_351_book_open.png' alt=''/&gt;Catálogos&lt;/span&gt; &lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/administration.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_029_notes_2.png' alt=''/&gt;Administración&lt;/span&gt;&lt;/div&gt;\&quot;,&quot;, &quot;project_in_menu&quot;=&gt;3, &quot;actual_project&quot;=&gt;3}
+  * action_dispatch.secret_token                   : 5b560623beb5662cf8f908cee217cf67ae1bb7b29f163148d7bc37c2629baa45b814efef00c165597fce2ba285b66962ebe8d2a122df93aae5f33f46c9bf0aaa
+  * action_dispatch.show_exceptions                : true
+  * exception_notifier.options                     : {:exception_recipients=&gt;[&quot;mrenta@syesoftware.com&quot;], :ignore_exceptions=&gt;[], :background_sections=&gt;[&quot;backtrace&quot;, &quot;data&quot;], :ignore_crawlers=&gt;[], :email_prefix=&gt;&quot;[ERROR] &quot;, :ignore_if=&gt;#&lt;Proc:0x0244819c@/Library/Ruby/Gems/1.8/gems/exception_notification-2.6.1/lib/exception_notifier.rb:30&gt;, :verbose_subject=&gt;true, :sender_address=&gt;&quot;\&quot;Gudplan\&quot; &lt;noreply@gudplan.matsoft.railsplayground.net&gt;&quot;, :sections=&gt;[&quot;request&quot;, &quot;session&quot;, &quot;environment&quot;, &quot;backtrace&quot;], :normalize_subject=&gt;false}
+  * rack.errors                                    : #&lt;IO:0x225dbc&gt;
+  * rack.input                                     : #&lt;StringIO:0x31bc918&gt;
+  * rack.multiprocess                              : false
+  * rack.multithread                               : false
+  * rack.request.cookie_hash                       : {&quot;bmeval&quot;=&gt;&quot;1327369715155&quot;, &quot;_pru1_session&quot;=&gt;&quot;BAh7DCISY29udGVudF90aXRsZUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiKjxoMT5EYXNoYm9hcmQ8L2gxPjxoMj4gLSBNb3N0cmFyPC9oMj4iEF9jc3JmX3Rva2VuIjFRYXh2YlNXN2Y1OWM5UFRzUTVqb0ZBZmtGdlVtTTJ4M0xNY0RpNzdNbTJvPSIPc2Vzc2lvbl9pZCIlMjUwMmU3Yjg3N2QyMDQ4NTk5ZjZiMDMwZTM5YTIzZjEiGXdhcmRlbi51c2VyLnVzZXIua2V5WwgiCVVzZXJbBmkkIiIkMmEkMTAkUERMeVVjdFhsREVVbkFhVG9hdDZsTyIJbWVudSICcgNodG1sTWVudTogIjxkaXYgY2xhc3M9XCJ2b2ljZSB7cGFuZWw6Jy9tZW51cy9wb3J0YWZvbGlvLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc+PGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzM0MV9icmllZmNhc2Vfd2hpdGUucG5nJyBhbHQ9JycvPlBvcnRhZm9saW88L3NwYW4+PC9kaXY+PGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL3Byb2plY3QuaHRtbCd9XCI+PHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2FwZXJ0dXJlXzI0eDI0LnBuZycgYWx0PScnLz5EZXNhcnJvbGxvIFBvci4uLjwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY29uZmlnX3Byb2plY3RzLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc+PGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyM19jb2d3aGVlbHMucG5nJyBhbHQ9JycvPkNvbmYuIGRlIFByb3llY3Rvczwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY2F0YWxvZ3MuaHRtbCd9XCI+PHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2dseXBoaWNvbnNfMzUxX2Jvb2tfb3Blbi5wbmcnIGFsdD0nJy8+Q2F0w6Fsb2dvczwvc3Bhbj4gPC9kaXY+PGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL2FkbWluaXN0cmF0aW9uLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc+PGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyOV9ub3Rlc18yLnBuZycgYWx0PScnLz5BZG1pbmlzdHJhY2nDs248L3NwYW4+PC9kaXY+IiwiE2FjdHVhbF9wcm9qZWN0aQgiFHByb2plY3RfaW5fbWVudWkI--5c03f50ed7b4dd1389bfc072d902369c9533b556&quot;, &quot;SQLiteManager_currentLangue&quot;=&gt;&quot;2&quot;, &quot;per_page&quot;=&gt;&quot;10&quot;}
+  * rack.request.cookie_string                     : _pru1_session=BAh7DCISY29udGVudF90aXRsZUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiKjxoMT5EYXNoYm9hcmQ8L2gxPjxoMj4gLSBNb3N0cmFyPC9oMj4iEF9jc3JmX3Rva2VuIjFRYXh2YlNXN2Y1OWM5UFRzUTVqb0ZBZmtGdlVtTTJ4M0xNY0RpNzdNbTJvPSIPc2Vzc2lvbl9pZCIlMjUwMmU3Yjg3N2QyMDQ4NTk5ZjZiMDMwZTM5YTIzZjEiGXdhcmRlbi51c2VyLnVzZXIua2V5WwgiCVVzZXJbBmkkIiIkMmEkMTAkUERMeVVjdFhsREVVbkFhVG9hdDZsTyIJbWVudSICcgNodG1sTWVudTogIjxkaXYgY2xhc3M9XCJ2b2ljZSB7cGFuZWw6Jy9tZW51cy9wb3J0YWZvbGlvLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc%2BPGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzM0MV9icmllZmNhc2Vfd2hpdGUucG5nJyBhbHQ9JycvPlBvcnRhZm9saW88L3NwYW4%2BPC9kaXY%2BPGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL3Byb2plY3QuaHRtbCd9XCI%2BPHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2FwZXJ0dXJlXzI0eDI0LnBuZycgYWx0PScnLz5EZXNhcnJvbGxvIFBvci4uLjwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY29uZmlnX3Byb2plY3RzLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc%2BPGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyM19jb2d3aGVlbHMucG5nJyBhbHQ9JycvPkNvbmYuIGRlIFByb3llY3Rvczwvc3Bhbj48L2Rpdj48ZGl2IGNsYXNzPVwidm9pY2Uge3BhbmVsOicvbWVudXMvY2F0YWxvZ3MuaHRtbCd9XCI%2BPHNwYW4gY2xhc3M9J2xhYmVsJz48aW1nIHNyYz0nL2ltYWdlcy9nbHlwaGljb25zL3doaXRlL2dseXBoaWNvbnNfMzUxX2Jvb2tfb3Blbi5wbmcnIGFsdD0nJy8%2BQ2F0w6Fsb2dvczwvc3Bhbj4gPC9kaXY%2BPGRpdiBjbGFzcz1cInZvaWNlIHtwYW5lbDonL21lbnVzL2FkbWluaXN0cmF0aW9uLmh0bWwnfVwiPjxzcGFuIGNsYXNzPSdsYWJlbCc%2BPGltZyBzcmM9Jy9pbWFnZXMvZ2x5cGhpY29ucy93aGl0ZS9nbHlwaGljb25zXzAyOV9ub3Rlc18yLnBuZycgYWx0PScnLz5BZG1pbmlzdHJhY2nDs248L3NwYW4%2BPC9kaXY%2BIiwiE2FjdHVhbF9wcm9qZWN0aQgiFHByb2plY3RfaW5fbWVudWkI--5c03f50ed7b4dd1389bfc072d902369c9533b556; SQLiteManager_currentLangue=2; per_page=10; bmeval=1327369715155
+  * rack.request.query_hash                        : {}
+  * rack.request.query_string                      : 
+  * rack.run_once                                  : false
+  * rack.session                                   : {&quot;content_title&quot;=&gt;&quot;&lt;h1&gt;Proyecto&lt;/h1&gt;&lt;h2&gt; - Mostrar&lt;/h2&gt;&quot;, &quot;_csrf_token&quot;=&gt;&quot;QaxvbSW7f59c9PTsQ5joFAfkFvUmM2x3LMcDi77Mm2o=&quot;, &quot;session_id&quot;=&gt;&quot;2502e7b877d2048599f6b030e39a23f1&quot;, &quot;warden.user.user.key&quot;=&gt;[&quot;User&quot;, [31], &quot;$2a$10$PDLyUctXlDEUnAaToat6lO&quot;], &quot;menu&quot;=&gt;&quot;htmlMenu: \&quot;&lt;div class=\\\&quot;voice {panel:'/menus/portafolio.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_341_briefcase_white.png' alt=''/&gt;Portafolio&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/project.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/aperture_24x24.png' alt=''/&gt;Desarrollo Por...&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/config_projects.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_023_cogwheels.png' alt=''/&gt;Conf. de Proyectos&lt;/span&gt;&lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/catalogs.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_351_book_open.png' alt=''/&gt;Catálogos&lt;/span&gt; &lt;/div&gt;&lt;div class=\\\&quot;voice {panel:'/menus/administration.html'}\\\&quot;&gt;&lt;span class='label'&gt;&lt;img src='/images/glyphicons/white/glyphicons_029_notes_2.png' alt=''/&gt;Administración&lt;/span&gt;&lt;/div&gt;\&quot;,&quot;, &quot;actual_project&quot;=&gt;3, &quot;project_in_menu&quot;=&gt;3}
+  * rack.session.options                           : {:path=&gt;&quot;/&quot;, :expire_after=&gt;nil, :httponly=&gt;true, :id=&gt;&quot;2502e7b877d2048599f6b030e39a23f1&quot;, :domain=&gt;nil, :secure=&gt;false}
+  * rack.url_scheme                                : http
+  * rack.version                                   : [1, 1]
+  * warden                                         : #&lt;Warden::Proxy:0x31ae034&gt;
+  
+  * Process: 8740
+  * Server : Javier-Umpierrezs-MacBook-Pro-15.local
+
+-------------------------------
+Backtrace:
+-------------------------------
+
+  actionpack (3.0.6) lib/action_view/paths.rb:15:in `find'
+  actionpack (3.0.6) lib/action_view/lookup_context.rb:81:in `find_template'
+  actionpack (3.0.6) lib/action_view/base.rb:186:in `__send__'
+  actionpack (3.0.6) lib/action_view/base.rb:186:in `find_template'
+  actionpack (3.0.6) lib/action_view/render/partials.rb:356:in `find_template'
+  actionpack (3.0.6) lib/action_view/render/partials.rb:250:in `render'
+  actionpack (3.0.6) lib/action_view/render/partials.rb:378:in `_render_partial'
+  actionpack (3.0.6) lib/action_view/render/rendering.rb:31:in `render'
+  app/views/projects/show.html.erb:96:in `_app_views_projects_show_html_erb___285238387_27310530_0'
+  actionpack (3.0.6) lib/action_view/template.rb:135:in `send'
+  actionpack (3.0.6) lib/action_view/template.rb:135:in `render'
+  activesupport (3.0.6) lib/active_support/notifications.rb:54:in `instrument'
+  actionpack (3.0.6) lib/action_view/template.rb:127:in `render'
+  actionpack (3.0.6) lib/action_view/render/rendering.rb:59:in `_render_template'
+  activesupport (3.0.6) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.6) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.6) lib/action_view/render/rendering.rb:56:in `_render_template'
+  actionpack (3.0.6) lib/action_view/render/rendering.rb:26:in `render'
+  actionpack (3.0.6) lib/abstract_controller/rendering.rb:115:in `_render_template'
+  actionpack (3.0.6) lib/abstract_controller/rendering.rb:109:in `render_to_body'
+  actionpack (3.0.6) lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  actionpack (3.0.6) lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  actionpack (3.0.6) lib/abstract_controller/rendering.rb:102:in `render_to_string'
+  actionpack (3.0.6) lib/abstract_controller/rendering.rb:93:in `render'
+  actionpack (3.0.6) lib/action_controller/metal/rendering.rb:17:in `render'
+  actionpack (3.0.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  activesupport (3.0.6) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  activesupport (3.0.6) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.0.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (3.0.6) lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+  activerecord (3.0.6) lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.0.6) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.0.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.0.6) lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+  actionpack (3.0.6) lib/action_controller/metal/mime_responds.rb:192:in `call'
+  actionpack (3.0.6) lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+  app/controllers/projects_controller.rb:40:in `show'
+  actionpack (3.0.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.6) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.6) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.6) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.6) lib/active_support/callbacks.rb:476:in `_run__46567664__process_action__453433196__callbacks'
+  activesupport (3.0.6) lib/active_support/callbacks.rb:410:in `send'
+  activesupport (3.0.6) lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+  activesupport (3.0.6) lib/active_support/callbacks.rb:94:in `send'
+  activesupport (3.0.6) lib/active_support/callbacks.rb:94:in `run_callbacks'
+  actionpack (3.0.6) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.6) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.6) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.6) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.6) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.6) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.6) lib/abstract_controller/rendering.rb:41:in `process'
+  actionpack (3.0.6) lib/action_controller/metal.rb:138:in `dispatch'
+  actionpack (3.0.6) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.6) lib/action_controller/metal.rb:178:in `action'
+  actionpack (3.0.6) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.6) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.6) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:103:in `optimized_each'
+  rack-mount (0.6.14) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.14) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.6) lib/action_dispatch/routing/route_set.rb:493:in `call'
+  exception_notification (2.6.1) lib/exception_notifier.rb:34:in `call'
+  warden (1.0.3) lib/warden/manager.rb:35:in `call'
+  warden (1.0.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.0.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.2) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/cookies.rb:302:in `call'
+  activerecord (3.0.6) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.6) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.6) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.6) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.6) lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+  actionpack (3.0.6) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.2) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+  railties (3.0.6) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.2) lib/rack/lock.rb:11:in `call'
+  rack (1.2.2) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.2) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.6) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.6) lib/rails/application.rb:168:in `call'
+  railties (3.0.6) lib/rails/application.rb:77:in `send'
+  railties (3.0.6) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.6) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.2) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.2) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.2) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.2) lib/rack/server.rb:213:in `start'
+  railties (3.0.6) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.6) lib/rails/commands.rb:30
+  railties (3.0.6) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.6) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+  -e:1:in `load'
+  -e:1
+
+
+</pre>
+

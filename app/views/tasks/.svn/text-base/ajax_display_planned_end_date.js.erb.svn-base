@@ -1,0 +1,23 @@
+<% if @task.planned_end_date %>
+    if($("#div_planned_end_date").length > 0){ //se usa en la pantalla del gantt la cual no tiene life_cycle_phase por defecto
+        $("#div_planned_end_date").html("<%= @task.planned_end_date %>");
+        $("#div_planned_end_date").effect("highlight", {color:"orange"}, 3000);
+    }else{ //se usa en la pantalla standar la cual tiene life_cycle_phase por defecto
+        <% if @task.life_cycle_phase %>
+            $("#div_td_phase_<%= @task.life_cycle_phase_id.to_s %>").html("<%= @task.planned_end_date %>");
+            $("#div_td_phase_<%= @task.life_cycle_phase_id.to_s %>").effect("highlight", {color:"orange"}, 3000);
+        <% end %>
+    }
+<% end %>
+
+
+<% if @task.planned_hours %>
+    if($("#div_planned_end_date").length > 0){ //se usa en la pantalla del gantt la cual no tiene life_cycle_phase por defecto
+        $("#task_planned_hours").val("<%= @task.planned_hours %>");
+        $("#task_planned_hours").effect("highlight", {color:"orange"}, 3000);
+    }else{ //se usa en la pantalla standar la cual tiene life_cycle_phase por defecto
+        <% if @task.life_cycle_phase %>
+            $("#hours_<%= @task.life_cycle_phase_id.to_s %>").find("#task_planned_hours").val("<%= @task.planned_hours.to_s %>");
+        <% end %>
+    }
+<% end %>

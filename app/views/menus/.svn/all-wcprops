@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/matsoft/projector/!svn/ver/238/app/views/menus
+END
+reports.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/96/app/views/menus/reports.html.erb
+END
+super_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/98/app/views/menus/super_user.html.erb
+END
+administration.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/153/app/views/menus/administration.html.erb
+END
+catalogs.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/101/app/views/menus/catalogs.html.erb
+END
+portafolio.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/153/app/views/menus/portafolio.html.erb
+END
+project.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/238/app/views/menus/project.html.erb
+END
+extrudertop.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/177/app/views/menus/extrudertop.html.erb
+END
+config_projects.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/109/app/views/menus/config_projects.html.erb
+END

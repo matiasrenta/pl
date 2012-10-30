@@ -1,0 +1,7 @@
+<% if @risk.risk_exposition %>
+    $("#ajax_risk_exposition").css("borderWidth", "3px");
+    $("#ajax_risk_exposition").css("margin", "-3px");
+    $("#ajax_risk_exposition").css("border-color", "<%= @risk.risk_exposition.color %>");
+    $("#ajax_risk_exposition").effect("highlight", {color:"<%= @risk.risk_exposition.color %>"}, 3000);
+    $("#ajax_risk_exposition").html("<%= @risk.risk_exposition.name %>");
+<% end %>

@@ -1,0 +1,36 @@
+<div class="gray_form">
+  <%= simple_form_for(@projects_users_join) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :project_id, :as => :hidden %>
+        <%= f.input :currency, :as => :hidden %>
+        <%= f.input :leader, :as => :hidden %>
+
+        <%= f.input :user_id, :label => t("simple_form.labels.resource"), :collection => collection_with_actual(User.resources.actives.not_assigned_to(@projects_users_join.project.id), @projects_users_join.user), :input_html => {:disabled => updating?, :class => "ajax_dropdown", "data-url" => "ajax_get_resource_cost", "data-parameter" => "projects_users_join_user_id"} %>
+        <%= f.input :hour_cost_in_project, :hint => (creating? ? @projects_users_join.project.currency : @projects_users_join.project.currency + " - " + t("screens.labels.warning_change_cost_hour") ), :input_html => {:class => 'money', :disabled => creating?} %>
+        <%= f.input :responsibility, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+        <div class="clear"></div>
+
+        <br/><br/>
+        <div class="actions">
+          <div class="buttons">
+            <button id="projects_users_join_submit" name="commit" type="submit" class="positive" <%= "disabled" if creating?%> >
+              <img src="/images/glyphicons/glyphicons_206_ok_2.png" alt=""/>
+              <%= t("helpers.submit.create", :model => t("activerecord.models.ProjectsUsersJoin")) if creating? %>
+              <%= t("helpers.submit.update", :model => t("activerecord.models.ProjectsUsersJoin")) if updating? %>
+            </button>
+            <button type="button" onclick="javascript:window.location.href = '<%= project_path(actual_project) %>';" class="warning" name="cancel" value="true">
+              <img src="/images/glyphicons/glyphicons_221_unshare.png" alt=""/>
+              <%= t('helpers.submit.cancel') %>
+            </button>
+          </div>
+        </div>
+
+  <% end %>
+</div>
+
+

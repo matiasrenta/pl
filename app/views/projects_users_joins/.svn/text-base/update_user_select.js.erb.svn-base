@@ -1,0 +1,3 @@
+$('#projects_users_join_user_id').children().remove().end().append("<%= raw escape_javascript(@options_for_select) %>");
+
+

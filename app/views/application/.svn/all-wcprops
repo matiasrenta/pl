@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/matsoft/projector/!svn/ver/272/app/views/application
+END
+_pie_chart.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/1/app/views/application/_pie_chart.erb
+END
+_news.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/1/app/views/application/_news.erb
+END
+_line_chart.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/1/app/views/application/_line_chart.erb
+END
+index.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/368/app/views/application/index.erb
+END
+access_denied.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/272/app/views/application/access_denied.html.erb
+END
+_bar_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/1/app/views/application/_bar_chart.html.erb
+END

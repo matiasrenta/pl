@@ -1,0 +1,32 @@
+<div class="controls">
+  <% if can? :update, TaskState %>
+      <%= link_to t("helpers.link.edit"), edit_task_state_path(@task_state) %>
+  <% end %>
+  <%= link_to t("helpers.link.list"), task_states_path %>
+</div>
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @task_state.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @task_state.description %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>Versions:</b></td>
+    <td class="td_data"><%= @task_state.versions %></td>
+  </tr>
+</table>
+
+<div class="controls">
+  <% if can? :update, TaskState %>
+      <%= link_to t("helpers.link.edit"), edit_task_state_path(@task_state) %>
+  <% end %>
+  <%= link_to t("helpers.link.list"), task_states_path %>
+
+  <%= link_to "prev version", task_state_path(@task_state, :prev_version => '1') %>
+
+</div>

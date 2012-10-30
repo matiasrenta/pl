@@ -1,0 +1,22 @@
+<div class="gray_form">
+  <h2><%= t("screens.labels.phase_estimation") + ": " + @projects_phases_join.life_cycle_phase.name %></h2>
+  <div style="margin-bottom:30px;"></div>
+  <%= simple_form_for(@projects_phases_join) do |f| %>
+      <div class="inputs">
+        <%= f.input :project_id, :as => :hidden %>
+        <%= f.input :life_cycle_phase_id, :as => :hidden %>
+        <%= f.input :currency, :as => :hidden %>
+
+        <%= f.input :planned_start_date, :as => :string, :input_html => {:class => "datepicker"} %>
+        <%= f.input :planned_end_date, :as => :string, :input_html => {:class => "datepicker"} %>
+       <%= f.input :planned_hours_phase %>
+        <%= f.input :planned_cost_phase, :hint => @projects_phases_join.currency, :input_html => {:class => 'money'} %>
+      </div>
+
+      <div class="actions">
+        <%= f.button :submit %>
+      </div>
+  <% end %>
+</div>
+
+

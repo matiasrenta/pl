@@ -1,0 +1,13 @@
+<%= render "shared/control_buttons", :locals => {:instance => @region_state} %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @region_state.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.country") %>:</b></td>
+    <td class="td_data"><%= @region_state.country.try(:name) %></td>
+  </tr>
+</table>
+

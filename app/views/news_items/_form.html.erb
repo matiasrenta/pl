@@ -1,0 +1,16 @@
+<div class="gray_form">
+  <%= simple_form_for(@news_item) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :user_id, :as => :hidden %>
+        <%= f.input :title %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :project %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => NewsItem %>
+
+  <% end %>
+</div>
+
+

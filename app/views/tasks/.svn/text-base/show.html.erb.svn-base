@@ -1,0 +1,107 @@
+<table width="100%" >
+  <tr>
+    <td valign="top">
+      <div style="width:400px;">
+
+      <%= render "shared/control_buttons", :locals => { :instance => @task } %>
+
+        <table class="show_table" style="width:100%">
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+            <td class="td_data"><%= @task.name %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+            <td class="td_data"><%= @task.description %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.resource") %>:</b></td>
+            <td class="td_data"><%= @task.user.try(:full_name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.planned_start_date") %>:</b></td>
+            <td class="td_data"><%= l(@task.planned_start_date, :format => :long) if @task.planned_start_date %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.real_start_date") %>:</b></td>
+            <td class="td_data"><%= l(@task.real_start_date, :format => :long) if @task.real_start_date %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.planned_end_date") %>:</b></td>
+            <td class="td_data"><%= l(@task.planned_end_date, :format => :long) if @task.planned_end_date %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.real_end_date") %>:</b></td>
+            <td class="td_data"><%= l(@task.real_end_date, :format => :long) if @task.real_end_date %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.planned_duration") %>:</b></td>
+            <td class="td_data"><%= @task.planned_duration %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b>Real duration:</b></td>
+            <td class="td_data"><%= @task.real_duration %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.planned_hours") %>:</b></td>
+            <td class="td_data"><%= @task.planned_hours %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.real_hours") %>:</b></td>
+            <td class="td_data"><%= @task.real_hours %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.planned_progress") %>:</b></td>
+            <td class="td_data"><%= @task.planned_progress %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.real_progress") %>:</b></td>
+            <td class="td_data"><%= @task.real_progress %></td>
+          </tr>
+
+<% if can? :see_prices_and_cost, User %>
+          <tr>
+            <td class="td_label"><b>Planned cost:</b></td>
+            <td class="td_data"><%= @task.planned_cost %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b>Real cost:</b></td>
+            <td class="td_data"><%= @task.real_cost %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.currency") %>:</b></td>
+            <td class="td_data"><%= @task.currency %></td>
+          </tr>
+<% end %>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.life_cycle") %>:</b></td>
+            <td class="td_data"><%= @task.life_cycle.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.life_cycle_phase") %>:</b></td>
+            <td class="td_data"><%= @task.life_cycle_phase.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.task_state") %>:</b></td>
+            <td class="td_data"><%= @task.task_state.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.task_type") %>:</b></td>
+            <td class="td_data"><%= @task.task_type.try(:name) %></td>
+          </tr>
+        </table>
+
+
+      </div>
+    </td>
+    <td valign="top">
+      <div style="width:750px; margin-left:15px;">
+        <%= render "task_progresses_list" %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+
+

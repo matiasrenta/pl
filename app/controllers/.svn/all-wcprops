@@ -1,0 +1,275 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/matsoft/projector/!svn/ver/313/app/controllers
+END
+risk_impacts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/198/app/controllers/risk_impacts_controller.rb
+END
+action_source_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/198/app/controllers/action_source_types_controller.rb
+END
+task_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/198/app/controllers/task_types_controller.rb
+END
+risk_strategies_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/297/app/controllers/risk_strategies_controller.rb
+END
+implementations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/356/app/controllers/implementations_controller.rb
+END
+states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/198/app/controllers/states_controller.rb
+END
+risks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/297/app/controllers/risks_controller.rb
+END
+project_dashboards_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/355/app/controllers/project_dashboards_controller.rb
+END
+areas_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/297/app/controllers/areas_controller.rb
+END
+projects_phases_joins_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/198/app/controllers/projects_phases_joins_controller.rb
+END
+users_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/297/app/controllers/users_controller.rb
+END
+risk_sources_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/297/app/controllers/risk_sources_controller.rb
+END
+cities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/351/app/controllers/cities_controller.rb
+END
+projects_users_joins_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/matsoft/projector/!svn/ver/302/app/controllers/projects_users_joins_controller.rb
+END
+tasks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/matsoft/projector/!svn/ver/350/app/controllers/tasks_controller.rb
+END
+application_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/330/app/controllers/application_controller.rb
+END
+expense_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/297/app/controllers/expense_types_controller.rb
+END
+action_trackings_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/198/app/controllers/action_trackings_controller.rb
+END
+news_items_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/300/app/controllers/news_items_controller.rb
+END
+task_progresses_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/350/app/controllers/task_progresses_controller.rb
+END
+holidays_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/228/app/controllers/holidays_controller.rb
+END
+companies_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/297/app/controllers/companies_controller.rb
+END
+expenses_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/297/app/controllers/expenses_controller.rb
+END
+company_dashboards_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/312/app/controllers/company_dashboards_controller.rb
+END
+problem_states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/198/app/controllers/problem_states_controller.rb
+END
+problem_priorities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/198/app/controllers/problem_priorities_controller.rb
+END
+risk_probabilities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/198/app/controllers/risk_probabilities_controller.rb
+END
+risk_expositions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/198/app/controllers/risk_expositions_controller.rb
+END
+project_states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/198/app/controllers/project_states_controller.rb
+END
+action_states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/198/app/controllers/action_states_controller.rb
+END
+action_priorities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/198/app/controllers/action_priorities_controller.rb
+END
+accions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/297/app/controllers/accions_controller.rb
+END
+region_states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/297/app/controllers/region_states_controller.rb
+END
+life_cycles_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/297/app/controllers/life_cycles_controller.rb
+END
+risk_states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/198/app/controllers/risk_states_controller.rb
+END
+life_cycle_phases_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/198/app/controllers/life_cycle_phases_controller.rb
+END
+countries_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/297/app/controllers/countries_controller.rb
+END
+problems_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/297/app/controllers/problems_controller.rb
+END
+menus_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/96/app/controllers/menus_controller.rb
+END
+company_types_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/198/app/controllers/company_types_controller.rb
+END
+documents_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/matsoft/projector/!svn/ver/277/app/controllers/documents_controller.rb
+END
+projects_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/313/app/controllers/projects_controller.rb
+END
+problem_severities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/matsoft/projector/!svn/ver/198/app/controllers/problem_severities_controller.rb
+END
+lessons_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/297/app/controllers/lessons_controller.rb
+END
+task_states_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/198/app/controllers/task_states_controller.rb
+END

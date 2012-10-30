@@ -1,0 +1,34 @@
+<div class="buttons">
+<%= link_to image_tag('/images/glyphicons/glyphicons_221_unshare.png', :alt => '') + " " + t("screens.links.back"), :back %>
+</div>
+<div class="clear"></div>
+
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b>Project:</b></td>
+    <td class="td_data"><%= @projects_users_join.project.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.resource") %>:</b></td>
+    <td class="td_data"><%= @projects_users_join.user.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.hour_cost_in_project") %>:</b></td>
+    <td class="td_data"><%= @projects_users_join.hour_cost_in_project %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.currency") %>:</b></td>
+    <td class="td_data"><%= @projects_users_join.currency %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.leader") %> :</b></td>
+    <td class="td_data"><%= @projects_users_join.leader %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.responsibility") %> :</b></td>
+    <td class="td_data"><%= @projects_users_join.responsibility %></td>
+  </tr>
+</table>
+

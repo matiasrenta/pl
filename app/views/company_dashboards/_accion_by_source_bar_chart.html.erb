@@ -1,0 +1,58 @@
+<%
+   container_id = "container_accions_by_source_bar_chart"
+   chart_var_name = "a_by_s_bar_chart"
+   chart_width = 360
+   chart_height = 300
+%>
+
+<script type="text/javascript">
+    var <%= chart_var_name %>;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                type: 'bar',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Acciones Abiertas por Fuente'
+            },
+            xAxis: {
+                categories: [
+                    '<%= ActionSourceType.problem.name %>',
+                    '<%= ActionSourceType.report.name %>',
+                    '<%= ActionSourceType.risk.name %>',
+                    '<%= ActionSourceType.decision.name %>'
+                ]
+
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                min: 0
+            },
+            series: [
+                {
+                    name: 'Cantidad',
+                    data: [
+                        <%= @company_dashboard.open_accions_per_source[:problem] %>,
+                        <%= @company_dashboard.open_accions_per_source[:report] %>,
+                        <%= @company_dashboard.open_accions_per_source[:risk] %>,
+                        <%= @company_dashboard.open_accions_per_source[:decision] %>
+                    ]
+                }
+            ]
+
+        });
+        // create some buttons to test the resize logic
+        <%= render "/shared/chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+
+    });
+</script>
+
+<%= render "/shared/chart_controls", :locals => {:container_id => container_id} %>

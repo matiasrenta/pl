@@ -1,0 +1,40 @@
+<% if can? :read, actual_project %>
+    <div><%= link_to t("screens.menu.proj.project_data"), actual_project, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Task %>
+    <div><%= link_to t("screens.menu.proj.tasks"), tasks_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :progress, Task %>
+    <div><%= link_to t("screens.menu.proj.progress_task"), "/tasks/progress", :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Risk %>
+    <div><%= link_to t("screens.menu.proj.risks"), risks_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Problem %>
+    <div><%= link_to t("screens.menu.proj.problems"), problems_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Accion.new(:project_id => actual_project.id) %>
+    <div><%= link_to t("screens.menu.proj.accions"), accions_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Expense.new(:project_id => actual_project.id, :user_recorder_id => current_user.id, :user_id => current_user.id) %>
+    <div><%= link_to t("screens.menu.proj.expenses"), expenses_path, :class => "ajax" %></div>
+<% end %>
+
+<% if (can? :read, ProjectDashboard) && actual_project.project_state != ProjectState.created %>
+    <div><%= link_to t("screens.menu.proj.dashboards"), project_dashboards_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Holiday %>
+    <div><%= link_to t("screens.menu.proj.calendar"), holidays_path, :class => "ajax" %></div>
+<% end %>
+
+<% if can? :read, Lesson %>
+    <div><%= link_to t("screens.menu.proj.lessons"), lessons_path, :class => "ajax" %></div>
+<% end %>
+

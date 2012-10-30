@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/312/app/views/company_dashboards
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/47/app/views/company_dashboards/new.html.erb
+END
+_accions_pie_chart.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/246/app/views/company_dashboards/_accions_pie_chart.erb
+END
+_projects_expenses_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/355/app/views/company_dashboards/_projects_expenses_chart.html.erb
+END
+_projects_costs_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/matsoft/projector/!svn/ver/355/app/views/company_dashboards/_projects_costs_chart.html.erb
+END
+_projection_pie_chart.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/matsoft/projector/!svn/ver/312/app/views/company_dashboards/_projection_pie_chart.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/365/app/views/company_dashboards/show.html.erb
+END
+_accion_by_source_bar_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/matsoft/projector/!svn/ver/246/app/views/company_dashboards/_accion_by_source_bar_chart.html.erb
+END
+index.mobile.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/244/app/views/company_dashboards/index.mobile.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/matsoft/projector/!svn/ver/47/app/views/company_dashboards/edit.html.erb
+END
+_capacity_occupancy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/355/app/views/company_dashboards/_capacity_occupancy.html.erb
+END
+_chart_controls.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/matsoft/projector/!svn/ver/312/app/views/company_dashboards/_chart_controls.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/239/app/views/company_dashboards/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/298/app/views/company_dashboards/index.html.erb
+END

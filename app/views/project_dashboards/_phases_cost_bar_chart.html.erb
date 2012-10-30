@@ -1,0 +1,64 @@
+<%
+   container_id = "container_phases_cost_bar_chart"
+   chart_var_name = "phases_cost_bar_chart"
+   chart_width = 360
+   chart_height = 450
+%>
+
+<script type="text/javascript">
+    var <%= chart_var_name %>;
+    $(document).ready(function() {
+        <%= chart_var_name %> = new Highcharts.Chart({
+            chart: {
+                renderTo: '<%= container_id %>',
+                type: 'bar',
+                width: <%= chart_width %>,
+                height: <%= chart_height %>
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Costo por Fase'
+            },
+            xAxis: {
+                categories: [
+                    <% @project.life_cycle.life_cycle_phases.each do |life_cycle_phase| %>
+                    '<%= life_cycle_phase.name %>',
+                    <% end %>
+                ]
+
+            },
+            yAxis: {
+                title: {
+                    text: 'Costo (<%= @project.currency %>)'
+                },
+                min: 0
+            },
+            series: [
+                {
+                    name: 'Real',
+                    data: [
+                        <% @project.life_cycle.life_cycle_phases.each do |life_cycle_phase| %>
+                        <%= @phase_progress_hours_cost[life_cycle_phase.id]["real_phase_cost"] %>,
+                        <% end %>
+                    ]
+                },
+                {
+                    name: 'Planeado',
+                    data: [
+                        <% @project.life_cycle.life_cycle_phases.each do |life_cycle_phase| %>
+                        <%= @phase_progress_hours_cost[life_cycle_phase.id]["planned_phase_cost"] %>,
+                        <% end %>
+                    ]
+                }
+            ]
+
+        });
+        // create some buttons to test the resize logic
+        <%= render "chart_buttons", :locals => {:container_id => container_id, :chart_var_name => chart_var_name, :chart_width => chart_width, :chart_height => chart_height } %>
+
+    });
+</script>
+
+<%= render "/shared/chart_controls", :locals => {:container_id => container_id} %>

@@ -1,0 +1,103 @@
+<%= render "shared/control_buttons", :locals => { :instance => @user } %>
+
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @user.full_name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.email") %>:</b></td>
+    <td class="td_data"><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.role") %>:</b></td>
+    <td class="td_data"><%= @user.role.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.resource") %>:</b></td>
+    <td class="td_data"><%= @user.resource %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.cost_hour") %>:</b></td>
+    <td class="td_data"><%= @user.cost_hour %> <%= @user.currency %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.currency") %>:</b></td>
+    <td class="td_data"><%= @user.currency %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.company") %>:</b></td>
+    <td class="td_data"><%= @user.company.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.city") %>:</b></td>
+    <td class="td_data"><%= @user.city.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.work_phone") %>:</b></td>
+    <td class="td_data"><%= @user.work_phone %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.home_phone") %>:</b></td>
+    <td class="td_data"><%= @user.home_phone %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.cell_phone") %>:</b></td>
+    <td class="td_data"><%= @user.cell_phone %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.postal_code") %>:</b></td>
+    <td class="td_data"><%= @user.postal_code %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.state") %>:</b></td>
+    <td class="td_data"><%= @user.state.try(:name) %></td>
+  </tr>
+  <% if @user.role.customer? %>
+      <tr>
+        <td class="td_label"><b><%= t("simple_form.labels.view_projects") %>:</b></td>
+        <td class="td_data"><%= @user.view_projects.collect{|p| p.name}.join(" - ") %></td>
+      </tr>
+  <% else %>
+      <tr>
+        <td class="td_label"><b><%= t("screens.labels.active_in_projects") %>:</b></td>
+        <td class="td_data"><%= @user.active_in_projects.collect{|p| p.name}.join(" - ") %></td>
+      </tr>
+  <% end %>
+
+
+
+
+  <tr>
+    <td class="td_label"><b>reset_password_sent_at:</b></td>
+    <td class="td_data"><%= @user.reset_password_sent_at %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>remember_created_at:</b></td>
+    <td class="td_data"><%= @user.remember_created_at %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>sign_in_count:</b></td>
+    <td class="td_data"><%= @user.sign_in_count %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>current_sign_in_at:</b></td>
+    <td class="td_data"><%= @user.current_sign_in_at %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>last_sign_in_at:</b></td>
+    <td class="td_data"><%= @user.last_sign_in_at %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>current_sign_in_ip:</b></td>
+    <td class="td_data"><%= @user.current_sign_in_ip %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>last_sign_in_ip:</b></td>
+    <td class="td_data"><%= @user.last_sign_in_ip %></td>
+  </tr>
+
+</table>
+

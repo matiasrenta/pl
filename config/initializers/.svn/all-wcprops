@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/matsoft/projector/!svn/ver/36/config/initializers
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/244/config/initializers/mime_types.rb
+END
+date_time_formats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/matsoft/projector/!svn/ver/1/config/initializers/date_time_formats.rb
+END
+secret_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/1/config/initializers/secret_token.rb
+END
+setup_mail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/165/config/initializers/setup_mail.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/1/config/initializers/session_store.rb
+END
+my_extensions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/111/config/initializers/my_extensions.rb
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/1/config/initializers/inflections.rb
+END
+devise.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/344/config/initializers/devise.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/1/config/initializers/backtrace_silencers.rb
+END
+simple_form.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/118/config/initializers/simple_form.rb
+END
+carrierwave.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/279/config/initializers/carrierwave.rb
+END
+money.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/1/config/initializers/money.rb
+END
+constants.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/337/config/initializers/constants.rb
+END

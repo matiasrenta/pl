@@ -1,0 +1,11 @@
+<%= render "shared/error_messages", :target => @project_state %>
+
+<div class="controls">
+<%= link_to t("helpers.link.list"), project_states_path %>
+</div>
+<div class="clear"></div>
+<%= render 'form' %>
+
+<div class="controls">
+<%= link_to t("helpers.link.list"), project_states_path %>
+</div>

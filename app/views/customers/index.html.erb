@@ -1,0 +1,48 @@
+<%= render 'shared/pagination', :locals => {:target => @customers, :model_index_path => customers_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Customer } %>
+
+<div class="toggle_container">
+	<div class="block">
+
+<%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+    <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+            <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+            <%= f.input :phone_contains, :label => t("simple_form.labels.phone") %>
+            <%= f.input :email_contains, :label => t("simple_form.labels.email") %>
+            <%= f.input :address_contains, :label => t("simple_form.labels.address") %>
+        <%= render "shared/submit_form_filter" %>
+<% end %>
+
+    </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+                        <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :phone, t("simple_form.labels.phone") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :email, t("simple_form.labels.email") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :address, t("simple_form.labels.address") %></th>
+                <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @customers.each do |customer| %>
+  <tr class=<%= cycle("alternate-row", "") %>>
+                      <td><%= customer.name %></td>
+                              <td><%= customer.description %></td>
+                              <td><%= customer.phone %></td>
+                              <td><%= customer.email %></td>
+                              <td><%= customer.address %></td>
+            <%= render 'shared/action_icons', :locals => {:target => customer, :model_edit_path => edit_customer_path(customer)} %>
+  </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @customers, :model_index_path => customers_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Customer, :no_filter => true } %>
+
+

@@ -1,0 +1,17 @@
+<%= render "shared/control_buttons", :locals => { :instance => @risk_source } %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+    <td class="td_data"><%= @risk_source.name %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+    <td class="td_data"><%= @risk_source.description %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.state") %> :</b></td>
+    <td class="td_data"><%= @risk_source.state.try(:name) %></td>
+  </tr>
+</table>
+

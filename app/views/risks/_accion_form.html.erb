@@ -1,0 +1,76 @@
+<style type="text/css">
+    .input-text-medium {
+        width: 130px;
+        max-width: 130px;
+        min-width: 130px;
+    }
+
+    .input-text-small {
+        width: 75px;
+        max-width: 75px;
+        min-width: 75px;
+    }
+
+    .input-text-medium-big {
+        width: 370px;
+        max-width: 370px;
+        min-width: 370px;
+    }
+
+    .input-user-dropdown {
+        width: 160px;
+        max-width: 160px;
+        min-width: 160px;
+    }
+
+</style>
+
+<div class="clear"></div>
+
+<fieldset style="padding:15px; margin:15px 0 30px 0; border:solid 1px; border-color:#999999;">
+  <legend style="color:black; font-weight:bold; font-size:14px;">&nbsp <%= legend %> &nbsp</legend>
+
+  <%= f.fields_for :accions do |accion_form| %>
+      <div class="div-table-row" style="background-color:#DDDDDD; margin-bottom:20px; padding:5px 8px 5px 5px;">
+
+        <table border="0">
+          <tr>
+            <td style="width:145px; padding:3px; background-color:#aaaaaa;">* <%= t("simple_form.labels.title") %></td>
+            <td style="width:390px; padding:3px; background-color:#aaaaaa;"><%= t("simple_form.labels.description") %></td>
+            <td style="width:90px; padding:3px;  background-color:#aaaaaa;"><%= t("simple_form.labels.commitment_date") %></td>
+            <td style="width:180px; padding:3px; background-color:#aaaaaa;">* <%= t("simple_form.labels.responsible_user") %></td>
+            <td style="width:100px; padding:3px; background-color:#aaaaaa;">* <%= t("simple_form.labels.action_priority") %></td>
+            <td style="width:90px; padding:3px; background-color:#aaaaaa;">* <%= t("simple_form.labels.action_state") %></td>
+            <td style="width:100px; padding:3px; background-color:#aaaaaa;"></td>
+          </tr>
+          <tr>
+            <%= accion_form.hidden_field :project_id, :value => actual_project.id %>
+            <%= accion_form.hidden_field :user_id, :value => current_user.id %>
+            <%= accion_form.hidden_field :action_source_type_id, :value => @action_source_type.id %>
+
+            <td style="width:145px; padding-top: 7px;"><%= accion_form.text_field :title, {:class => "input-text-medium"} %></td>
+            <td style="width:390px; padding-top: 7px;"><%= accion_form.text_field :description, {:class => "input-text-medium-big"} %></td>
+            <td style="width:90px; padding-top: 7px;"><%= accion_form.text_field :commitment_date, {:class => 'datepicker input-text-small', :style => "width=30px;"} %></td>
+            <td style="width:180px; padding-top: 7px;"><%= accion_form.select :responsible_user_id, collection_with_actual(User.resources.actives.assigned_to(actual_project.id), accion_form.object.responsible_user).collect { |p| [p.full_name, p.id] }, {:include_blank => true}, {:class => "input-user-dropdown"} %></td>
+            <td style="width:100px; padding-top: 7px;"><%= accion_form.select :action_priority_id, ActionPriority.all.collect { |p| [p.name, p.id] }, {:include_blank => true}, {:class => "input-text-small", :style => "max-width:75px; min-width:75px;"} %></td>
+            <td style="width:90px; padding-top: 7px;"><%= accion_form.select :action_state_id, ActionState.all.collect { |p| [p.name, p.id] }, {:class => "input-text-small"} %></td>
+            <td style="width:100px; padding-top: 7px; text-align:right;">
+              <%= accion_form.link_to_remove(:class => "remove_nested_row_form") do %>
+                  <%= t("screens.labels.remove_accion") %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <%= render "/accions/action_trackings_form", :f => accion_form %>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+  <% end %>
+  <%= f.link_to_add(:accions, :class => "add_nested_row_form") do %>
+      <%= t("screens.labels.add_accion") %>
+  <% end %>
+
+</fieldset>

@@ -1,0 +1,47 @@
+<style type="text/css">
+    .input-text-big {
+        width: 700px;
+        max-width: 700px;
+    }
+</style>
+
+<div class="clear"></div>
+
+<div style="margin-left:25px; margin-top:10px;">
+  <table border="0" class="">
+    <tr>
+      <td style="width:105px; padding:3px; background-color:#bbbbbb;"><b><%= t("screens.labels.trackings") %></b></td>
+      <td style="width:145px; padding:3px; background-color:#889088; ">* <%= t("simple_form.labels.tracking_date") %></td>
+      <td style="width:715px; padding:3px; background-color:#889088; ">* <%= t("simple_form.labels.description") %></td>
+      <td style="width:100px; padding:3px; background-color:#889088; "></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <%= f.fields_for :action_trackings do |action_trackings_form| %>
+            <%= action_trackings_form.hidden_field :user_id, :value => current_user.id %>
+          <div style="background-color:#bbbbbb; padding:0 5px 5px 0;">
+            <table border="0" class="div-table-row">
+              <tr>
+                <td style="width:105px; padding-top: 7px; padding-left:3px;"></td>
+                <td style="width:145px; padding-top: 7px; padding-left:3px;"><%= action_trackings_form.text_field :tracking_date, {:class => 'datepicker input-text-medium'} %></td>
+                <td style="width:715px; padding-top: 7px; padding-left:3px;"><%= action_trackings_form.text_field :description, {:class => "input-text-big"} %></td>
+                <td style="width:100px; padding-top: 7px; padding-left:3px; text-align:right;">
+                  <%= action_trackings_form.link_to_remove(:class => "remove_nested_row_form") do %>
+                      <%= t("screens.labels.remove_tracking") %>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+
+        <%= f.link_to_add(:action_trackings, {:class => "add_nested_row_form"}) do %>
+            <%= t("screens.labels.add_tracking") %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+

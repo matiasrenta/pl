@@ -1,0 +1,23 @@
+<% if accion.action_trackings.count > 0 %>
+    <tr style="border:0px;">
+      <td colspan="8" style="background-color:#AFC8AA; margin:0px; padding:0px; border:0px;">
+        <div id="child_div_<%= accion.id.to_s %>" style="display:none;">
+          <h3 style="margin-left:5px;"><%= t("screens.labels.trackings") %></h3>
+          <table style="margin:0 5px 5px 5px;">
+            <tr style="background-color:#595D5C; color:#ffffff">
+              <td><b><%= t("simple_form.labels.resource") %></b></td>
+              <td><b><%= t("simple_form.labels.tracking_date") %></b></td>
+              <td><b><%= t("simple_form.labels.description") %></b></td>
+            </tr>
+            <% accion.action_trackings.each do |tracking| %>
+                <tr class=<%= cycle("alternate-row", "alternate-row-2", :name => "child") %>>
+                  <td><%= tracking.user.try(:full_name) %></td>
+                  <td><%= tracking.tracking_date %></td>
+                  <td><%= tracking.description %></td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </td>
+    </tr>
+<% end %>

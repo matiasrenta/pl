@@ -1,0 +1,16 @@
+<div class="gray_form">
+  <%= simple_form_for(@region_state) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.association :country, :collection => collection_with_actual(Country.actives, @region_state.country) %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => RegionState %>
+
+  <% end %>
+</div>
+
+

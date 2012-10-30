@@ -1,0 +1,21 @@
+<div class="gray_form">
+  <%= simple_form_for(@life_cycle_phase) do |f| %>
+
+      <div class="inputs">
+        <%= hidden_field_tag(:return_to_life_cycle, @return_to_life_cycle) %>
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.input :position %>
+
+        <%= f.input :life_cycle_id, :as => :hidden%>
+        <%= f.association :life_cycle, :disabled => true %>
+
+      </div>
+
+      <div class="actions">
+        <%= f.button :submit %>
+      </div>
+  <% end %>
+</div>
+
+

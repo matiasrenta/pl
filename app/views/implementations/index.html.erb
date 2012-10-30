@@ -1,0 +1,47 @@
+<%= render 'shared/pagination', :locals => {:target => @implementations, :model_index_path => implementations_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => Implementation} %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <div class="from_to">
+          <%= label_tag(:planned_progress_greater_than_or_equal_to, t("simple_form.labels.planned_progress")) %>
+          <%= f.input :planned_progress_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+          <%= f.input :planned_progress_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_progress_greater_than_or_equal_to, t("simple_form.labels.real_progress")) %>
+          <%= f.input :real_progress_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+          <%= f.input :real_progress_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+        </div>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :planned_progress, t("simple_form.labels.planned_progress") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :real_progress, t("simple_form.labels.real_progress") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @implementations.each do |implementation| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= implementation.planned_progress %></td>
+        <td><%= implementation.real_progress %></td>
+        <%= render 'shared/action_icons', :locals => {:target => implementation, :model_edit_path => edit_implementation_path(implementation)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @implementations, :model_index_path => implementations_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => Implementation, :no_filter => true} %>
+
+

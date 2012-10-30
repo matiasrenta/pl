@@ -1,0 +1,21 @@
+<div style="float: left;">
+  <div align="left" style="min-width:520px; margin:5px 40px 4px 10px; padding:1px 5px 1px 5px; background-color:#eeeeee; border:solid; border-width:1px; border-color:#aaaaaa;">
+    <table width=100%>
+      <tr>
+        <td width="15%" rowspan="3" style="border-right:solid 1px; vertical-align:middle; border-color:#aaaaaa;"> <button class="minus_chart <%= locals[:container_id] %>"></button> <button class="one_to_one_chart <%= locals[:container_id] %>"></button> <button class="plus_chart <%= locals[:container_id] %>"></button></td>
+        <td style="padding-left:5px;"><%= locals[:label_1] %>:</td>
+        <td align="right" style="padding-right:5px;"><%= locals[:value_1] %></td>
+      </tr>
+
+      <tr>
+        <td style="padding-left:5px;"><%= locals[:label_2] %>:</td>
+        <td align="right" style="padding-right:5px;"><%= locals[:value_2] %></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="padding-left:5px; border-top:solid 1px; vertical-align:middle; border-color:#aaaaaa;"><%= locals[:projection_text] %></td>
+      </tr>
+    </table>
+  </div>
+  <div id="<%= locals[:container_id] %>" style="margin: 0 0px 30px 0;"></div>
+</div>

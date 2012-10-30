@@ -1,0 +1,37 @@
+10
+
+dir
+50
+https://matsoft.sourcerepo.com/matsoft/projector/vendor/plugins/facebox_render/media
+https://matsoft.sourcerepo.com/matsoft/projector
+
+
+
+2012-01-14T00:03:41.923204Z
+1
+mrenta
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5516367f-6f67-446a-ac5d-d4360adb90fc
+
+images
+dir
+
+javascripts
+dir
+
+stylesheets
+dir
+

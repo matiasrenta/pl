@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        var chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container_line_chart',
+                width: 400,
+                height: 300
+            },
+            credits: {
+                enabled: false
+            },
+
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+
+            series: [
+                {name:'Serie 1',data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]},
+                {name:'Serie 2',data: [15, 50, 70, 110, 150, 40, 90, 120, 180, 250, 200, 190]}
+            ]
+        });
+
+// create some buttons to test the resize logic
+        var $container = $('#container_line_chart');
+        var origChartWidth = 400,
+                origChartHeight = 300,
+                chartWidth = origChartWidth,
+                chartHeight = origChartHeight;
+        $('<button style="margin: 0 5px 5px 0">+</button>').insertBefore($container).click(function() {
+            chart.setSize(chartWidth *= 1.1, chartHeight *= 1.1);
+        });
+        $('<button style="margin: 0 5px 5px 0">-</button>').insertBefore($container).click(function() {
+            chart.setSize(chartWidth *= 0.9, chartHeight *= 0.9);
+        });
+        $('<button style="margin: 0 5px 5px 0">1:1</button>').insertBefore($container).click(function() {
+            chartWidth = origChartWidth;
+            chartHeight = origChartHeight;
+            chart.setSize(origChartWidth, origChartHeight);
+        });
+    });
+
+</script>
+

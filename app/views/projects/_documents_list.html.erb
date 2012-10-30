@@ -1,0 +1,51 @@
+<% doc = Document.new(:project_id => @project.id) %>
+
+<% if can? :read, doc %>
+
+    <h2 style="float:left; margin-right:20px; margin-top:10px;"><%= t("screens.labels.documents") %></h2>
+
+    <% if can? :create, doc %>
+        <div style="float:right; width:500px; height:40px;">
+          <%= simple_form_for(doc, :html => {:multipart => true}) do |f| %>
+
+              <div class="buttons" style="float:right; margin-left:15px;">
+                <button type="submit" class="positive">
+                  <img src="/images/glyphicons/upload_12x16.png" alt=""/>
+                  <%= t("screens.links.upload_file") %>
+                </button>
+              </div>
+
+              <%= f.input :project_id, :as => :hidden, :input_html => {:value => doc.project.id} %>
+              <%= f.input :file, :label =>false, :wrapper_tag => :p, :as => :file, :input_html => {:style => "float:right; margin-top:8px;"} %>
+              <%= f.input :file_cache, :as => :hidden %>
+          <% end %>
+        </div>
+    <% end %>
+
+
+
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-bottom:0px;">
+      <tr>
+        <th class="table-header-repeat line-left minwidth-1">
+          <a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.name") %></a></th>
+        <th class="table-header-repeat line-left minwidth-1">
+          <a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.created_at") %></a></th>
+        <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+      </tr>
+
+      <% @project.documents.each do |document| %>
+          <tr class=<%= cycle("alternate-row", "") %>>
+            <td><%= link_to(document.file.url.split("/").last, document) %></td>
+            <td><%= document.created_at %></td>
+            <td class="options-width">
+              <%= link_to '', document, :class=>"icon-1 info-tooltip", :title => t("helpers.link.download") if can? :read, document %>
+              <%= link_to '', document, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, document %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
+<% end %>
+
+
+

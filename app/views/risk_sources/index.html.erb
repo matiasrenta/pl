@@ -1,0 +1,46 @@
+<%= render 'shared/pagination', :locals => {:target => @risk_sources, :model_index_path => risk_sources_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => RiskSource} %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :state_id_equals, :label => t("simple_form.labels.state"), :as => :select, :collection => State.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :state_name, t("simple_form.labels.state") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @risk_sources.each do |risk_source| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= can?(:read, risk_source) ? link_to(risk_source.name, risk_source) : risk_source.name %></td>
+        <td><%= truncate(risk_source.description, :length => 250) %></td>
+        <td><%= risk_source.state.try(:name) %></td>
+        <td class="options-width">
+          <%= link_to '', risk_source, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, risk_source %>
+          <%= link_to '', edit_risk_source_path(risk_source), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, risk_source %>
+          <%= link_to '', risk_source, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, risk_source %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @risk_sources, :model_index_path => risk_sources_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => RiskSource, :no_filter => true} %>
+
+

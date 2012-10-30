@@ -1,0 +1,43 @@
+<%= render 'shared/pagination', :locals => {:target => @countries, :model_index_path => countries_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Country } %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :state_id_equals, :label => t("simple_form.labels.state"), :as => :select, :collection => State.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :state_name, t("simple_form.labels.state") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @countries.each do |country| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= can?(:read, country) ? link_to(country.name, country) : country.name %></td>
+        <td><%= country.state.try(:name) %></td>
+        <td class="options-width">
+          <%= link_to '', country, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, country %>
+          <%= link_to '', edit_country_path(country), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, country %>
+          <%= link_to '', country, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, country %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @countries, :model_index_path => countries_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => Country, :no_filter => true } %>
+
+

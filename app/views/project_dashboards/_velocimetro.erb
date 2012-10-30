@@ -1,0 +1,20 @@
+     <td>
+       Velocimetro
+     </td>
+     <td>
+           <h3 style="float:right;"><%= t("screens.labels.project_dash_for") %>: <%= l(@project_dashboard.at_date, :format => :long_day) if @project_dashboard.at_date %></h3>
+           <table>
+             <tr>
+               <td><%= t("simple_form.labels.planned_start_date") %>:</td>
+               <td><%= @project_dashboard.project.planned_start_date %></td>
+             </tr>
+             <tr>
+               <td><%= t("simple_form.labels.real_start_date") %>:</td>
+               <td><%= @project_dashboard.project.real_start_date %></td>
+             </tr>
+             <tr>
+               <td><%= t("simple_form.labels.planned_end_date") %>:</td>
+               <td><%= @project_dashboard.project.planned_end_date %></td>
+             </tr>
+           </table>
+     </td>

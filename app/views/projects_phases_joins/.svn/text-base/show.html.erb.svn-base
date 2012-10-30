@@ -1,0 +1,38 @@
+<div class="controls">
+  <% if can? :update, @projects_phases_join %>
+      <%= link_to t("helpers.link.edit"), edit_projects_phases_join_path(@projects_phases_join) %>
+  <% end %>
+  <%= link_to t("screens.links.back"), @projects_phases_join.project %>
+</div>
+
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.planned_hours_phase") %>:</b></td>
+    <td class="td_data"><%= @projects_phases_join.planned_hours_phase %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.planned_cost_phase") %>:</b></td>
+    <td class="td_data"><%= @projects_phases_join.planned_cost_phase %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.currency") %>:</b></td>
+    <td class="td_data"><%= @projects_phases_join.currency %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b>Project:</b></td>
+    <td class="td_data"><%= @projects_phases_join.project.try(:name) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.life_cycle_phase") %>:</b></td>
+    <td class="td_data"><%= @projects_phases_join.life_cycle_phase.try(:name) %></td>
+  </tr>
+</table>
+
+<div class="controls">
+  <% if can? :update, @projects_phases_join %>
+      <%= link_to t("helpers.link.edit"), edit_projects_phases_join_path(@projects_phases_join) %>
+  <% end %>
+  <%= link_to t("screens.links.back"), @projects_phases_join.project %>
+</div>

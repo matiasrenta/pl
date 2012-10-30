@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/matsoft/projector/!svn/ver/300/app/views/layouts
+END
+application.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/matsoft/projector/!svn/ver/1/app/views/layouts/application.html.erb
+END
+_footer.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/268/app/views/layouts/_footer.erb
+END
+_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/300/app/views/layouts/_header.erb
+END
+_body-login.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/300/app/views/layouts/_body-login.erb
+END
+_body-content.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/matsoft/projector/!svn/ver/97/app/views/layouts/_body-content.erb
+END
+_navigation-old.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/109/app/views/layouts/_navigation-old.erb
+END
+_head.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/369/app/views/layouts/_head.erb
+END
+_flash_messages.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/1/app/views/layouts/_flash_messages.html.erb
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/1/app/views/layouts/index.html
+END
+application.mobile.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/244/app/views/layouts/application.mobile.erb
+END
+_body.erb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/1/app/views/layouts/_body.erb
+END
+_navigation.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/109/app/views/layouts/_navigation.erb
+END

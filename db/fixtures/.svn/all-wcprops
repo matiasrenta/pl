@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/matsoft/projector/!svn/ver/46/db/fixtures
+END
+action_source_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/matsoft/projector/!svn/ver/71/db/fixtures/action_source_types.rb
+END
+risk_impacts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/25/db/fixtures/risk_impacts.rb
+END
+roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/360/db/fixtures/roles.rb
+END
+task_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/matsoft/projector/!svn/ver/350/db/fixtures/task_states.rb
+END
+problem_severities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/25/db/fixtures/problem_severities.rb
+END
+company_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/89/db/fixtures/company_types.rb
+END
+003_cities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/43/db/fixtures/003_cities.rb
+END
+risk_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/matsoft/projector/!svn/ver/25/db/fixtures/risk_states.rb
+END
+000_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/43/db/fixtures/000_states.rb
+END
+day_hours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/228/db/fixtures/day_hours.rb
+END
+action_priorities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/matsoft/projector/!svn/ver/25/db/fixtures/action_priorities.rb
+END
+action_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/matsoft/projector/!svn/ver/71/db/fixtures/action_states.rb
+END
+project_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/46/db/fixtures/project_states.rb
+END
+users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/360/db/fixtures/users.rb
+END
+risk_expositions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/27/db/fixtures/risk_expositions.rb
+END
+days_off.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/matsoft/projector/!svn/ver/43/db/fixtures/days_off.rb
+END
+001_countries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/121/db/fixtures/001_countries.rb
+END
+risk_probabilities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/25/db/fixtures/risk_probabilities.rb
+END
+problem_priorities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/25/db/fixtures/problem_priorities.rb
+END
+problem_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/25/db/fixtures/problem_states.rb
+END
+002_region_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/122/db/fixtures/002_region_states.rb
+END
+task_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/matsoft/projector/!svn/ver/25/db/fixtures/task_types.rb
+END

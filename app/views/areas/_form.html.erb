@@ -1,0 +1,15 @@
+<div class="gray_form">
+  <%= simple_form_for(@area) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Area %>
+
+  <% end %>
+</div>
+
+

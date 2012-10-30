@@ -1,0 +1,41 @@
+<div id="project_form">
+<div class="gray_form">
+  <%= simple_form_for(@project) do |f| %>
+
+      <div class="inputs">
+        <%= hidden_field_tag "project_id", @project.id %>
+        <%= f.input :hours_day, :as => :hidden %>
+        <%= f.input :name %>
+        <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.association :company, :label => t("activerecord.i18n_name.CompanyType.customer"), :collection => collection_with_actual(Company.customer_companies.actives, @project.company) %>
+
+        <%= f.input :currency, :collection => major_currencies(Money::Currency::TABLE), :input_html => {:disabled => updating? || @project.life_cycle_id, :onchange => "javascript:enable_disable_life_cycle(this);"} %>
+        <%= f.input :currency, :as => :hidden, :input_html => {:value => @project.currency} if updating? || @project.life_cycle_id %>
+
+        <%= f.association :risk_strategy, :collection => collection_with_actual(RiskStrategy.actives, @project.risk_strategy), :input_html => {:disabled => @project.risks.count > 0} %>
+        <%= f.association :life_cycle, :collection => collection_with_actual(LifeCycle.actives, @project.life_cycle), :input_html => {:disabled => (!@project.created? || @project.currency.blank?) } %>
+        <%= f.association :project_state, :collection => get_proper_state_for_project, :input_html => {:disabled => @project.created?} %>
+        <%= f.input :project_state_id, :as => :hidden if @project.created? %>
+        <%= f.association :leader, :collection => collection_with_actual(User.resources.actives.can_be_leaders, @project.leader) %>
+        <%= f.input :planned_resources_cost, :hint => t("simple_form.hints.only_for_resources"), :input_html => {:class => 'money'} %>
+        <%= f.input :sale_price, :input_html => {:class => 'money'} %>
+        <%= f.input :risk_fund, :input_html => {:class => 'money'} %>
+        <%= f.input :expense_fund, :input_html => {:class => 'money'} %>
+        <%= f.association :area, :collection => collection_with_actual(Area.actives, @project.area) %>
+        <%= f.association :city, :collection => collection_with_actual(City.actives, @project.city) %>
+
+        <div class="clear"></div>
+        <br/>
+
+        <div id="phases_forms">
+          <%#= render "ppj_new_form", :f => f if action_name != "edit" && action_name != "update" && @project.life_cycle %>
+          <%= render "ppj_edit_form", :f => f if @project.life_cycle_id  %>
+        </div>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Project, :force_creating => action_is_ajax_display_phases_form? %>
+
+  <% end %>
+</div>
+</div>
+

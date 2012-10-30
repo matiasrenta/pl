@@ -1,0 +1,12 @@
+
+
+  <% @project.life_cycle.life_cycle_phases.each do |phase| %>
+    <%= f.simple_fields_for :projects_phases_joins, @project.projects_phases_joins.build do |phase_form| %>
+          <fieldset style="padding:15px; margin:25px; border:solid 1px; border-color:#999999;">
+            <legend style="color:black; font-weight:bold; font-size:14px;">&nbsp <%= phase_form.life_cycle_phase.name %> &nbsp</legend>
+        <%= phase_form.input :life_cycle_phase_id, :as => :hidden, :input_html => {:value => phase.id} %>
+        <%= phase_form.input :planned_hours_phase %>
+        <%= phase_form.input :planned_cost_phase, :hint => actual_project.currency, :input_html => {:class => 'money'} %>
+        </fieldset>
+    <% end %>
+  <% end %>

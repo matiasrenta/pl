@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/matsoft/projector/!svn/ver/298/app/views/risks
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/116/app/views/risks/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/347/app/views/risks/show.html.erb
+END
+_accion_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/matsoft/projector/!svn/ver/156/app/views/risks/_accion_form.html.erb
+END
+_accion_form-bak.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/69/app/views/risks/_accion_form-bak.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/matsoft/projector/!svn/ver/116/app/views/risks/edit.html.erb
+END
+ajax_calculate_risk_exposition.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/27/app/views/risks/ajax_calculate_risk_exposition.js.erb
+END
+_accion_form-bak2.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/156/app/views/risks/_accion_form-bak2.html.erb
+END
+_show_accions_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/176/app/views/risks/_show_accions_list.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/347/app/views/risks/_form.html.erb
+END
+_show_tracking_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/matsoft/projector/!svn/ver/171/app/views/risks/_show_tracking_list.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/347/app/views/risks/index.html.erb
+END

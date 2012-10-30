@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/matsoft/projector/!svn/ver/36/lib
+END
+active_record_extension.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/matsoft/projector/!svn/ver/176/lib/active_record_extension.rb
+END
+active_inactive_extension.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/matsoft/projector/!svn/ver/111/lib/active_inactive_extension.rb
+END
+column_patch.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/matsoft/projector/!svn/ver/1/lib/column_patch.rb
+END
+email_validator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/1/lib/email_validator.rb
+END

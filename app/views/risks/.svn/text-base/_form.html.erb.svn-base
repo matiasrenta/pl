@@ -1,0 +1,45 @@
+<div class="gray_form">
+  <%= simple_nested_form_for(@risk) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :project_id, :as => :hidden, :input_html => {:value => @risk.project.id} %>
+        <%= f.input :user_id, :as => :hidden, :input_html => {:value => @risk.user_id} %>
+        <%= f.input :currency, :as => :hidden, :input_html => {:value => @risk.project.currency} %>
+
+        <%= f.input :name %>
+        <%= f.input :description, :label => t("screens.labels.motive"), :input_html => {:rows => 4, :cols => 30} %>
+        <%= f.input :detection_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :umbral, :input_html => {:rows => 4, :cols => 30} if actual_project.risk_strategy.use_umbral %>
+        <%= f.association :risk_probability %>
+        <%= f.association :risk_impact %>
+        <div class="input string optional">
+          <label class="string optional" for="ajax_risk_exposition"><%= t("simple_form.labels.risk_exposition") %></label>
+          <% if updating? %>
+              <div id="ajax_risk_exposition" style="float:left; border:solid 3px; border-color:<%= @risk.risk_exposition.try("color") %>; background:#f0f0f0; padding:0px; text-align:center; width:100px; height:15px;">
+          <% else %>
+              <div id="ajax_risk_exposition" style="float:left; border:solid 1px; background:#f0f0f0; padding:3px; text-align:center; width:100px; height:15px;">
+          <% end %>
+                <%= @risk.risk_exposition.name if @risk.risk_exposition %>
+              </div>
+        </div>
+        <%= f.input :mitigation %>
+        <%= f.input :contingency %>
+        <%= f.input :real_cost, :hint => actual_project.currency, :input_html => {:class => 'money'} if actual_project.risk_strategy.use_real_cost %>
+        <%= f.association :risk_source, :collection => collection_with_actual(actual_project.risk_strategy.risk_sources.actives, @risk.risk_source) %>
+        <%= f.association :life_cycle_phase, :label => t("simple_form.labels.risk_category"), :collection => actual_project.life_cycle.life_cycle_phases %>
+          <%= f.association :responsible_user, :collection => collection_with_actual(User.resources.actives.assigned_to(@risk.project), @risk.responsible_user) %>
+
+          <%= f.association :risk_state, :input_html => {:disabled => ["new", "create"].include?(action_name)} %>
+          <%= f.input :risk_state_id, :as => :hidden, :input_html => {:value => @risk.risk_state_id} if ["new", "create"].include?(action_name) %>
+
+        </div>
+
+        <%= render "accion_form", {:f => f, :legend => t("screens.labels.risk_accions")} %>
+
+        <%= render "shared/submit_form_model", {:model_class => Risk, :cancel_goto => session[:risk_goto] ? session[:risk_goto] : nil} %>
+      </div>
+
+  <% end %>
+</div>
+
+

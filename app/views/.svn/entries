@@ -1,0 +1,181 @@
+10
+
+dir
+323
+https://matsoft.sourcerepo.com/matsoft/projector/app/views
+https://matsoft.sourcerepo.com/matsoft/projector
+
+
+
+2012-07-13T16:17:37.560240Z
+323
+mrenta
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5516367f-6f67-446a-ac5d-d4360adb90fc
+
+
+
+
+
+
+
+
+()
+
+accions
+dir
+
+action_priorities
+dir
+
+action_source_types
+dir
+
+action_states
+dir
+
+action_trackings
+dir
+
+application
+dir
+
+areas
+dir
+
+cities
+dir
+
+companies
+dir
+
+company_dashboards
+dir
+
+company_types
+dir
+
+countries
+dir
+
+devise
+dir
+
+expense_types
+dir
+
+expenses
+dir
+
+holidays
+dir
+
+implementations
+dir
+
+layouts
+dir
+
+lessons
+dir
+
+life_cycle_phases
+dir
+
+life_cycles
+dir
+
+menus
+dir
+
+news_items
+dir
+
+problem_priorities
+dir
+
+problem_severities
+dir
+
+problem_states
+dir
+
+problems
+dir
+
+project_dashboards
+dir
+
+project_states
+dir
+
+projects
+dir
+
+projects_phases_joins
+dir
+
+projects_users_joins
+dir
+
+region_states
+dir
+
+risk_expositions
+dir
+
+risk_impacts
+dir
+
+risk_probabilities
+dir
+
+risk_sources
+dir
+
+risk_states
+dir
+
+risk_strategies
+dir
+
+risks
+dir
+
+shared
+dir
+
+states
+dir
+
+task_mailer
+dir
+
+task_progresses
+dir
+
+task_states
+dir
+
+task_types
+dir
+
+tasks
+dir
+
+users
+dir
+

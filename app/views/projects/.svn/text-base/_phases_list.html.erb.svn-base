@@ -1,0 +1,18 @@
+<h2><%= t("screens.labels.phases") %></h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top:5px;">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.life_cycle_phase") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.planned_start_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.planned_end_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;"><%= t("simple_form.labels.planned_hours_phase") %></a></th>
+  </tr>
+
+  <% @project.projects_phases_joins.each do |projects_phases_join| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= projects_phases_join.life_cycle_phase.try(:name) %></td>
+        <td><%= projects_phases_join.planned_start_date %></td>
+        <td><%= projects_phases_join.planned_end_date %></td>
+        <td><%= projects_phases_join.planned_hours_phase %></td>
+      </tr>
+  <% end %>
+</table>

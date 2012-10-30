@@ -1,0 +1,4 @@
+<%= render "index_list" unless params[:gantt_view]%>
+<%= render "index_gantt" if params[:gantt_view]%>
+
+

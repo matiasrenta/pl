@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/matsoft/projector/!svn/ver/312/app/views/project_dashboards
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/355/app/views/project_dashboards/show.html.erb
+END
+_ev_cost.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/matsoft/projector/!svn/ver/355/app/views/project_dashboards/_ev_cost.html.erb
+END
+_ev_effort.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/_ev_effort.html.erb
+END
+_implementation_progress.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/355/app/views/project_dashboards/_implementation_progress.html.erb
+END
+_project_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/_project_chart.html.erb
+END
+_risks_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/matsoft/projector/!svn/ver/348/app/views/project_dashboards/_risks_list.html.erb
+END
+_velocimetro.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/matsoft/projector/!svn/ver/312/app/views/project_dashboards/_velocimetro.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/298/app/views/project_dashboards/index.html.erb
+END
+_accions_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/348/app/views/project_dashboards/_accions_list.html.erb
+END
+_action_icons_for_lists.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/matsoft/projector/!svn/ver/153/app/views/project_dashboards/_action_icons_for_lists.html.erb
+END
+_problems_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/matsoft/projector/!svn/ver/348/app/views/project_dashboards/_problems_list.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/matsoft/projector/!svn/ver/116/app/views/project_dashboards/edit.html.erb
+END
+_phases_cost_bar_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/matsoft/projector/!svn/ver/241/app/views/project_dashboards/_phases_cost_bar_chart.html.erb
+END
+_phases_progress_bar_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/matsoft/projector/!svn/ver/241/app/views/project_dashboards/_phases_progress_bar_chart.html.erb
+END
+_phases_effort_bar_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/matsoft/projector/!svn/ver/241/app/views/project_dashboards/_phases_effort_bar_chart.html.erb
+END
+_ev_chart_and_header.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/_ev_chart_and_header.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/matsoft/projector/!svn/ver/239/app/views/project_dashboards/_form.html.erb
+END
+_project_effort_column_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/_project_effort_column_chart.html.erb
+END
+_project_cost_column_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/_project_cost_column_chart.html.erb
+END
+_project_progress_column_chart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/matsoft/projector/!svn/ver/297/app/views/project_dashboards/_project_progress_column_chart.html.erb
+END
+_chart_buttons.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/matsoft/projector/!svn/ver/47/app/views/project_dashboards/_chart_buttons.html.erb
+END

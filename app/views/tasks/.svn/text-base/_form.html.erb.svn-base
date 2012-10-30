@@ -1,0 +1,30 @@
+
+    <div class="gray_form">
+      <%= simple_form_for(@task) do |f| %>
+
+          <div class="inputs">
+            <%= f.input :project_id, :as => :hidden %>
+            <%= f.input :life_cycle_id, :as => :hidden %>
+
+            <%= f.input :name %>
+            <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
+            <%= f.input :planned_start_date, :as => :string, :input_html => {:class => 'datepicker', :disabled => !@task.assigned? } %>
+            <%= f.input :planned_duration, :hint => t("simple_form.hints.in_days"), :input_html => {:disabled => !@task.assigned?} %>
+            <%= f.input :planned_hours, :input_html => {:disabled => !@task.assigned?} %>
+            <%= f.association :life_cycle_phase, :collection => LifeCyclePhase.phases_of_life_cycle(@task.project.life_cycle), :input_html => {:disabled => !@task.assigned?} %>
+            <%= f.association :task_type, :input_html => {:disabled => !@task.assigned?} %>
+            <%= f.association :task_state, :collection => TaskState.get_proper_states_for_combobox(@task), :include_blank => false, :input_html => {:disabled => disable_task_state?} %>
+            <%= f.input :task_state_id, :as => :hidden if creating? %>
+            <%= f.association :user, :collection => collection_with_actual(User.resources.actives.assigned_to(actual_project.id), @task.user), :input_html => {:disabled => !@task.assigned?} %>
+            <%= f.association :parent, :collection => get_proper_tasks, :input_html => {:disabled => !@task.assigned?} %>
+          </div>
+
+          <%= render "shared/submit_form_model", :model_class => Task %>
+
+      <% end %>
+    </div>
+
+
+
+
+

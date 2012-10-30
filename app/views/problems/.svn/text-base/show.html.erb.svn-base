@@ -1,0 +1,47 @@
+<table width="100%">
+  <tr>
+    <td valign="top">
+      <div style="width:350px;">
+
+        <%= render "shared/control_buttons", :locals => { :instance => @problem } %>
+
+        <table class="show_table" style="width:100%">
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+            <td class="td_data"><%= @problem.name %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.description") %>:</b></td>
+            <td class="td_data"><%= @problem.description %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.responsible_user") %>:</b></td>
+            <td class="td_data"><%= @problem.responsible_user.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.problem_severity") %>:</b></td>
+            <td class="td_data"><%= @problem.problem_severity.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.problem_priority") %>:</b></td>
+            <td class="td_data"><%= @problem.problem_priority.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.user_recorder") %>:</b></td>
+            <td class="td_data"><%= @problem.user.try(:name) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.problem_state") %>:</b></td>
+            <td class="td_data"><%= @problem.problem_state.try(:name) %></td>
+          </tr>
+        </table>
+
+      </div>
+    </td>
+    <td valign="top">
+      <div style="width:800px; margin-left:15px;">
+        <%= render "risks/show_accions_list", :locals => {:model_path => problem_path(@problem)} %>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,93 @@
+<%
+   plus_label = "(+) "
+   label_risks = t("screens.links.view", :model => t("activerecord.models.Risks"))
+   label_accions = t("screens.links.view", :model => t("activerecord.models.Accions"))
+   label_problems = t("screens.links.view", :model => t("activerecord.models.Problems"))
+%>
+
+<table style="margin-bottom:10px; width:100%;">
+  <tr>
+     <td>
+       <div class="buttons">
+         <%= link_to image_tag('/images/glyphicons/glyphicons_090_table.png', :alt => '') + " " + t("helpers.link.list"), project_dashboards_path %>
+         <% if @can_create_edit %>
+           <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("screens.links.create_status_report"), "#", {:class => "toggle_div", "data-div_to_toggle" => "new_status_report_div", "data-link_text" => "none"} if !@project_dashboard.status_report && (can? :create, @project_dashboard) %>
+           <%= link_to image_tag('/images/glyphicons/glyphicons_030_pencil.png', :alt => '') + " " + t("screens.links.edit_status_report"), "#", {:class => "toggle_div", "data-div_to_toggle" => "new_status_report_div", "data-link_text" => "none"} if @project_dashboard.status_report && (can? :create, @project_dashboard) %>
+         <% else %>
+           <%= link_to image_tag('/images/glyphicons/glyphicons_025_binoculars.png', :alt => '') + " " + t("screens.links.view_status_report"), "#", {:class => "toggle_div", "data-div_to_toggle" => "new_status_report_div", "data-link_text" => "none"} if (@project_dashboard.status_report && (can? :read, @project_dashboard)) %>
+         <% end %>
+
+         <%= link_to  plus_label + label_risks, "#", {:class => "toggle_div", "data-div_to_toggle" => "risks_div", "data-link_text" => label_risks} %>
+         <%= link_to plus_label + label_accions, "#", {:class => "toggle_div", "data-div_to_toggle" => "accions_div", "data-link_text" => label_accions} %>
+         <%= link_to plus_label + label_problems, "#", {:class => "toggle_div", "data-div_to_toggle" => "problems_div", "data-link_text" => label_problems} %>
+       </div>
+     </td>
+     <%#= render :partial => "velocimetro" %>
+     <td>
+           <h3 style="float:right;"><%= t("screens.labels.project_dash_for") %>: <%= l(@project_dashboard.at_date, :format => :long_day) if @project_dashboard.at_date %></h3>
+     </td>
+  </tr>
+</table>
+
+
+<%= render "risks_list" %>
+<%= render "accions_list" %>
+<%= render "problems_list" %>
+
+<br/>
+<div class="clear"></div>
+
+
+<div id="new_status_report_div" style="display:none;">
+    <table border="0" cellpadding="0" cellspacing="0" id="product-table">
+      <tr>
+        <th class="table-header-repeat line-left" style="height:25px"><a href="javascript:return false;"><%= t("simple_form.labels.present_users") %></a></th>
+        <th class="table-header-repeat line-left" style="height:25px"><a href="javascript:return false;"><%= t("simple_form.labels.present_guest_users") %></a></th>
+        <th class="table-header-repeat line-left" style="height:25px"><a href="javascript:return false;"><%= t("simple_form.labels.description") %></a></th>
+        <th class="table-header-options line-left" style="height:25px"><a href="javascript:return false;"></a></th>
+      </tr>
+      <%= simple_form_for(@project_dashboard) do |f| %>
+          <%= f.input :status_report, :as => :hidden, :input_html => {:value => true} %>
+          <%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+        <tr style="background-color:#849D75;">
+          <td><%= f.association :present_users, :label => false, :collection => collection_with_actual(User.resources.actives.assigned_to(@project_dashboard.project), @project_dashboard.present_users), :input_html => {:class => "multi_select_filter"} %></td>
+          <td><%= f.association :guest_users, :label => false, :collection => collection_with_actual(User.resources.actives.not_assigned_to(@project_dashboard.project), @project_dashboard.guest_users), :input_html => {:class => "multi_select_filter"} %></td>
+          <td><%= f.input :description, :label => false, :input_html => {:style => "width: 500px; height: 50px;"} %></td>
+          <td>
+            <div class="actions">
+              <%= f.button :submit, t("screens.links.create_status_report") if !@project_dashboard.status_report %>
+              <%= f.button :submit, t("screens.links.update_status_report"), {:disabled => !@can_create_edit} if @project_dashboard.status_report %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+
+
+    </table>
+</div>
+
+
+
+
+
+
+<%= render :partial => "project_progress_column_chart" %>
+<%= render :partial => "project_effort_column_chart" %>
+<%= render :partial => "project_cost_column_chart" %>
+
+<div class="clear"></div>
+<%= render :partial => "phases_progress_bar_chart" %>
+<%= render :partial => "phases_effort_bar_chart" %>
+<%= render :partial => "phases_cost_bar_chart" %>
+
+<div class="clear"></div>
+
+<%= render "implementation_progress" if @project_dashboard.project.implementations.count > 0 && QUALTOP %>
+<%= render "ev_effort" if @project_dashboard.ev_values && !QUALTOP %>
+
+<%= "<div class='clear'></div>".html_safe if @ev_charts_big %>
+<%= render "ev_cost" if @project_dashboard.ev_values%>
+
+
+
+

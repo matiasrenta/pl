@@ -1,0 +1,47 @@
+<%= render 'shared/pagination', :locals => {:target => @action_trackings, :model_index_path => accion_path(@accion), :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<h2 style="float:left; margin-right:20px;"><%= t("screens.labels.trackings") %></h2>
+<div class="buttons">
+  <%= render "shared/control_filter", :locals => {:force_filter => true} %>
+</div>
+
+<div class="toggle_container">
+  <div class="block_in_show">
+
+    <%= simple_form_for(@search, :url => accion_path(@accion), :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => User.all %>
+
+        <div class="from_to">
+          <%= label_tag(:tracking_date_greater_than_or_equal_to, t("simple_form.labels.tracking_date")) %>
+          <%= f.input :tracking_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :tracking_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.resource") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :tracking_date, t("simple_form.labels.tracking_date") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :description, t("simple_form.labels.description") %></th>
+  </tr>
+
+  <% @action_trackings.each do |action_tracking| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= action_tracking.user.try(:full_name) %></td>
+        <td><%= action_tracking.tracking_date %></td>
+        <td><%= action_tracking.description %></td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @action_trackings, :model_index_path => accion_path(@accion), :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+

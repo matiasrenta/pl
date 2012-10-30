@@ -1,0 +1,152 @@
+<div class="buttons">
+  <%= link_to image_tag('/images/glyphicons/glyphicons_110_align_left.png', :alt => '') + " " + t("screens.links.gantt_view"), tasks_path(:gantt_view => true) %>
+
+  <%= link_to image_tag('/images/glyphicons/glyphicons_043_group.png', :alt => '') + " " + t("helpers.link.availability"), "#", {:class => "toggle_div", "data-div_to_toggle" => "users_availability_div", "data-link_text" => "none"} if (can? :see_users_availability, User) %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_029_notes_2.png', :alt => '') + " " + t("screens.links.report"), "/tasks/report" if (can? :see_tasks_report, User) %>
+  <%= render "shared/control_filter", :locals => {} %>
+</div>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :description_contains, :label => t("simple_form.labels.description") %>
+        <%= f.input :life_cycle_phase_id_equals, :label => t("simple_form.labels.life_cycle_phase"), :as => :select, :collection => actual_project.life_cycle_phases %>
+        <%= f.input :task_state_id_equals, :label => t("simple_form.labels.task_state"), :as => :select, :collection => TaskState.all %>
+        <%= f.input :task_type_id_equals, :label => t("simple_form.labels.task_type"), :as => :select, :collection => TaskType.all %>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.resource"), :as => :select, :collection => User.all %>
+
+        <div class="from_to">
+          <%= label_tag(:planned_start_date_greater_than_or_equal_to, t("simple_form.labels.planned_start_date")) %>
+          <%= f.input :planned_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :planned_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:real_start_date_greater_than_or_equal_to, t("simple_form.labels.real_start_date")) %>
+          <%= f.input :real_start_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :real_start_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_end_date_greater_than_or_equal_to, t("simple_form.labels.planned_end_date")) %>
+          <%= f.input :planned_end_date_greater_than_or_equal_to, :label => false, :hint => "Desde", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :planned_end_date_less_than_or_equal_to, :label => false, :hint => "Hasta", :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_duration_greater_than_or_equal_to, t("simple_form.labels.planned_duration")) %>
+          <%= f.input :planned_duration_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_duration_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_hours_greater_than_or_equal_to, t("simple_form.labels.planned_hours")) %>
+          <%= f.input :planned_hours_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_hours_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_progress_greater_than_or_equal_to, t("simple_form.labels.planned_progress")) %>
+          <%= f.input :planned_progress_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:size => 13} %>
+          <%= f.input :planned_progress_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:size => 13} %>
+        </div>
+        <div class="from_to">
+          <%= label_tag(:planned_cost_cents_greater_than_or_equal_to, t("simple_form.labels.planned_cost")) %>
+          <%= f.input :planned_cost_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
+          <%= f.input :planned_cost_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
+        </div>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<div id="users_availability_div" style="<%= "display:none;" unless params[:year_availability] %> margin-bottom:10px;">
+  <%= render "users_availability" %>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;">ID</a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.name") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.planned_start_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.planned_duration") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.planned_end_date") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.planned_hours") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.resource") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.parent") %></a></th>
+    <th class="table-header-repeat line-left"><a href="javascript:return false;"><%= t("simple_form.labels.task_type") %></a></th>
+    <th class="table-header-options line-left"><a href="javascript:return false;"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+  <% actual_project.life_cycle_phases.each do |phase|
+      tr_to_toggle = phase.id.to_s + "_" + 'tr_phase'
+      td_to_change = 'td_phase' + "_" + phase.id.to_s
+      display_mode = session[:expand_phase_id] == phase.id ? "blok" : "none"
+      signus = display_mode == "none" ? "(+)" : "(-)"
+      form_active = nil
+      form_active = "new_task_" + phase.id.to_s if display_mode == "blok"
+  %>
+      <tr style="background-color:#595D5C">
+        <td colspan="10">
+          <%= link_to "#{signus} #{phase.name}", "#", {:class => "toggle_tr", "data-class_tr_to_toggle" => tr_to_toggle, "data-link_text" => phase.name} %>
+        </td>
+      </tr>
+      <% @tasks.each do |task| %>
+          <% if task.life_cycle_phase_id == phase.id %>
+              <tr class="<%= cycle("alternate-row", "") %> <%= tr_to_toggle %>" style="display:<%= display_mode %>;">
+                <td><%= task.id %></td>
+                <td><%= can?(:read, task) ? link_to(task.name, task) : task.name %></td>
+                <td><%= task.planned_start_date %></td>
+                <td><%= task.planned_duration %></td>
+                <td><%= task.planned_end_date %></td>
+                <td><%= task.planned_hours %></td>
+                <td><%= task.user.try(:full_name) %></td>
+                <td><%= task.parent.try(:id) %></td>
+                <td><%= task.task_type.try(:name) %></td>
+                <td class="options-width">
+                  <%= link_to '', task, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, task %>
+                  <%= link_to '', edit_task_path(task), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, task %>
+                  <%= link_to '', task, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, task %>
+                </td>
+              </tr>
+          <% end %>
+      <% end %>
+
+      <% if can? :create, Task %>
+          <tr style="background-color:#849D75; display:<%= display_mode %>;" class="<%= tr_to_toggle %>">
+          <% @task = Task.build_task_from_phase(phase, @project) %>
+          <%= simple_form_for(@task, :html => {:id => "new_task_" + phase.id.to_s}) do |f| %>
+              <%= hidden_field_tag :from_index, true %>
+              <%= f.input :project_id, :as => :hidden %>
+              <%= f.input :life_cycle_id, :as => :hidden %>
+              <%= f.input :life_cycle_phase_id, :as => :hidden %>
+              <%= f.input :task_state_id, :as => :hidden %>
+
+                <td></td>
+                <td><%= f.input :name, :label => false, :wrapper_tag => :p, :input_html => {:style => "width:300px;"} %></td>
+                <td><%= f.input :planned_start_date, :label => false, :wrapper_tag => :p, :as => :string, :input_html => {:id => td_to_change, :class => 'datepicker', :style => "width:70px;"} %></td>
+                <td><%= f.input :planned_duration, :label => false, :wrapper_tag => :p, :placeholder => t("simple_form.placeholders.days"), :input_html => {:style => "width:70px;", :class => "on_blur_ajax", :data_start_date_id => td_to_change, :data_form_id => "new_task_" + phase.id.to_s} %></td>
+                <td style="padding:0px; height:30px;"><div id="div_<%= td_to_change %>" style="background:#849D75; margin:0px; padding:5px 5px 5px 5px;"></div></td>
+                <td><div id="hours_<%= phase.id.to_s %>"><%= f.input :planned_hours, :label => false, :wrapper_tag => :p, :input_html => {:style => "width:70px;"} %></div></td>
+                <td><%= f.association :user, :label => false, :wrapper_tag => :p, :collection => User.resources.actives.assigned_to(@project.id), :input_html => {:style => "width:160px; max-width:160px"} %></td>
+                <td><%= f.association :parent, :label => false, :wrapper_tag => :p, :as => :string, :placeholder => "ID", :input_html => {:style => "width:100px; max-width:100px;"} %></td>
+                <td><%= f.association :task_type, :label => false, :wrapper_tag => :p, :collection => TaskType.all, :input_html => {:style => "width:80px; max-width:80px;"} %></td>
+                <td><%= f.button :submit, t("helpers.submit.create", :model => t("activerecord.models.Task")) %></td>
+
+          <% end %>
+          </tr>
+      <% end %>
+
+    <% if form_active %>
+        <script type="text/javascript">
+           $(":input[id=task_name]").focus();
+        </script>
+    <% end %>
+
+  <% end %>
+
+</table>
+
+
+
+

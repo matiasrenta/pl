@@ -1,0 +1,12 @@
+<%= render 'shared/controls_show', :locals => {:model_class => ProblemSeverity, :edit_model_path => edit_problem_severity_path(@problem_severity), :new_model_path => new_problem_severity_path, :model_path => problem_severities_path, :female => false} %>
+
+<div class="clear"></div>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @problem_severity.name %></td>
+      </tr>
+</table>
+
+<%= render 'shared/controls_show', :locals => {:model_class => ProblemSeverity, :edit_model_path => edit_problem_severity_path(@problem_severity), :new_model_path => new_problem_severity_path, :model_path => problem_severities_path, :female => false} %>

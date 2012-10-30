@@ -1,0 +1,5 @@
+<%= render "shared/error_messages", :target => @lesson %>
+
+<%= render "shared/control_buttons", :locals => { :instance => @lesson } %>
+
+<%= render 'form' %>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/matsoft/projector/!svn/ver/47/db
+END
+development.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/matsoft/projector/!svn/ver/1/db/development.sqlite3
+END
+seeds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/matsoft/projector/!svn/ver/1/db/seeds.rb
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/matsoft/projector/!svn/ver/355/db/schema.rb
+END

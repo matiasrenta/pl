@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    var bar_chart
+    $(document).ready(function() {
+        bar_chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container_bar_chart',
+                type: 'bar'
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Avance por Fase'
+            },
+            xAxis: {
+                categories: ['Fase 1', 'Fase 2', 'Fase 3']
+            },
+            yAxis: {
+                title: {
+                    text: 'Avance'
+                }
+            },
+            series: [
+                {
+                    name: 'Planeado',
+                    data: [1, 3, 4]
+                },
+                {
+                    name: 'Real',
+                    data: [5, 7, 3]
+                }
+            ]
+        });
+    });
+</script>
