@@ -5,6 +5,12 @@ QUALTOP = false
 APP_INSTANCE = Rails.root.to_s.split("/").last
 
 case APP_INSTANCE
+  when "pl" then
+    HOST = "printland.matsoft.railsplayground.net"
+    LOGO = "logo_printland.gif"
+    NOREPLY_MAIL = "noreply@printland.matsoft.railsplayground.net"
+    NOREPLY_FRIENDLY = %{"Printland" <noreply@printland.matsoft.railsplayground.net>}
+    NOREPLY_PASS = "misterio"
   when "printland" then
     HOST = "printland.matsoft.railsplayground.net"
     LOGO = "logo_printland.gif"

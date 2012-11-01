@@ -1,7 +1,7 @@
 es:
   mails:
     hello: 'Hola %{name}'
-    user_created: 'Ha sido creada tu cuenta de usuario. Haz click en el link de abajo para setear tu clave y comenzar a usar Gudplan'
+    user_created: 'Ha sido creada tu cuenta de usuario. Haz click en el link de abajo para setear tu clave y comenzar a usar Printland'
     setup_password: 'Setear clave'
     link_not_working: 'Si el link no funciona, copia y pega esta url en tu navegador'
     someone_requested_link: 'Alguien a pedido el cambio de clave para tu cuenta, puedes hacer esto mediante el link de abajo'
