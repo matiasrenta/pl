@@ -142,8 +142,8 @@ module ApplicationHelper
             "
             portItems:{
                        main: #{(can? :see_port_menu, User) ? "true" : "false"},
-                       quotations: #{(can? :read, Project) ? "true" : "false"},
-                        html_quotations: '<div>#{link_to(t("screens.menu.port.quotations"), projects_path, :class => 'ajax')}</div>',
+                       quotations: #{(can? :read, Product) ? "true" : "false"},
+                        html_quotations: '<div>#{link_to(t("screens.menu.port.quotations"), products_path, :class => 'ajax')}</div>',
                        company_dashboard: #{(can? :read, CompanyDashboard) ? "true" : "false"},
                         html_company_dashboard: '<div>#{link_to(t("screens.menu.port.dashboard"), go_to_company_dash ? go_to_company_dash : company_dashboards_path, :class => 'ajax')}</div>',
                        corporate_calendar: #{(can? :read, Holiday) ? "true" : "false"},
