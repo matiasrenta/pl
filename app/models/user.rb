@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :last_name, :email, :role_id, :state_id, :currency
   validates_presence_of :company , :message => I18n.t("screens.alerts.if_customer_company_required"), :unless => "!role.customer?"
   validates_numericality_of :cost_hour, :greater_than => 0, :message => I18n.t("screens.alerts.if_resource_cost_required"), :if => "resource"
-  validates_exclusion_of :role_id, :in => [Role.customer.id], :message => I18n.t("screens.alerts.if_resource_cant_be_customer"), :if => "resource"
+  #validates_exclusion_of :role_id, :in => [Role.customer.id], :message => I18n.t("screens.alerts.if_resource_cant_be_customer"), :if => "resource"
   validate :email,  :length => {:minimum => 3, :maximum => 100},
                     :uniqueness => true,
                     :email => true
@@ -62,8 +62,8 @@ class User < ActiveRecord::Base
 
   default_scope order(:name, :last_name)
   scope :resources, where("users.resource = ?", true)
-  scope :leaders, where("role_id = ?", Role.leader.id)
-  scope :can_be_leaders, where("role_id IN (?)", [Role.leader.id, Role.leader2.id, Role.ceo.id, Role.admin.id])
+  #scope :leaders, where("role_id = ?", Role.leader.id)
+  #scope :can_be_leaders, where("role_id IN (?)", [Role.leader.id, Role.leader2.id, Role.ceo.id, Role.admin.id])
   scope :not_assigned_to, lambda { |project_id|
     find_by_sql ["SELECT * FROM users
                         WHERE not exists (select * from projects_users_joins puj where puj.user_id = users.id AND puj.project_id = ? AND puj.state_id = ?)", project_id, State.active.id]
