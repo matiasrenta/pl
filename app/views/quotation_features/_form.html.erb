@@ -1,0 +1,21 @@
+<div class="gray_form">
+<%= simple_form_for(@quotation_feature) do |f| %>
+
+  <div class="inputs">
+                        <%= f.input :pages %>
+                                    <%= f.input :inks %>
+                                    <%= f.input :final_measure_width %>
+                                    <%= f.input :final_measure_height %>
+                        <%= f.input :front %>
+                <%= f.input :back %>
+                            <%= f.association :paper %>
+                                    <%= f.association :coating %>
+                                    <%= f.association :finish %>
+              </div>
+
+  <%= render "shared/submit_form_model", :model_class => QuotationFeature %>
+
+<% end %>
+</div>
+
+

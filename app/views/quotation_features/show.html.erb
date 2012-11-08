@@ -1,0 +1,40 @@
+<%= render "shared/control_buttons", :locals => {:instance => @quotation_feature} %>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.pages") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.pages %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.inks") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.inks %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.final_measure_width") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.final_measure_width %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.final_measure_height") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.final_measure_height %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.front") %>:</b></td>
+                <td class="td_data"><%= @quotation_feature.front %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.back") %>:</b></td>
+                <td class="td_data"><%= @quotation_feature.back %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.paper") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.paper.try(:name) %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.coating") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.coating.try(:name) %></td>
+              </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.finish") %>:</b></td>
+                            <td class="td_data"><%= @quotation_feature.finish.try(:name) %></td>
+              </tr>
+</table>

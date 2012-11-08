@@ -1,14 +1,14 @@
 <div class="gray_form">
-<%= simple_form_for(@finish) do |f| %>
+  <%= simple_form_for(@finish) do |f| %>
 
-  <div class="inputs">
-            <%= f.input :name %>
-                <%= f.input :description, :input_html => { :rows => 4, :cols => 30 } %>
+      <div class="inputs">
+        <%= f.input :code %>
+        <%= f.input :name %>
       </div>
 
-  <%= render "shared/submit_form_model", :model_class => Finish %>
+      <%= render "shared/submit_form_model", :model_class => Finish %>
 
-<% end %>
+  <% end %>
 </div>
 
 

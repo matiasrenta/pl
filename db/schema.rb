@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030184539) do
+ActiveRecord::Schema.define(:version => 20121108181435) do
 
   create_table "accions", :force => true do |t|
     t.string   "title"
@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
 
   create_table "coatings", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code"
   end
 
   create_table "companies", :force => true do |t|
@@ -133,7 +133,6 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
 
   create_table "customers", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.string   "phone"
     t.string   "email"
     t.text     "address"
@@ -191,9 +190,9 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
 
   create_table "finishes", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code"
   end
 
   create_table "holidays", :force => true do |t|
@@ -268,6 +267,13 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
     t.datetime "updated_at"
   end
 
+  create_table "press_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "problem_priorities", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -302,9 +308,9 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code"
   end
 
   create_table "project_dashboard_guest_user_joins", :id => false, :force => true do |t|
@@ -389,6 +395,42 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
     t.datetime "updated_at"
     t.boolean  "leader"
     t.integer  "state_id"
+  end
+
+  create_table "quotation_features", :force => true do |t|
+    t.integer  "pages"
+    t.integer  "inks"
+    t.integer  "final_measure_width"
+    t.integer  "final_measure_height"
+    t.boolean  "front"
+    t.boolean  "back"
+    t.integer  "paper_id"
+    t.integer  "coating_id"
+    t.integer  "finish_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quotations", :force => true do |t|
+    t.string   "name"
+    t.text     "observations"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "customer_id"
+    t.integer  "press_type_id"
+    t.integer  "product_id"
+    t.integer  "pages"
+    t.boolean  "lining"
+    t.integer  "volume_1"
+    t.integer  "volume_2"
+    t.integer  "volume_3"
+    t.integer  "volume_4"
+    t.integer  "volume_5"
+    t.integer  "quotation_volume_1"
+    t.integer  "quotation_volume_2"
+    t.integer  "quotation_volume_3"
+    t.integer  "quotation_volume_4"
+    t.integer  "quotation_volume_5"
   end
 
   create_table "region_states", :force => true do |t|
@@ -565,15 +607,10 @@ ActiveRecord::Schema.define(:version => 20121030184539) do
     t.string   "last_name"
     t.string   "mother_last_name"
     t.string   "work_phone"
-    t.string   "home_phone"
     t.string   "cell_phone"
-    t.integer  "cost_hour_cents"
-    t.string   "currency"
-    t.string   "postal_code"
     t.integer  "company_id"
     t.integer  "city_id"
     t.integer  "last_project_viewed_id"
-    t.boolean  "resource"
     t.integer  "role_id"
     t.text     "html_menu_items"
   end

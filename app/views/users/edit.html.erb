@@ -11,27 +11,17 @@
         <%= f.input :email, :input_html => {:disabled => !current_user.role.admin_or_more?} %>
         <%= f.association :role, :input_html => {:disabled => !current_user.role.admin_or_more?, :class => "ajax_dropdown", "data-url" => "/users/ajax_display_view_projects", "data-parameter" => "user[role_id]"} %>
 
-        <%= f.input :resource, :hint => t("screens.alerts.resource_assignable"), :input_html => {:disabled => !current_user.role.admin_or_more?} %>
         <%= f.input :name %>
         <%= f.input :last_name %>
         <%= f.input :mother_last_name %>
-
-        <%= f.input :currency, :collection => major_currencies(Money::Currency::TABLE), :input_html => {:disabled => !current_user.role.admin_or_more?} %>
-        <%= f.input :cost_hour, :input_html => {:class => 'money', :disabled => !current_user.role.admin_or_more?} %>
 
         <%= f.association :company, :collection => collection_with_actual(Company.actives, @user.company), :input_html => {:disabled => !current_user.role.admin_or_more?} %>
         <%= f.association :state, :input_html => {:disabled => !current_user.role.admin_or_more?} %>
 
         <%= f.input :work_phone %>
-        <%= f.input :home_phone %>
         <%= f.input :cell_phone %>
-        <%= f.input :postal_code %>
         <%= f.association :city, :collection => collection_with_actual(City.actives, @user.city) %>
 
-
-        <div id="showhide-on-event" class="<%= "display-none" if !@user.role.customer? %>">
-            <%= f.association :view_projects, :input_html => {:class => "multi_select_filter", :disabled => !current_user.role.admin_or_more?} %>
-        </div>
       </div>
 
       <%= render "shared/submit_form_model", :model_class => User %>

@@ -1,17 +1,16 @@
 <div class="gray_form">
-<%= simple_form_for(@customer) do |f| %>
+  <%= simple_form_for(@customer) do |f| %>
 
-  <div class="inputs">
-            <%= f.input :name %>
-                <%= f.input :description, :input_html => { :rows => 4, :cols => 30 } %>
-                <%= f.input :phone %>
-                <%= f.input :email %>
-                <%= f.input :address, :input_html => { :rows => 4, :cols => 30 } %>
+      <div class="inputs">
+        <%= f.input :name %>
+        <%= f.input :phone %>
+        <%= f.input :email %>
+        <%= f.input :address, :input_html => {:rows => 4, :cols => 30} %>
       </div>
 
-  <%= render "shared/submit_form_model", :model_class => Customer %>
+      <%= render "shared/submit_form_model", :model_class => Customer %>
 
-<% end %>
+  <% end %>
 </div>
 
 

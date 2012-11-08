@@ -1,0 +1,76 @@
+<%= render 'shared/pagination', :locals => {:target => @quotation_features, :model_index_path => quotation_features_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => QuotationFeature } %>
+
+<div class="toggle_container">
+	<div class="block">
+
+<%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+    <%= f.error_notification %>
+                        <div class="from_to">
+              <%= label_tag(:pages_greater_than_or_equal_to, t("simple_form.labels.pages")) %>
+              <%= f.input :pages_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+              <%= f.input :pages_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+            </div>
+                                    <div class="from_to">
+              <%= label_tag(:inks_greater_than_or_equal_to, t("simple_form.labels.inks")) %>
+              <%= f.input :inks_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+              <%= f.input :inks_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+            </div>
+                                    <div class="from_to">
+              <%= label_tag(:final_measure_width_greater_than_or_equal_to, t("simple_form.labels.final_measure_width")) %>
+              <%= f.input :final_measure_width_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+              <%= f.input :final_measure_width_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+            </div>
+                                    <div class="from_to">
+              <%= label_tag(:final_measure_height_greater_than_or_equal_to, t("simple_form.labels.final_measure_height")) %>
+              <%= f.input :final_measure_height_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+              <%= f.input :final_measure_height_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+            </div>
+                    <%= f.input :front_equals, :label => t("simple_form.labels.front"), :as => :select %>
+            <%= f.input :back_equals, :label => t("simple_form.labels.back"), :as => :select %>
+                            <%= f.input :paper_id_equals, :label => t("simple_form.labels.paper"), :as => :select, :collection => Paper.all %>
+                                    <%= f.input :coating_id_equals, :label => t("simple_form.labels.coating"), :as => :select, :collection => Coating.all %>
+                                    <%= f.input :finish_id_equals, :label => t("simple_form.labels.finish"), :as => :select, :collection => Finish.all %>
+                <%= render "shared/submit_form_filter" %>
+<% end %>
+
+    </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+                        <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :pages, t("simple_form.labels.pages") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :inks, t("simple_form.labels.inks") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :final_measure_width, t("simple_form.labels.final_measure_width") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :final_measure_height, t("simple_form.labels.final_measure_height") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :front, t("simple_form.labels.front") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :back, t("simple_form.labels.back") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :paper_name, t("simple_form.labels.paper") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :coating_name, t("simple_form.labels.coating") %></th>
+                                <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :finish_name, t("simple_form.labels.finish") %></th>
+                <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @quotation_features.each do |quotation_feature| %>
+  <tr class=<%= cycle("alternate-row", "") %>>
+                      <td><%= quotation_feature.pages %></td>
+                              <td><%= quotation_feature.inks %></td>
+                              <td><%= quotation_feature.final_measure_width %></td>
+                              <td><%= quotation_feature.final_measure_height %></td>
+                              <td><%= quotation_feature.front %></td>
+                              <td><%= quotation_feature.back %></td>
+                              <td><%= quotation_feature.paper.try(:name) %></td>
+                              <td><%= quotation_feature.coating.try(:name) %></td>
+                              <td><%= quotation_feature.finish.try(:name) %></td>
+            <%= render 'shared/action_icons', :locals => {:target => quotation_feature, :model_edit_path => edit_quotation_feature_path(quotation_feature)} %>
+  </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @quotation_features, :model_index_path => quotation_features_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => QuotationFeature, :no_filter => true } %>
+
+

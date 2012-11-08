@@ -1,14 +1,14 @@
 <div class="gray_form">
-<%= simple_form_for(@product) do |f| %>
+  <%= simple_form_for(@product) do |f| %>
 
-  <div class="inputs">
-            <%= f.input :name %>
-                <%= f.input :description, :input_html => { :rows => 4, :cols => 30 } %>
+      <div class="inputs">
+        <%= f.input :code %>
+        <%= f.input :name %>
       </div>
 
-  <%= render "shared/submit_form_model", :model_class => Product %>
+      <%= render "shared/submit_form_model", :model_class => Product %>
 
-<% end %>
+  <% end %>
 </div>
 
 

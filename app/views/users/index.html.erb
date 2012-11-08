@@ -10,17 +10,8 @@
         <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
         <%= f.input :last_name_contains, :label => t("simple_form.labels.last_name") %>
         <%= f.input :mother_last_name_contains, :label => t("simple_form.labels.mother_last_name") %>
-
         <%= f.input :email_contains, :label => t("simple_form.labels.email") %>
         <%= f.input :role_id_equals, :label => t("simple_form.labels.role"), :as => :select, :collection => Role.all %>
-
-        <%= f.input :resource_equals, :label => t("simple_form.labels.resource"), :as => :select %>
-        <div class="from_to">
-          <%= label_tag(:cost_hour_cents_greater_than_or_equal_to, t("simple_form.labels.cost_hour")) %>
-          <%= f.input :cost_hour_cents_greater_than_or_equal_to, :label => false, :hint => "Desde", :input_html => {:class => 'money', :size => 13} %>
-          <%= f.input :cost_hour_cents_less_than_or_equal_to, :label => false, :hint => "Hasta", :input_html => {:class => 'money', :size => 13} %>
-        </div>
-        <%= f.input :currency_contains, :label => t("simple_form.labels.currency"), :as => :select, :collection => major_currencies(Money::Currency::TABLE) %>
         <%= f.input :company_id_equals, :label => t("simple_form.labels.company"), :as => :select, :collection => Company.all %>
         <%= f.input :city_id_equals, :label => t("simple_form.labels.city"), :as => :select, :collection => City.all %>
         <%= f.input :state_id_equals, :label => t("simple_form.labels.state"), :as => :select, :collection => State.all %>
@@ -34,9 +25,7 @@
     <th class="table-header-repeat line-left"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
     <th class="table-header-repeat line-left"><%= sort_link @search, :email, t("simple_form.labels.email") %></th>
     <th class="table-header-repeat line-left"><%= sort_link @search, :role, t("simple_form.labels.role") %></th>
-    <th class="table-header-repeat line-left"><%= sort_link @search, :resource, t("simple_form.labels.resource") %></th>
     <th class="table-header-repeat line-left"><%= sort_link @search, :work_phone, t("simple_form.labels.work_phone") %></th>
-    <th class="table-header-repeat line-left"><%= sort_link @search, :home_phone, t("simple_form.labels.home_phone") %></th>
     <th class="table-header-repeat line-left"><%= sort_link @search, :cell_phone, t("simple_form.labels.cell_phone") %></th>
     <th class="table-header-repeat line-left"><%= sort_link @search, :company_name, t("simple_form.labels.company") %></th>
     <th class="table-header-repeat line-left"><%= sort_link @search, :state_name, t("simple_form.labels.state") %></th>
@@ -48,9 +37,7 @@
         <td><%= can?(:read, user) ? link_to(user.full_name, user) : user.full_name %></td>
         <td><%= user.email %></td>
         <td><%= user.role.try(:name) %></td>
-        <td><%= user.resource %></td>
         <td><%= user.work_phone %></td>
-        <td><%= user.home_phone %></td>
         <td><%= user.cell_phone %></td>
         <td><%= user.company.try(:name) %></td>
         <td><%= user.state.try(:name) %></td>

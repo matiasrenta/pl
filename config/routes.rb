@@ -1,5 +1,11 @@
 Pru1::Application.routes.draw do
 
+  resources :press_types
+
+  resources :quotation_features
+
+  resources :quotations
+
   resources :finishes
 
   resources :coatings

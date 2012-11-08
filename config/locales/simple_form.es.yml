@@ -96,9 +96,9 @@ es:
       postal_code: 'Código postal'
       country: 'País'
       region_state: 'Estado/Provincia'
-      role: 'Rol'
+      role: 'Perfil'
       work_phone: 'Teléfono laboral'
-      home_phone: 'Teléfono hogar'
+      phone: 'Teléfono'
       cell_phone: 'Celular'
       company: 'Empresa'
       password_confirmation: 'Confirmar clave'
@@ -116,6 +116,7 @@ es:
       in_time: 'En tiempo?'
       deviation: '% Desvío'
       evaluation_date: 'Fecha de evaluación'
+      code: 'Código'
 
     hints:
       in_days: 'En Días'

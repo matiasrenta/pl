@@ -1,0 +1,12 @@
+<%= render "shared/control_buttons", :locals => {:instance => @quotation} %>
+
+<table class="show_table">
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.name") %>:</b></td>
+                <td class="td_data"><%= @quotation.name %></td>
+      </tr>
+  <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.observations") %>:</b></td>
+                <td class="td_data"><%= @quotation.observations %></td>
+      </tr>
+</table>

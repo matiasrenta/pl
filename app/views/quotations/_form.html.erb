@@ -1,0 +1,38 @@
+<div class="gray_form">
+  <%= simple_form_for(@quotation) do |f| %>
+
+      <div class="inputs">
+        <%= f.association :customer, :collection => collection_with_actual(Customer.all, @quotation.customer) %>
+        <%= f.association :press_type %>
+        <%= f.association :product, :collection => collection_with_actual(Product.all, @quotation.product) %>
+
+        <%= f.input :pages %>
+        <%= f.input :lining %>
+
+        <%= f.input :observations, :input_html => {:rows => 4, :cols => 30} %>
+      </div>
+
+      <table border="1">
+        <tr>
+          <td><%= f.input :volume_1, :label => false %></td>
+          <td><%= f.input :volume_2, :label => false %></td>
+          <td><%= f.input :volume_3, :label => false %></td>
+          <td><%= f.input :volume_4, :label => false %></td>
+          <td><%= f.input :volume_5, :label => false %></td>
+        </tr>
+        <tr>
+          <td><%= @quotation.quotation_volume_1 %></td>
+          <td><%= @quotation.quotation_volume_2 %></td>
+          <td><%= @quotation.quotation_volume_3 %></td>
+          <td><%= @quotation.quotation_volume_4 %></td>
+          <td><%= @quotation.quotation_volume_5 %></td>
+        </tr>
+      </table>
+
+
+      <%= render "shared/submit_form_model", :model_class => Quotation %>
+
+  <% end %>
+</div>
+
+

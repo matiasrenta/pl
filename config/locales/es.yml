@@ -333,6 +333,9 @@ es:
       NewsItem: "Noticia"
       NewsItems: "Noticias"
 
+      PressType: "Tipo de prensa"
+      PressTypes: "Tipos de prensa"
+
       Problem: "Problema"
       Problems: "Problemas"
 
@@ -359,6 +362,9 @@ es:
 
       ProjectsUsersJoin: "Asignación de Recurso"
       ProjectsUsersJoins: "Asignaciones de Recurso"
+
+      Quotation: "Presupuesto"
+      Quotations: "Presupuestos"
 
       RegionState: "Estado/Provincia"
       RegionStates: "Estados/Provincias"
